@@ -1,0 +1,1170 @@
+---
+title: The relationship between a translational cognitive measure of negative bias
+  and self-reported psychiatric symptoms in a large online sample
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+  word_document: default
+always_allow_html: yes
+---
+
+```{r results='hide', message=FALSE, warning=FALSE, echo=FALSE}
+library(knitr)
+library(vioplot)
+attach(mtcars)
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+library(readr)
+library(bitops)
+library(caTools)
+library(export)
+library(lavaan)
+library(lavaanPlot)
+library(mclust)
+library(lsr)
+library(ggpubr)
+library(nFactors)
+library(pheatmap)
+
+```
+
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+source('geom_flat_violin.R')
+
+combineditemdata=read.csv("combineditemdataANON.csv")
+pilot1=read.csv("pilot1ANON.csv")
+pilot2=read.csv("Pilot2ANON.csv")
+
+
+```
+
+#Background
+
+This study builds on prior work developing a measure of negative affective bias as indexed by proportion of mid tones interpreted as high reward ('p(mid as high)') in A) a rat pharmacological model of mood and anxiety disorders (Hales et al., 2016) and B) humans with mood and anxiety disorders relative to healthy controls (Aylward et al., 2019).
+
+####Task details
+In both cases, the 2-alternative-forced-choice task involved training participants to press a button/lever (left or right) when they heard a tone (high or low) to receive a reward (1 or 3 £/rat pellets). The stimulus-response-outcome contingencies were 100% (but counterbalanced across individuals). Following training, participants were then also played tones of a frequency exactly equidistant between the high and low tones. The primary outcome of interest is the proportion of times the participant pressed the button/lever associated with the high reward outcome for the ambiguous mid tone (referred to as 'p(mid as high)'). Of note, the rat study is a within-subject anxiogenic manipulation, whereas the human study is a case control design. Both A) symptomatic ('Symptom') rats and B) humans both demonstrate significantly increased negative affective bias (i.e. reduced prediction that ambiguous outcomes will lead to higher rewards: 'p(mid as high)') relative to non-symptomatic controls ('HC').
+
+####Next steps
+This prior work suggests that this cognitive measure is sensitive to pathological symptoms. We have three objectives for the present study. Firstly we wanted to explore and remove sources of between-subject bias within the task so as to maximise our chances of measuring individual differences in task performance. Secondly, we wanted to explore factors which contribute to individual differences in task performance in a large cross-sectional sample. Specifically, we are interested in which specific psychiatric-relevant symptoms/traits contribute to task performance. Finally, once we identify relevant traits, can we re-capitulate the effect of clinical screening in a large unscreened online sample?
+
+#1: Piloting to explore sources of between-subject bias
+To speed up data collection and facilitate the collection of larger samples we adapted the task for online use. To this end, we decided to switch the task from the auditory domain (which would require us to check/trust that remote participants could hear the stimuli) to the visual domain. In the first pilot A) we tested N=264 participants in a version of the task which substituted high and low frequency tones of large and small area circles. This lead to four counterbalancing versions (labelled 1-4 below; sorted by level of bias). Following discovery of clear between-subject bias we next tested B) N=158 individuals on a task that involved orientation of a line. Instead of high/low we had vertical/horizontal. The intermediate stimuli were either 45 or 135 degrees, which lead to 8 counterbalancing versions (labelled 1-8 below; sorted by level of bias).
+
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+pilot1cb <- data.frame(group=as.character(pilot1$Task), 
+                       Pmid=pilot1$propmedhigh)
+
+cb1 <- ggplot(pilot1cb,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,col=group))+
+  geom_point(position=position_jitter(width = .05),size = 3, alpha = 0.8)+
+  stat_summary(fun.data="mean_sdl",  fun.args = list(mult=1), 
+               geom="pointrange", color = "black")+xlab('')+
+  ylab('p(mid as high)')+scale_color_manual(values = c("lightskyblue2", "lightskyblue2", "lightskyblue2", "lightskyblue2"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('Pilot 1: Circle size')
+cb1 <- cb1 + geom_hline(yintercept=0.5, linetype="dashed")
+cb1 <- cb1 + ylim(c(0,1))
+
+
+pilot2cb <- data.frame(group=na.omit(as.character(pilot2$spreadsheet)), 
+                       Pmid=na.omit(pilot2$propmedhigh))
+
+cb2 <- ggplot(pilot2cb,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,col=group))+
+  geom_point(position=position_jitter(width = .05),size = 3, alpha = 0.6)+
+  stat_summary(fun.data="mean_sdl",  fun.args = list(mult=1), 
+               geom="pointrange", color = "black")+xlab('')+
+  ylab('')+scale_color_manual(values = c("indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('Pilot 2: Line orientation')
+cb2 <- cb2 + geom_hline(yintercept=0.5, linetype="dashed")
+cb2 <- cb2 + ylim(c(0,1))
+
+counterbal <- plot_grid(cb1, cb2, labels="AUTO")
+counterbal
+
+res.p1 <- aov(Pmid ~ group, data = pilot1cb)
+res.p2 <- aov(Pmid ~ group, data = pilot2cb)
+
+
+summary(res.p1)
+etaSquared( res.p1, type = 2, anova = F )
+summary(res.p2)
+etaSquared( res.p2, type = 2, anova = F )
+
+TukeyHSD(res.p1, ordered = F, conf.level = 0.95)
+TukeyHSD(res.p2, ordered = F, conf.level = 0.95)
+
+
+
+```
+
+####Interpretation
+Both tasks demonstrate clear sources of between-subject bias. In short, individuals demonstrated 'higher' bias when large (or vertical) stimuli were paired with large rewards on the right hand side. These reflect pre-potent biases (e.g. bigger things usually cost more and in latinate languages we read from left to right etc.). Smaller biases were observed when the stimulus-response-outcome contingencies were incongruent with these pre-potent biases. These biases add to the noise in within-subject or case-control designs, but effects can still be observed over and above these effects. Unfortunately if we care about within-subject differences in a cross-sectional design we have to remove this. We decided to restrict further testing to the intermediate bias scores on pilot 2 (counterbalancing 1 and 7). Thus we would need to control for counterbalancing but would only have two groups (rather than 8). Of note, we chose pilot 2 design rather than pilot 1 because a circle has both area and diameter that a participant may attend to, whereas there is only one interpretation of line orientation.
+
+#2: Exploring contributors to bias in cross-sectional data
+We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid) as high, but presented for completeness.
+
+
+```{r  message=FALSE, warning=FALSE, echo=FALSE}
+
+
+ap5 <- ggplot(combineditemdata,aes(x="", y=combineditemdata$propmedhigh))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8,color="cadetblue", fill="cadetblue")+xlab('')+
+  geom_point(position=position_jitter(width = .1),size = 1.5, alpha = 0.4,color="cadetblue", fill="cadetblue")+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+ xlab('Full Sample')+
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  ggtitle('')
+ap5 <- ap5 + geom_hline(yintercept=0.5, linetype="dashed")
+ap5 <- ap5 + ylim(c(0, 1))
+
+ap6 <- ggplot(combineditemdata,aes(x="", y=combineditemdata$driftrate))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8,color="darkseagreen", fill="darkseagreen")+xlab('')+
+  geom_point(position=position_jitter(width = .1),size = 1.5, alpha = 0.4,color="darkseagreen", fill="darkseagreen")+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+ xlab('Full Sample')+
+  ylab('Drift Rate')+guides(fill = FALSE, col = FALSE)+
+  ggtitle('')
+ap6 <- ap6 + geom_hline(yintercept=0, linetype="dashed")
+ap6 <- ap6 + ylim(c(-0.04, 0.04))
+
+whole_sample <- plot_grid(ap5, ap6, labels="AUTO")
+whole_sample
+
+
+t.test(combineditemdata$propmedhigh, mu = 0.5)
+t.test(combineditemdata$driftrate, mu = 0)
+
+
+##Demographics table
+agerange<-range(combineditemdata$Age)
+Age <-c(mean(combineditemdata$Age),sd(combineditemdata$Age), agerange[1], agerange[2])
+Ravrange<-range(combineditemdata$Ravens)
+Ravens <-c(mean(combineditemdata$Ravens),sd(combineditemdata$Ravens), Ravrange[1], Ravrange[2])
+OCrange<-range(combineditemdata$OCIR)
+OCIR <-c(mean(combineditemdata$OCIR),sd(combineditemdata$OCIR), OCrange[1], OCrange[2])
+SCrange<-range(combineditemdata$SZ)
+SZ <-c(mean(combineditemdata$SZ),sd(combineditemdata$SZ), SCrange[1], SCrange[2])
+BDIrange<-range(combineditemdata$BDI-20)
+BDI <-c(mean(combineditemdata$BDI-20),sd(combineditemdata$BDI-20), BDIrange[1], BDIrange[2])
+STrange<-range(combineditemdata$STAI2)
+STAI <-c(mean(combineditemdata$STAI2),sd(combineditemdata$STAI2), STrange[1], STrange[2])
+Demog <- rbind.data.frame(Age, Ravens, OCIR, SZ, BDI, STAI)
+names(Demog)<-c('mean','std', 'lower range', 'upper range')
+rownames(Demog) <- c("Age", "Ravens", "OCIR", "SZ", "BDI", "STAI")
+
+kable(Demog, digits = 0)
+#htmlTable(txtRound(Demog, digits = 0))
+
+```
+
+###Simple Linear Regression of measures
+To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable). The variables we included are:
+
+* Spreadsheet (categorical): represents the counterbalancing condition
+* Ravens (continuous): IQ measure (visual matrices)
+* Age (continuous): years old
+* BDI (continuous): Beck depression inventory (suicide question removed)
+* STAI2 (continuous): Spielberger Trait Anxiety
+* OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
+* SZ (continuous): Schizotypal short scale 
+* September1.April2 (categorical): Two batches of data
+* TakeDrugs (categorical): Current use of psychoactive compounds
+* GenderMF (categorical): Self-reported gender
+* CurrentMH (categorical): Are you suffering from current mental health problems?
+
+
+```{r message=FALSE, warning=FALSE}
+
+
+NegBiasmodel.1 <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+NegBiasmodel.2 <- 'driftrate ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+
+
+fit1 <- sem(NegBiasmodel.1, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+fit2 <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+
+
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F)
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F)
+
+
+```
+####Interpretation
+Affective bias and drift rate are both significantly influenced by IQ, Age, BDI and counterbalancing only. Thus of mental health relevant symptoms, task performance appears to be more driven by depresson than anxiety, OCD, or psychosis related traits.
+
+###Correlation between task performance and depression symptoms
+To illustrate the effect of depression in the regression we plot the correlation between BDI and pmidhigh/drift rate in raw scores. Consistent with our prior work, increased depression is associated with reduced p(mid as high)(i.e. increased negative bias).
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+ap7 <- ggplot(combineditemdata, aes(x=combineditemdata$BDI-20, y=combineditemdata$driftrate)) +
+  geom_point(size = 3, alpha = 0.4,color="darkseagreen", fill="darkseagreen") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('DriftRate')+guides(fill = FALSE, col = FALSE)+
+  xlab('BDI')+guides(fill = FALSE, col = FALSE)
+ap7 <- ap7 + geom_hline(yintercept=0, linetype="dashed")
+ap7 <- ap7 + xlim(c(0,60))
+
+
+ap8 <- ggplot(combineditemdata, aes(x=combineditemdata$BDI-20, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="cadetblue", fill="cadetblue") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('BDI')+guides(fill = FALSE, col = FALSE)
+ap8 <- ap8 + geom_hline(yintercept=0.5, linetype="dashed")
+ap8 <- ap8 + xlim(c(0,60))
+
+Bothcorr <- plot_grid(ap8, ap7, labels="AUTO")
+Bothcorr
+
+cor.test(x=combineditemdata$BDI,y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+cor.test(x=combineditemdata$BDI,y=combineditemdata$driftrate, use = "pairwise.complete.obs")
+
+```
+
+###Exploring latent variable structure of the Questionnaires
+The linear regression assumes that the summary scores of the questionnaires represent discrete categories. However, it is possible that effects are driven by a generic 'mental ill health' factor (sometimes referred to as a P factor model). Or, some questionnaires (e.g. BDI and trait anxiety, which are usually highly correlated) actually meausure a single latent 'negative affect' factor. To test for these possibilities we explore four confirmatory factor analyses feeding the individual items from the questionnaires into 1-4 latent factors. The 4 latent factor CFA represents the items feeding into the original questionnaires. 
+
+```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
+
+###Testing different measurement models
+
+pFactor1<-'#specifying measurement model
+
+P   =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	+
+        STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised +
+       OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised  +
+      SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+'
+
+BiFactor2<-'#specifying measurement model
+
+ANXDEP =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	+
+        STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised
+
+OTH =~ OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised  +
+      SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+'
+
+TriFactor3<-'#specifying measurement model
+
+ANXDEP =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	+
+        STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised
+
+OCD =~ OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised
+
+SZ =~ SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+'
+Quaires4 <-'#specifying measurement model
+
+BDI =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	
+
+OCD =~ OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised
+
+SZ =~ SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+
+STAI =~ STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised
+'
+
+FitpFactor1<- cfa(pFactor1, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+FitBiFactor2<- cfa(BiFactor2, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+FitTriFactor3<- cfa(TriFactor3, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+FitQuaires4<- cfa(Quaires4, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+
+FitpFactor1vars <-data.frame(fitMeasures(FitpFactor1, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(FitpFactor1vars) <- "P Factor"
+FitBiFactor2vars<- data.frame(fitMeasures(FitBiFactor2, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(FitBiFactor2vars) <- "Bi Factor (AnxDep vs. not)"
+FitTriFactor3vars<- data.frame(fitMeasures(FitTriFactor3, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(FitTriFactor3vars) <- "Tri Factor (AnxDep vs. SZ or OCD)"
+FitQuaires4vars<- data.frame(fitMeasures(FitQuaires4, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(FitQuaires4vars) <- "Four Factor (All questionnaires)"
+Allfits <- cbind.data.frame(FitpFactor1vars, FitBiFactor2vars, FitTriFactor3vars, FitQuaires4vars)
+rownames(Allfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
+
+kable(t(Allfits), digits = 3)
+
+
+```
+
+####Interpretation
+As demonstrated by the lowest BIC/AIC the 4 factor (orignal questionnaire structure) solution is the best description of the data. This also has the lowest RMSEA, which is in turn below 0.08 and hence a good fit to the data.
+
+###Structural Equation Model of the factor structure with regression
+We can now feed this factor structure into a structural equation model with the original regression analysis in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'.
+
+
+```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
+
+###SEM
+
+QuaireSEMpmid <- '#specifying measurement model
+
+BDI =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	
+
+OCD =~ OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised
+
+SZ =~ SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+
+STAI =~ STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised
+
+
+#Regressions
+propmedhigh ~ spreadsheet + Ravens + Age + GenderMF + BDI + OCD + SZ + STAI
+
+#residual correlations
+spreadsheet ~~ Ravens + Age + GenderMF + BDI + OCD + SZ + STAI
+Ravens ~~ Age  + GenderMF + BDI + OCD + SZ + STAI
+Age ~~  GenderMF + BDI + OCD + SZ + STAI
+GenderMF ~~ BDI + OCD + SZ + STAI
+BDI ~~ OCD + SZ + STAI
+OCD ~~ SZ + STAI
+SZ ~~ STAI
+'
+
+QuaireSEMdrift <- '#specifying measurement model
+
+BDI =~ BDI_Appetite_quantised	+ 
+       BDI_Attractive_quantised	+ 
+       BDI_Blame_quantised	+ 
+       BDI_Cry_quantised	+	
+       BDI_Decisions_quantised	+	
+       BDI_Disappointment_quantised	+	
+       BDI_Failure_quantised	+	
+       BDI_Future_quantised	+	
+       BDI_Guilty_quantised	+	
+       BDI_Health_quantised	+	
+       BDI_Interest_In_People_quantised	+	
+       BDI_Irritated_quantised	+	
+       BDI_Libido_quantised	+	
+       BDI_Punished_quantised	+	
+       BDI_Sad_quantised + 
+       BDI_Satisfaction_quantised	+	
+       BDI_Sleep_quantised	+	
+       BDI_Tired_quantised	+	
+       BDI_weight_quantised	+	
+       BDI_Work_quantised	
+
+OCD =~ OCIR_14_quantised	+	
+       OCIR_15_quantised	+	
+       OCIR_16_quantised	+	
+       OCIR_17_quantised	+	
+       OCIR_18_quantised	+	
+       OCIR_2_quantised	+	
+       OCIR_3_quantised	+	
+       OCIR_4_quantised	+	
+       OCIR_5_quantised	+	
+       OCIR_6_quantised	+	
+       OCIR_7_quantised	+	
+       OCIR_8_quantised	+	
+       OCIR_9_quantised +	
+       OCIR_1_quantised	+	
+       OCIR_10_quantised	+	
+       OCIR_11_quantised	+	
+       OCIR_12_quantised	+	
+       OCIR_13_quantised
+
+SZ =~ SZ_1_quantised	+
+      SZ_10_quantised	+	
+      SZ_11_quantised + 
+      SZ_12_quantised + 
+      SZ_13_quantised + 
+      SZ_14_quantised + 
+      SZ_15_quantised + 
+      SZ_16_quantised + 
+      SZ_17_quantised + 
+      SZ_18_quantised + 
+      SZ_19_quantised + 
+      SZ_2_quantised + 
+      SZ_20_quantised + 
+      SZ_21_quantised + 
+      SZ_22_quantised + 
+      SZ_23_quantised + 
+      SZ_24_quantised + 
+      SZ_25_quantised + 
+      SZ_26_quantised + 
+      SZ_27_quantised + 
+      SZ_28_quantised + 
+      SZ_29_quantised + 
+      SZ_3_quantised + 
+      SZ_30_quantised + 
+      SZ_31_quantised + 
+      SZ_32_quantised + 
+      SZ_33_quantised + 
+      SZ_34_quantised + 
+      SZ_35_quantised + 
+      SZ_36_quantised + 
+      SZ_37_quantised + 
+      SZ_38_quantised + 
+      SZ_39_quantised + 
+      SZ_4_quantised + 
+      SZ_40_quantised + 
+      SZ_41_quantised + 
+      SZ_42_quantised + 
+      SZ_5_quantised + 
+      SZ_6_quantised + 
+      SZ_7_quantised + 
+      SZ_8_quantised + 
+      SZ_9_quantised
+
+STAI =~ STAI2_Calm_quantised +
+        STAI2_Content_quantised +
+        STAI2_Desicions_quantised +
+        STAI2_Difficulties_quantised +
+        STAI2_DisappointmentsSelf_quantised +
+        STAI2_Failure_quantised +
+        STAI2_Happy_quantised +
+        STAI2_HappyOthers_quantised +
+        STAI2_Inadequate_quantised +
+        STAI2_Nervous_quantised +
+        STAI2_Pleasant_quantised +
+        STAI2_Rested_quantised +
+        STAI2_SatisfiedSelf_quantised +
+        STAI2_Secure_quantised +
+        STAI2_SelfConfidence_quantised +
+        STAI2_Steady_quantised +
+        STAI2_Tension_quantised +
+        STAI2_Thoughts_quantised +
+        STAI2_UnimportantThought_quantised +
+        STAI2_Worry_quantised
+
+
+#Regressions
+driftrate ~ spreadsheet + Ravens + Age + GenderMF + BDI + OCD + SZ + STAI
+
+#residual correlations
+spreadsheet ~~ Ravens + Age + GenderMF + BDI + OCD + SZ + STAI
+Ravens ~~ Age  + GenderMF + BDI + OCD + SZ + STAI
+Age ~~  GenderMF + BDI + OCD + SZ + STAI
+GenderMF ~~ BDI + OCD + SZ + STAI
+BDI ~~ OCD + SZ + STAI
+OCD ~~ SZ + STAI
+SZ ~~ STAI
+'
+
+
+FitQuaireSEMpmid <- sem(QuaireSEMpmid, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+FitQuaireSEMdrift <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
+
+summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F)
+summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F)
+
+Fitpmidvars <-data.frame(fitMeasures(FitQuaireSEMpmid, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(Fitpmidvars) <- "p(mid as high)"
+Fitdriftvars<- data.frame(fitMeasures(FitQuaireSEMdrift, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(Fitdriftvars) <- "Drift Rate"
+SEMfits <- cbind.data.frame(Fitpmidvars, Fitdriftvars)
+rownames(SEMfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
+
+kable(t(SEMfits), digits = 3)
+
+```
+
+####Interpretation
+We replicate the basic linear regression, demonstrating the BDI depression symptoms and no other scales significantly influence task performance.
+
+#3: 'Replication' of prior group effects
+Finally, as a sanity check, we should be able to 'replicate' the case control study in our original paper by selecting 'symptomatic' and 'healthy control' individuals from this large cross-sectional sample. We attempted to do this in two ways. I) A very simple BDI symptom scale cut-off (theory-based grouping) and then II) a more data-driven way using latent mixture modelling to identifying latent classes.
+
+###I) Symptom cut-offs (theory-based)
+We defined control individuals as those with BDI less than 3 and symptomatic as those with BDI greater than 28 (this cut off is based on Beck's original cut off for severe depression of 29)
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+BDIgroups <- data.frame(BDI=combineditemdata$BDI-20, 
+                           Pmid=combineditemdata$propmedhigh,
+                        driftrate=combineditemdata$driftrate)
+Patient=subset(BDIgroups, BDI >28)
+Healthy=subset(BDIgroups, BDI < 3)
+group <- c(rep("HC", length(Healthy$BDI)), rep("Symptom", length(Patient$BDI)))
+GroupBDI=rbind(Healthy,Patient)
+GroupBDI=cbind(group,GroupBDI)
+
+ap9 <- ggplot(GroupBDI,aes(x=group,y=Pmid,fill=group,col=group))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
+  geom_point(position=position_jitter(width = .05),size = 3, alpha = 0.4)+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
+  ylab('p(mid as high)')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+
+  ggtitle('Symptom cut-offs')
+ap9 <- ap9 + geom_hline(yintercept=0.5, linetype="dashed")
+ap9 <- ap9 + ylim(c(0,1))
+
+ap9
+
+
+
+print(paste("The number of patients is N =", (nrow(Patient))))
+print(paste("The number of controls is N =", (nrow(Healthy))))
+t.test(Pmid ~ group, data = GroupBDI, var.equal = TRUE)
+print(paste("The effect size of the Human group difference on p(mid as high) is d=", (round(cohensD(Pmid ~ group, data = GroupBDI),digits=2))))
+t.test(driftrate ~ group, data = GroupBDI, var.equal = TRUE)
+print(paste("The effect size of the Human group difference on driftrate is d=", (round(cohensD(driftrate ~ group, data = GroupBDI),digits=2))))
+
+```
+
+###II) Latent mixture modelling (data-driven)
+In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=5 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+affbiasbignaomit <- combineditemdata[!is.na(combineditemdata$propmedhigh),]
+
+symptomdata<-na.omit(data.frame(affbiasbignaomit$BDI-20, affbiasbignaomit$Ravens, affbiasbignaomit$Age))
+modsymp = Mclust(symptomdata)
+
+sympclustgroups <- data.frame(group=as.character(modsymp$classification), 
+                          Pmid=affbiasbignaomit$propmedhigh,
+                          BDI=affbiasbignaomit$BDI-20,
+                          Age=affbiasbignaomit$Age,
+                          Ravens=affbiasbignaomit$Ravens)
+
+hcsympcol <- RColorBrewer::brewer.pal(4, "Dark2")[1:2]
+
+clg1 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,col=group))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
+  geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
+  ylab('')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('Latent Classes')
+clg1 <- clg1 + geom_hline(yintercept=0.5, linetype="dashed")
+clg1 <- clg1 + ylim(c(0,1))
+
+clg2 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Age,fill=group,col=group))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
+  geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
+  ylab('Age')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('')
+clg2 <- clg2 + ylim(c(18,81))
+
+clg3 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=BDI,fill=group,col=group))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
+  geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
+  ylab('BDI')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('')
+clg3 <- clg3 + ylim(c(0,60))
+
+clg4 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Ravens,fill=group,col=group))+
+  geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
+  geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
+  geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
+  ylab('Ravens')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ggtitle('')
+
+cl_all_plot <- plot_grid(ap9, clg1, clg3, clg4, clg2, labels="AUTO", nrow=3)
+cl_all_plot
+
+summary(modsymp, parameters = FALSE)
+
+clustgroups <- data.frame(class=modsymp$classification, 
+                           Pmid=affbiasbignaomit$propmedhigh,
+                          BDI=affbiasbignaomit$BDI-20,
+                          Age=affbiasbignaomit$Age,
+                          Ravens=affbiasbignaomit$Ravens)
+Patient=subset(clustgroups, class ==2)
+Healthy=subset(clustgroups, class ==3)
+
+group <- c(rep("HC", length(Healthy$Pmid)), rep("Symptom", length(Patient$Pmid)))
+cluGroupBDI=rbind(Healthy,Patient)
+cluGroupBDI=cbind(group,cluGroupBDI)
+
+t.test(Pmid ~ group, data = cluGroupBDI, var.equal = T)
+print(paste("The effect size of the Human group difference on driftrate is d=", (round(cohensD(Pmid ~ group, data =cluGroupBDI),digits=2))))
+t.test(BDI ~ group, data = cluGroupBDI, var.equal = T)
+print(paste("The effect size of the Human group difference is d=", (round(cohensD(BDI ~ group, data =cluGroupBDI),digits=2))))
+t.test(Age ~ group, data = cluGroupBDI, var.equal = T)
+t.test(Ravens ~ group, data = cluGroupBDI, var.equal = T)
+
+
+
+```
+
+####Interpretation
+This approach identified 5 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
+
+###Supplementary Analysis
+
+###Exploratory Factor Analysis of questionnaires
+The simple regression above, however, collapses across the individual responses to the different items on the questionnaires and just uses summary scores. However, it may be that there is a simpler underlying structure to the data. For instance BDI and STAI are often highly correlated - so may actually be measuring the same latent construct. In this next section (inspired by Gillan et al 2016) we first run an exploratory factor analysis on the individual items from the questionnaires in an attempt to reduce the amount of latent variables. 
+
+```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
+
+###EFA
+
+#Determine facrors using Cattell-Nelson-Gorsuch CNG Indices (claire's approach)
+determinefactors <- nCng(combineditemdata[44:143], cor=TRUE, model="factors")
+#Do an EFA using N factors from CNG
+efaQaires <- fa(combineditemdata[44:143], nfact = determinefactors$nFactors, rotate = "geominQ", fm = "ml")
+
+efaQaires.loadmat <- zapsmall(matrix(round(efaQaires$loadings, 2), nrow = 100, ncol = 3))
+rownames(efaQaires.loadmat) <- names(combineditemdata[44:143])
+
+#heatmap
+efaQairesdataf <- data.frame(efaQaires.loadmat)
+row.names(efaQairesdataf) <- gsub("_quantised", "", row.names(efaQairesdataf))
+names(efaQairesdataf)<-c("AnxDepression","ObsessiveCompulsive","Schizotypy")
+annotation <- substr(row.names(efaQairesdataf), start=1, stop=3)
+annotationdf <- data.frame(Questionnaire = annotation)
+levels(annotationdf$Questionnaire) <- c('BDI', 'OCIR', 'STAI', 'SZ')
+rownames(annotationdf) <- rownames(efaQairesdataf)
+countqs <- summary(annotationdf$Questionnaire)
+qbreaks <- c(countqs[1], (countqs[1]+countqs[2]), (countqs[1]+countqs[2]+countqs[4]) )
+ancol = list(Questionnaire =c(BDI ="lavenderblush4", OCIR ="darkolivegreen3", STAI ="plum3",SZ ="goldenrod1"))
+
+heatmapplot <- pheatmap(
+  mat               = efaQairesdataf,
+  border_color      = NA,
+  color             = colorRampPalette(c("darkblue", "white", "firebrick3"))(50),
+  cellwidth         = 70,
+  cellheight        = 3,
+  show_colnames     = TRUE,
+  show_rownames     = FALSE,
+  drop_levels       = TRUE,
+  fontsize          = 14,
+  main              = "Factors",
+  treeheight_row    = 0, 
+  treeheight_col    = 0,
+  cluster_rows      = FALSE,
+  annotation_row    = annotationdf,
+  annotation_colors = ancol,
+  angle_col         = 45,
+  gaps_row          = qbreaks,
+  gaps_col          = c(1,2),
+  width             = 20, 
+	height            = 20
+)
+
+
+heatmapplot
+
+```
+
+####Interpretation
+We Identify 3 latent factors using Cattell-Nelson-Gorsuch Indices (as in Gillan et al.). One factor we name "AnxDepression" as it maps closely onto the BDI and STAI , "ObsessiveCompulsive" which is a mix of the OCIR and STAI (and not Schizotypy), and "Schizotypy" which loads positively almost exclusively on the Schizotypy questionnaire.
+
+###Exploratory Structural Equation Model using latent factors
+We can now use these factor loadings in an Exploratory Structural Equation Model (ESEM) and run the same regression as above but instead of feeding in the summary questionnaire scores, we can create a latent variable that represents each factor. Of note we use the 'Robust maximum likelihood' (MLR) estimator as it is robust to non-normality and the individual items for the questionnaires are not continuous.
+
+
+```{r message=FALSE, warning=FALSE}
+
+##ESEM which mimics regression - this takes the loadings from the EFA and uses them to weight the relationship between each questionnaire item and the three latent factors
+terms <- vector()
+for (i in 1:3) {
+  terms[i] <-
+    paste0("F",i,"=~ ", paste0(c(efaQaires.loadmat[,i]), "*", names(efaQaires.loadmat[,1]), collapse = "+"))
+}
+
+efaQaires.esem <- paste(terms, collapse = "\n")
+##adding the regression and covariances to match the original regression analysis
+terms[4] <- "propmedhigh ~ spreadsheet + Ravens + Age + GenderMF + F1 + F2 + F3"
+##adding residual correlations
+terms[5] <- "spreadsheet ~~ Ravens + Age + GenderMF + F1 + F2 + F3"
+terms[6] <- "Ravens ~~ Age  + GenderMF + F1 + F2 + F3"
+terms[7] <- "Age ~~  GenderMF + F1 + F2 + F3"
+terms[8] <- "GenderMF ~~ F1 + F2 + F3"
+terms[9] <- "F1 ~~ F2 + F3"
+terms[10] <- "F2 ~~ F3"
+
+semFactorsMatch <- paste(terms, collapse = "\n")
+
+#Fit the model (this takes a while!)
+fititem.factors <- sem(semFactorsMatch, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+
+#This plots loads of fit indices, but we are mostly intersted in the regression
+summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
+
+ESEMfits <-data.frame(fitMeasures(fititem.factors, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
+names(ESEMfits) <- "p(mid as high)"
+rownames(ESEMfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
+
+kable(t(ESEMfits), digits = 3)
+
+```
+
+####Interpretation
+In this ESEM we show that the AnxDepression factor (F1) alone significantly influences task performance. Zooming out, both the simple regression and the ESEM agree that of mental health-relevant symptoms, task performance is driven by symptoms of mood and anxiety disorders and not OCD or Psychosis symptoms. This suggests that our original clinical study in mood and anxiety disorders did not reflect a generic pathology, but rather that effects may be selective to the mood and anxiety symptom group that we originally tested. This also suggests that we must also control for age and IQ if we ever want  to use this to inform clinical decision-making. 
+
