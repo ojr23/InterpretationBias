@@ -2,11 +2,13 @@
 title: The relationship between a translational cognitive measure of negative bias
   and self-reported psychiatric symptoms in a large online sample
 output:
-  html_document:
-    df_print: paged
+  md_document:
+    variant: markdown_github
   html_notebook: default
   pdf_document: default
   word_document: default
+  html_document:
+    df_print: paged
 always_allow_html: yes
 ---
 
