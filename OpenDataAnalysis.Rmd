@@ -2,10 +2,10 @@
 title: The relationship between a translational cognitive measure of negative bias
   and self-reported psychiatric symptoms in a large online sample
 output:
-  pdf_document: default
-  html_notebook: default
   html_document:
     df_print: paged
+  html_notebook: default
+  pdf_document: default
   word_document: default
 always_allow_html: yes
 ---
@@ -38,7 +38,7 @@ source('geom_flat_violin.R')
 combineditemdata=read.csv("combineditemdataANON.csv")
 pilot1=read.csv("pilot1ANON.csv")
 pilot2=read.csv("Pilot2ANON.csv")
-
+dataforsh=read.csv("MidResponses.csv")
 
 ```
 
@@ -106,7 +106,7 @@ TukeyHSD(res.p2, ordered = F, conf.level = 0.95)
 Both tasks demonstrate clear sources of between-subject bias. In short, individuals demonstrated 'higher' bias when large (or vertical) stimuli were paired with large rewards on the right hand side. These reflect pre-potent biases (e.g. bigger things usually cost more and in latinate languages we read from left to right etc.). Smaller biases were observed when the stimulus-response-outcome contingencies were incongruent with these pre-potent biases. These biases add to the noise in within-subject or case-control designs, but effects can still be observed over and above these effects. Unfortunately if we care about within-subject differences in a cross-sectional design we have to remove this. We decided to restrict further testing to the intermediate bias scores on pilot 2 (counterbalancing 1 and 7). Thus we would need to control for counterbalancing but would only have two groups (rather than 8). Of note, we chose pilot 2 design rather than pilot 1 because a circle has both area and diameter that a participant may attend to, whereas there is only one interpretation of line orientation.
 
 #2: Exploring contributors to bias in cross-sectional data
-We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid) as high, but presented for completeness.
+We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid as high), but presented for completeness. Since the internal reliability of a measure puts an upper limit on relationship between that measure and other measures we also determined the split-half reliability (for 100000 random splits) of individual's responses to the 40 ambigous trials.
 
 
 ```{r  message=FALSE, warning=FALSE, echo=FALSE}
@@ -157,6 +157,12 @@ rownames(Demog) <- c("Age", "Ravens", "OCIR", "SZ", "BDI", "STAI")
 
 kable(Demog, digits = 0)
 #htmlTable(txtRound(Demog, digits = 0))
+
+
+###splithalf analysis
+
+splithpmid <- splitHalf(dataforsh,raw=T,brute=FALSE,n.sample=100000,covar=FALSE,check.keys=TRUE, key=NULL,ci=.05,use="pairwise")
+splithpmid
 
 ```
 
