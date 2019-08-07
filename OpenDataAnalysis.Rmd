@@ -4,9 +4,7 @@ title: The relationship between a translational cognitive measure of negative bi
 output:
   md_document:
     variant: markdown_github
-  html_notebook: default
   pdf_document: default
-  word_document: default
   html_document:
     df_print: paged
 always_allow_html: yes
@@ -178,10 +176,7 @@ To explore the impact of trait/demographic measures on task performance we next 
 * STAI2 (continuous): Spielberger Trait Anxiety
 * OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
 * SZ (continuous): Schizotypal short scale 
-* September1.April2 (categorical): Two batches of data
-* TakeDrugs (categorical): Current use of psychoactive compounds
 * GenderMF (categorical): Self-reported gender
-* CurrentMH (categorical): Are you suffering from current mental health problems?
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -193,11 +188,15 @@ NegBiasmodel.2 <- 'driftrate ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI
 
 fit1 <- sem(NegBiasmodel.1, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
 fit2 <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+fit1miss <- sem(NegBiasmodel.1, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
+fit2miss <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
 
 
-summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F)
-summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F)
 
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
 
 ```
 ####Interpretation
@@ -933,12 +932,16 @@ OCD ~~ SZ + STAI
 SZ ~~ STAI
 '
 
-
 FitQuaireSEMpmid <- sem(QuaireSEMpmid, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
 FitQuaireSEMdrift <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "MLR", se='robust.huber.white')
 
-summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F)
-summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F)
+FitQuaireSEMpmidmiss <- sem(QuaireSEMpmid, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
+FitQuaireSEMdriftmiss <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
+
+summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
 
 Fitpmidvars <-data.frame(fitMeasures(FitQuaireSEMpmid, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
 names(Fitpmidvars) <- "p(mid as high)"
