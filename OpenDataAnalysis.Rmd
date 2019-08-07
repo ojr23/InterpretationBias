@@ -1,13 +1,12 @@
 ---
 title: The relationship between a translational cognitive measure of negative bias
   and self-reported psychiatric symptoms in a large online sample
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'README.md')) })
 output:
   md_document:
     variant: markdown_github
-  pdf_document: default
-  html_document:
-    df_print: paged
 always_allow_html: yes
+
 ---
 
 ```{r results='hide', message=FALSE, warning=FALSE, echo=FALSE}
@@ -167,7 +166,7 @@ splithpmid
 ```
 
 ###Simple Linear Regression of measures
-To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable). The variables we included are:
+To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable) and drift rate. The variables we included are:
 
 * Spreadsheet (categorical): represents the counterbalancing condition
 * Ravens (continuous): IQ measure (visual matrices)
@@ -178,6 +177,7 @@ To explore the impact of trait/demographic measures on task performance we next 
 * SZ (continuous): Schizotypal short scale 
 * GenderMF (categorical): Self-reported gender
 
+Below we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -193,10 +193,10 @@ fit2miss <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  esti
 
 
 
-summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
-summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
-summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
-summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise delete missing
+summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) estimate missing
+summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
 
 ```
 ####Interpretation
@@ -685,7 +685,7 @@ kable(t(Allfits), digits = 3)
 As demonstrated by the lowest BIC/AIC the 4 factor (orignal questionnaire structure) solution is the best description of the data. This also has the lowest RMSEA, which is in turn below 0.08 and hence a good fit to the data.
 
 ###Structural Equation Model of the factor structure with regression
-We can now feed this factor structure into a structural equation model with the original regression analysis in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'.
+We can now feed this factor structure into a structural equation model with the original regression analysis (on p(mid as high) and drift rate) in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'. As above we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
 
 
 ```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
@@ -938,10 +938,10 @@ FitQuaireSEMdrift <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "M
 FitQuaireSEMpmidmiss <- sem(QuaireSEMpmid, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
 FitQuaireSEMdriftmiss <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
 
-summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
-summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
-summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
-summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
+summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate listwise delete missing
+summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high)estimate missing
+summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rateestimate missing
 
 Fitpmidvars <-data.frame(fitMeasures(FitQuaireSEMpmid, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
 names(Fitpmidvars) <- "p(mid as high)"

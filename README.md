@@ -16,7 +16,7 @@ This prior work suggests that this cognitive measure is sensitive to pathologica
 
 To speed up data collection and facilitate the collection of larger samples we adapted the task for online use. To this end, we decided to switch the task from the auditory domain (which would require us to check/trust that remote participants could hear the stimuli) to the visual domain. In the first pilot A) we tested N=264 participants in a version of the task which substituted high and low frequency tones of large and small area circles. This lead to four counterbalancing versions (labelled 1-4 below; sorted by level of bias). Following discovery of clear between-subject bias we next tested B) N=158 individuals on a task that involved orientation of a line. Instead of high/low we had vertical/horizontal. The intermediate stimuli were either 45 or 135 degrees, which lead to 8 counterbalancing versions (labelled 1-8 below; sorted by level of bias).
 
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
     ##              Df Sum Sq Mean Sq F value Pr(>F)    
     ## group         3  3.964  1.3215   35.28 <2e-16 ***
@@ -95,7 +95,7 @@ Both tasks demonstrate clear sources of between-subject bias. In short, individu
 
 We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid as high), but presented for completeness. Since the internal reliability of a measure puts an upper limit on relationship between that measure and other measures we also determined the split-half reliability (for 100000 random splits) of individual's responses to the 40 ambigous trials.
 
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
     ## 
     ##  One Sample t-test
@@ -146,7 +146,7 @@ We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. 
 
 ### Simple Linear Regression of measures
 
-To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable). The variables we included are:
+To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable) and drift rate. The variables we included are:
 
 -   Spreadsheet (categorical): represents the counterbalancing condition
 -   Ravens (continuous): IQ measure (visual matrices)
@@ -156,6 +156,8 @@ To explore the impact of trait/demographic measures on task performance we next 
 -   OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
 -   SZ (continuous): Schizotypal short scale
 -   GenderMF (categorical): Self-reported gender
+
+Below we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
 
 ``` r
 NegBiasmodel.1 <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
@@ -169,7 +171,7 @@ fit2miss <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  esti
 
 
 
-summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
 ```
 
     ## lavaan 0.6-3 ended normally after 59 iterations
@@ -218,7 +220,7 @@ summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete mis
     ##     propmedhigh       0.057
 
 ``` r
-summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise delete missing
 ```
 
     ## lavaan 0.6-3 ended normally after 124 iterations
@@ -266,7 +268,7 @@ summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete mis
     ##     driftrate         0.057
 
 ``` r
-summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) estimate missing
 ```
 
     ## lavaan 0.6-3 ended normally after 59 iterations
@@ -315,7 +317,7 @@ summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missin
     ##     propmedhigh       0.057
 
 ``` r
-summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
 ```
 
     ## lavaan 0.6-3 ended normally after 120 iterations
@@ -371,7 +373,7 @@ Affective bias and drift rate are both significantly influenced by IQ, Age, BDI 
 
 To illustrate the effect of depression in the regression we plot the correlation between BDI and pmidhigh/drift rate in raw scores. Consistent with our prior work, increased depression is associated with reduced p(mid as high)(i.e. increased negative bias).
 
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
     ## 
     ##  Pearson's product-moment correlation
@@ -857,7 +859,7 @@ As demonstrated by the lowest BIC/AIC the 4 factor (orignal questionnaire struct
 
 ### Structural Equation Model of the factor structure with regression
 
-We can now feed this factor structure into a structural equation model with the original regression analysis in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'.
+We can now feed this factor structure into a structural equation model with the original regression analysis (on p(mid as high) and drift rate) in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'. As above we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
 
 ``` r
 ###SEM
@@ -1108,7 +1110,7 @@ FitQuaireSEMdrift <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "M
 FitQuaireSEMpmidmiss <- sem(QuaireSEMpmid, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
 FitQuaireSEMdriftmiss <- sem(QuaireSEMdrift, data = combineditemdata, estimator = "MLR", se='robust.huber.white', missing = "ML")
 
-summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
 ```
 
     ## lavaan 0.6-3 ended normally after 223 iterations
@@ -1521,7 +1523,7 @@ summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #listwis
     ##     propmedhigh       0.058
 
 ``` r
-summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #listwise delete missing
+summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate listwise delete missing
 ```
 
     ## lavaan 0.6-3 ended normally after 320 iterations
@@ -1934,7 +1936,7 @@ summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #listwi
     ##     driftrate         0.058
 
 ``` r
-summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high)estimate missing
 ```
 
     ## lavaan 0.6-3 ended normally after 273 iterations
@@ -2459,7 +2461,7 @@ summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #est
     ##     propmedhigh       0.058
 
 ``` r
-summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #estimate missing
+summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rateestimate missing
 ```
 
     ## lavaan 0.6-3 ended normally after 346 iterations
@@ -3012,7 +3014,7 @@ Finally, as a sanity check, we should be able to 'replicate' the case control st
 
 We defined control individuals as those with BDI less than 3 and symptomatic as those with BDI greater than 28 (this cut off is based on Beck's original cut off for severe depression of 29)
 
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
     ## [1] "The number of patients is N = 170"
 
@@ -3050,230 +3052,7 @@ We defined control individuals as those with BDI less than 3 and symptomatic as 
 
 In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=5 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
 
-    ## fitting ...
-    ## 
-      |                                                                       
-      |                                                                 |   0%
-      |                                                                       
-      |=                                                                |   1%
-      |                                                                       
-      |=                                                                |   2%
-      |                                                                       
-      |==                                                               |   2%
-      |                                                                       
-      |==                                                               |   3%
-      |                                                                       
-      |===                                                              |   4%
-      |                                                                       
-      |===                                                              |   5%
-      |                                                                       
-      |====                                                             |   6%
-      |                                                                       
-      |=====                                                            |   7%
-      |                                                                       
-      |=====                                                            |   8%
-      |                                                                       
-      |======                                                           |   9%
-      |                                                                       
-      |=======                                                          |  10%
-      |                                                                       
-      |=======                                                          |  11%
-      |                                                                       
-      |========                                                         |  12%
-      |                                                                       
-      |========                                                         |  13%
-      |                                                                       
-      |=========                                                        |  13%
-      |                                                                       
-      |=========                                                        |  14%
-      |                                                                       
-      |==========                                                       |  15%
-      |                                                                       
-      |==========                                                       |  16%
-      |                                                                       
-      |===========                                                      |  17%
-      |                                                                       
-      |============                                                     |  18%
-      |                                                                       
-      |============                                                     |  19%
-      |                                                                       
-      |=============                                                    |  20%
-      |                                                                       
-      |==============                                                   |  21%
-      |                                                                       
-      |==============                                                   |  22%
-      |                                                                       
-      |===============                                                  |  23%
-      |                                                                       
-      |===============                                                  |  24%
-      |                                                                       
-      |================                                                 |  24%
-      |                                                                       
-      |================                                                 |  25%
-      |                                                                       
-      |=================                                                |  26%
-      |                                                                       
-      |=================                                                |  27%
-      |                                                                       
-      |==================                                               |  28%
-      |                                                                       
-      |===================                                              |  29%
-      |                                                                       
-      |===================                                              |  30%
-      |                                                                       
-      |====================                                             |  31%
-      |                                                                       
-      |=====================                                            |  32%
-      |                                                                       
-      |=====================                                            |  33%
-      |                                                                       
-      |======================                                           |  34%
-      |                                                                       
-      |=======================                                          |  35%
-      |                                                                       
-      |========================                                         |  36%
-      |                                                                       
-      |========================                                         |  37%
-      |                                                                       
-      |=========================                                        |  38%
-      |                                                                       
-      |=========================                                        |  39%
-      |                                                                       
-      |==========================                                       |  39%
-      |                                                                       
-      |==========================                                       |  40%
-      |                                                                       
-      |===========================                                      |  41%
-      |                                                                       
-      |===========================                                      |  42%
-      |                                                                       
-      |============================                                     |  43%
-      |                                                                       
-      |=============================                                    |  44%
-      |                                                                       
-      |=============================                                    |  45%
-      |                                                                       
-      |==============================                                   |  46%
-      |                                                                       
-      |===============================                                  |  47%
-      |                                                                       
-      |===============================                                  |  48%
-      |                                                                       
-      |================================                                 |  49%
-      |                                                                       
-      |================================                                 |  50%
-      |                                                                       
-      |=================================                                |  50%
-      |                                                                       
-      |=================================                                |  51%
-      |                                                                       
-      |==================================                               |  52%
-      |                                                                       
-      |==================================                               |  53%
-      |                                                                       
-      |===================================                              |  54%
-      |                                                                       
-      |====================================                             |  55%
-      |                                                                       
-      |====================================                             |  56%
-      |                                                                       
-      |=====================================                            |  57%
-      |                                                                       
-      |======================================                           |  58%
-      |                                                                       
-      |======================================                           |  59%
-      |                                                                       
-      |=======================================                          |  60%
-      |                                                                       
-      |=======================================                          |  61%
-      |                                                                       
-      |========================================                         |  61%
-      |                                                                       
-      |========================================                         |  62%
-      |                                                                       
-      |=========================================                        |  63%
-      |                                                                       
-      |=========================================                        |  64%
-      |                                                                       
-      |==========================================                       |  65%
-      |                                                                       
-      |===========================================                      |  66%
-      |                                                                       
-      |============================================                     |  67%
-      |                                                                       
-      |============================================                     |  68%
-      |                                                                       
-      |=============================================                    |  69%
-      |                                                                       
-      |==============================================                   |  70%
-      |                                                                       
-      |==============================================                   |  71%
-      |                                                                       
-      |===============================================                  |  72%
-      |                                                                       
-      |================================================                 |  73%
-      |                                                                       
-      |================================================                 |  74%
-      |                                                                       
-      |=================================================                |  75%
-      |                                                                       
-      |=================================================                |  76%
-      |                                                                       
-      |==================================================               |  76%
-      |                                                                       
-      |==================================================               |  77%
-      |                                                                       
-      |===================================================              |  78%
-      |                                                                       
-      |===================================================              |  79%
-      |                                                                       
-      |====================================================             |  80%
-      |                                                                       
-      |=====================================================            |  81%
-      |                                                                       
-      |=====================================================            |  82%
-      |                                                                       
-      |======================================================           |  83%
-      |                                                                       
-      |=======================================================          |  84%
-      |                                                                       
-      |=======================================================          |  85%
-      |                                                                       
-      |========================================================         |  86%
-      |                                                                       
-      |========================================================         |  87%
-      |                                                                       
-      |=========================================================        |  87%
-      |                                                                       
-      |=========================================================        |  88%
-      |                                                                       
-      |==========================================================       |  89%
-      |                                                                       
-      |==========================================================       |  90%
-      |                                                                       
-      |===========================================================      |  91%
-      |                                                                       
-      |============================================================     |  92%
-      |                                                                       
-      |============================================================     |  93%
-      |                                                                       
-      |=============================================================    |  94%
-      |                                                                       
-      |==============================================================   |  95%
-      |                                                                       
-      |==============================================================   |  96%
-      |                                                                       
-      |===============================================================  |  97%
-      |                                                                       
-      |===============================================================  |  98%
-      |                                                                       
-      |================================================================ |  98%
-      |                                                                       
-      |================================================================ |  99%
-      |                                                                       
-      |=================================================================| 100%
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
     ## ---------------------------------------------------- 
     ## Gaussian finite mixture model fitted by EM algorithm 
@@ -3400,7 +3179,7 @@ heatmapplot <- pheatmap(
 heatmapplot
 ```
 
-<img src="OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="C:\Users\orobinson\OneDrive - University College London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 #### Interpretation
 
@@ -3603,7 +3382,167 @@ summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
     ##     SZ_1_quantised   -0.390                              -0.373   -0.668
     ##     SZ_10_quantisd   -0.350                              -0.334   -0.667
     ##     SZ_11_quantisd   -0.040                              -0.038   -0.078
-    ##  [ reached getOption("max.print") -- omitted 161 rows ]
+    ##     SZ_12_quantisd   -0.230                              -0.220   -0.454
+    ##     SZ_13_quantisd   -0.050                              -0.048   -0.099
+    ##     SZ_14_quantisd    0.090                               0.086    0.161
+    ##     SZ_15_quantisd   -0.050                              -0.048   -0.091
+    ##     SZ_16_quantisd    0.110                               0.105    0.205
+    ##     SZ_17_quantisd   -0.010                              -0.010   -0.019
+    ##     SZ_18_quantisd   -0.090                              -0.086   -0.161
+    ##     SZ_19_quantisd    0.020                               0.019    0.038
+    ##     SZ_2_quantised   -0.370                              -0.353   -0.657
+    ##     SZ_20_quantisd   -0.210                              -0.201   -0.428
+    ##     SZ_21_quantisd    0.000                               0.000    0.000
+    ##     SZ_22_quantisd    0.010                               0.010    0.017
+    ##     SZ_23_quantisd   -0.080                              -0.076   -0.155
+    ##     SZ_24_quantisd   -0.240                              -0.229   -0.418
+    ##     SZ_25_quantisd   -0.160                              -0.153   -0.304
+    ##     SZ_26_quantisd    0.120                               0.115    0.211
+    ##     SZ_27_quantisd    0.090                               0.086    0.161
+    ##     SZ_28_quantisd   -0.250                              -0.239   -0.407
+    ##     SZ_29_quantisd   -0.080                              -0.076   -0.156
+    ##     SZ_3_quantised   -0.370                              -0.353   -0.694
+    ##     SZ_30_quantisd   -0.330                              -0.315   -0.557
+    ##     SZ_31_quantisd   -0.020                              -0.019   -0.038
+    ##     SZ_32_quantisd   -0.010                              -0.010   -0.019
+    ##     SZ_33_quantisd    0.090                               0.086    0.176
+    ##     SZ_34_quantisd    0.160                               0.153    0.283
+    ##     SZ_35_quantisd   -0.450                              -0.430   -0.731
+    ##     SZ_36_quantisd   -0.030                              -0.029   -0.058
+    ##     SZ_37_quantisd    0.140                               0.134    0.212
+    ##     SZ_38_quantisd   -0.270                              -0.258   -0.500
+    ##     SZ_39_quantisd    0.280                               0.267    0.443
+    ##     SZ_4_quantised   -0.230                              -0.220   -0.465
+    ##     SZ_40_quantisd    0.010                               0.010    0.019
+    ##     SZ_41_quantisd   -0.040                              -0.038   -0.078
+    ##     SZ_42_quantisd   -0.200                              -0.191   -0.374
+    ##     SZ_5_quantised   -0.510                              -0.487   -0.830
+    ##     SZ_6_quantised   -0.350                              -0.334   -0.634
+    ##     SZ_7_quantised   -0.190                              -0.181   -0.374
+    ##     SZ_8_quantised   -0.530                              -0.506   -0.833
+    ##     SZ_9_quantised   -0.200                              -0.191   -0.385
+    ##     STAI2_Clm_qnts    0.410                               0.392    0.449
+    ##     STAI2_Cntnt_qn    0.410                               0.392    0.448
+    ##     STAI2_Dscns_qn    0.480                               0.458    0.530
+    ##     STAI2_Dffclts_    0.250                               0.239    0.258
+    ##     STAI2_DsppntS_    0.260                               0.248    0.272
+    ##     STAI2_Flr_qnts    0.180                               0.172    0.187
+    ##     STAI2_Hppy_qnt    0.460                               0.439    0.503
+    ##     STAI2_HppyOth_    0.230                               0.220    0.226
+    ##     STAI2_Indqt_qn    0.160                               0.153    0.164
+    ##     STAI2_Nrvs_qnt    0.240                               0.229    0.253
+    ##     STAI2_Plsnt_qn    0.430                               0.411    0.488
+    ##     STAI2_Rstd_qnt    0.400                               0.382    0.437
+    ##     STAI2_StsfdSl_    0.520                               0.497    0.563
+    ##     STAI2_Scr_qnts    0.450                               0.430    0.485
+    ##     STAI2_SlfCnfd_    0.180                               0.172    0.174
+    ##     STAI2_Stdy_qnt    0.360                               0.344    0.400
+    ##     STAI2_Tnsn_qnt    0.370                               0.353    0.381
+    ##     STAI2_Thghts_q    0.460                               0.439    0.486
+    ##     STAI2_UnmprtT_    0.320                               0.306    0.337
+    ##     STAI2_Wrry_qnt    0.260                               0.248    0.265
+    ##     STAI_Anxs_qnts    0.350                               0.334    0.348
+    ##   F3 =~                                                                 
+    ##     BDI_Attrctv_qn   -0.050                              -0.021   -0.023
+    ##     BDI_Blam_qntsd   -0.020                              -0.008   -0.009
+    ##     BDI_Cry_quntsd   -0.020                              -0.008   -0.009
+    ##     BDI_Dcsns_qnts   -0.030                              -0.012   -0.014
+    ##     BDI_Dsppntmnt_    0.020                               0.008    0.009
+    ##     BDI_Falr_qntsd    0.050                               0.021    0.023
+    ##     BDI_Futr_qntsd    0.010                               0.004    0.005
+    ##     BDI_Glty_qntsd    0.010                               0.004    0.005
+    ##     BDI_Hlth_qntsd   -0.030                              -0.012   -0.015
+    ##     BDI_Intrs_I_P_   -0.050                              -0.021   -0.023
+    ##     BDI_Irrttd_qnt   -0.010                              -0.004   -0.005
+    ##     BDI_Libd_qntsd   -0.050                              -0.021   -0.024
+    ##     BDI_Pnshd_qnts    0.030                               0.012    0.013
+    ##     BDI_Sad_quntsd    0.010                               0.004    0.005
+    ##     BDI_Stsfctn_qn    0.060                               0.025    0.027
+    ##     BDI_Slep_qntsd   -0.010                              -0.004   -0.005
+    ##     BDI_Tird_qntsd   -0.070                              -0.029   -0.034
+    ##     BDI_wght_qntsd   -0.050                              -0.021   -0.027
+    ##     BDI_Work_qntsd    0.010                               0.004    0.005
+    ##     OCIR_1_quantsd    0.010                               0.004    0.004
+    ##     OCIR_10_quntsd    0.020                               0.008    0.007
+    ##     OCIR_11_quntsd    0.040                               0.017    0.014
+    ##     OCIR_12_quntsd   -0.020                              -0.008   -0.007
+    ##     OCIR_13_quntsd   -0.140                              -0.058   -0.051
+    ##     OCIR_14_quntsd    0.020                               0.008    0.007
+    ##     OCIR_15_quntsd    0.040                               0.017    0.014
+    ##     OCIR_16_quntsd    0.030                               0.012    0.011
+    ##     OCIR_17_quntsd    0.030                               0.012    0.011
+    ##     OCIR_18_quntsd   -0.040                              -0.017   -0.015
+    ##     OCIR_2_quantsd    0.010                               0.004    0.003
+    ##     OCIR_3_quantsd   -0.040                              -0.017   -0.014
+    ##     OCIR_4_quantsd    0.050                               0.021    0.018
+    ##     OCIR_5_quantsd    0.030                               0.012    0.011
+    ##     OCIR_6_quantsd   -0.070                              -0.029   -0.026
+    ##     OCIR_7_quantsd   -0.130                              -0.054   -0.049
+    ##     OCIR_8_quantsd    0.050                               0.021    0.017
+    ##     OCIR_9_quantsd   -0.060                              -0.025   -0.021
+    ##     SZ_1_quantised    0.350                               0.144    0.259
+    ##     SZ_10_quantisd    0.380                               0.157    0.313
+    ##     SZ_11_quantisd    0.430                               0.177    0.363
+    ##     SZ_12_quantisd    0.390                               0.161    0.332
+    ##     SZ_13_quantisd    0.480                               0.198    0.410
+    ##     SZ_14_quantisd    0.420                               0.173    0.325
+    ##     SZ_15_quantisd    0.390                               0.161    0.306
+    ##     SZ_16_quantisd    0.430                               0.177    0.346
+    ##     SZ_17_quantisd    0.400                               0.165    0.324
+    ##     SZ_18_quantisd    0.380                               0.157    0.293
+    ##     SZ_19_quantisd    0.450                               0.186    0.373
+    ##     SZ_2_quantised    0.350                               0.144    0.269
+    ##     SZ_20_quantisd    0.460                               0.190    0.405
+    ##     SZ_21_quantisd    0.480                               0.198    0.401
+    ##     SZ_22_quantisd    0.360                               0.149    0.269
+    ##     SZ_23_quantisd    0.430                               0.177    0.361
+    ##     SZ_24_quantisd    0.280                               0.116    0.211
+    ##     SZ_25_quantisd    0.350                               0.144    0.287
+    ##     SZ_26_quantisd    0.270                               0.111    0.205
+    ##     SZ_27_quantisd    0.320                               0.132    0.248
+    ##     SZ_28_quantisd    0.130                               0.054    0.091
+    ##     SZ_29_quantisd    0.300                               0.124    0.253
+    ##     SZ_3_quantised    0.340                               0.140    0.276
+    ##     SZ_30_quantisd    0.100                               0.041    0.073
+    ##     SZ_31_quantisd    0.230                               0.095    0.187
+    ##     SZ_32_quantisd    0.380                               0.157    0.317
+    ##     SZ_33_quantisd    0.320                               0.132    0.271
+    ##     SZ_34_quantisd    0.240                               0.099    0.183
+    ##     SZ_35_quantisd    0.260                               0.107    0.183
+    ##     SZ_36_quantisd    0.430                               0.177    0.362
+    ##     SZ_37_quantisd    0.270                               0.111    0.177
+    ##     SZ_38_quantisd    0.380                               0.157    0.304
+    ##     SZ_39_quantisd    0.360                               0.149    0.246
+    ##     SZ_4_quantised    0.430                               0.177    0.376
+    ##     SZ_40_quantisd    0.400                               0.165    0.332
+    ##     SZ_41_quantisd    0.430                               0.177    0.360
+    ##     SZ_42_quantisd    0.420                               0.173    0.339
+    ##     SZ_5_quantised    0.310                               0.128    0.218
+    ##     SZ_6_quantised    0.350                               0.144    0.274
+    ##     SZ_7_quantised    0.450                               0.186    0.383
+    ##     SZ_8_quantised    0.270                               0.111    0.183
+    ##     SZ_9_quantised    0.410                               0.169    0.341
+    ##     STAI2_Clm_qnts   -0.010                              -0.004   -0.005
+    ##     STAI2_Cntnt_qn   -0.020                              -0.008   -0.009
+    ##     STAI2_Dscns_qn    0.140                               0.058    0.067
+    ##     STAI2_Dffclts_   -0.070                              -0.029   -0.031
+    ##     STAI2_DsppntS_   -0.090                              -0.037   -0.041
+    ##     STAI2_Flr_qnts   -0.030                              -0.012   -0.013
+    ##     STAI2_Hppy_qnt   -0.020                              -0.008   -0.009
+    ##     STAI2_HppyOth_   -0.020                              -0.008   -0.008
+    ##     STAI2_Indqt_qn   -0.090                              -0.037   -0.040
+    ##     STAI2_Nrvs_qnt   -0.080                              -0.033   -0.036
+    ##     STAI2_Plsnt_qn   -0.060                              -0.025   -0.029
+    ##     STAI2_Rstd_qnt   -0.020                              -0.008   -0.009
+    ##     STAI2_StsfdSl_    0.020                               0.008    0.009
+    ##     STAI2_Scr_qnts    0.000                               0.000    0.000
+    ##     STAI2_SlfCnfd_   -0.060                              -0.025   -0.025
+    ##     STAI2_Stdy_qnt    0.030                               0.012    0.014
+    ##     STAI2_Tnsn_qnt   -0.070                              -0.029   -0.031
+    ##     STAI2_Thghts_q   -0.060                              -0.025   -0.027
+    ##     STAI2_UnmprtT_   -0.140                              -0.058   -0.064
+    ##     STAI2_Wrry_qnt   -0.090                              -0.037   -0.040
+    ##     STAI_Anxs_qnts   -0.050                              -0.021   -0.021
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
