@@ -1,7 +1,6 @@
 ---
 title: The relationship between a translational cognitive measure of negative bias
   and self-reported psychiatric symptoms in a large online sample
-knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'README.md')) })
 output:
   md_document:
     variant: markdown_github
