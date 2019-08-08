@@ -16,7 +16,7 @@ This prior work suggests that this cognitive measure is sensitive to pathologica
 
 To speed up data collection and facilitate the collection of larger samples we adapted the task for online use. To this end, we decided to switch the task from the auditory domain (which would require us to check/trust that remote participants could hear the stimuli) to the visual domain. In the first pilot A) we tested N=264 participants in a version of the task which substituted high and low frequency tones of large and small area circles. This lead to four counterbalancing versions (labelled 1-4 below; sorted by level of bias). Following discovery of clear between-subject bias we next tested B) N=158 individuals on a task that involved orientation of a line. Instead of high/low we had vertical/horizontal. The intermediate stimuli were either 45 or 135 degrees, which lead to 8 counterbalancing versions (labelled 1-8 below; sorted by level of bias).
 
-![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-3-1.png)
 
     ##              Df Sum Sq Mean Sq F value Pr(>F)    
     ## group         3  3.964  1.3215   35.28 <2e-16 ***
@@ -95,7 +95,7 @@ Both tasks demonstrate clear sources of between-subject bias. In short, individu
 
 We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid as high), but presented for completeness. Since the internal reliability of a measure puts an upper limit on relationship between that measure and other measures we also determined the split-half reliability (for 100000 random splits) of individual's responses to the 40 ambigous trials.
 
-![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-4-1.png)
 
     ## 
     ##  One Sample t-test
@@ -373,7 +373,7 @@ Affective bias and drift rate are both significantly influenced by IQ, Age, BDI 
 
 To illustrate the effect of depression in the regression we plot the correlation between BDI and pmidhigh/drift rate in raw scores. Consistent with our prior work, increased depression is associated with reduced p(mid as high)(i.e. increased negative bias).
 
-![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-6-1.png)
 
     ## 
     ##  Pearson's product-moment correlation
@@ -3014,7 +3014,7 @@ Finally, as a sanity check, we should be able to 'replicate' the case control st
 
 We defined control individuals as those with BDI less than 3 and symptomatic as those with BDI greater than 28 (this cut off is based on Beck's original cut off for severe depression of 29)
 
-![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-9-1.png)
 
     ## [1] "The number of patients is N = 170"
 
@@ -3052,7 +3052,7 @@ We defined control individuals as those with BDI less than 3 and symptomatic as 
 
 In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=5 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
 
-![](C:\Users\orobinson\OneDrive%20-%20University%20College%20London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-10-1.png)
 
     ## ---------------------------------------------------- 
     ## Gaussian finite mixture model fitted by EM algorithm 
@@ -3179,7 +3179,7 @@ heatmapplot <- pheatmap(
 heatmapplot
 ```
 
-<img src="C:\Users\orobinson\OneDrive - University College London\OneDrive_Oli\Trainees\Lucie\Paper\OpenData\README_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="C:\Users\OROBIN~1\ONEDRI~1\ONEDRI~1\Trainees\Lucie\Paper\OpenData\README~1/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 #### Interpretation
 

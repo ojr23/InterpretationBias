@@ -5,6 +5,7 @@ knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = e
 output:
   md_document:
     variant: markdown_github
+  html_notebook: default
 always_allow_html: yes
 
 ---
