@@ -997,13 +997,14 @@ print(paste("The effect size of the Human group difference on driftrate is d=", 
 ```
 
 ###II) Latent mixture modelling (data-driven)
-In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=5 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
+In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=4 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-affbiasbignaomit <- combineditemdata[!is.na(combineditemdata$propmedhigh),]
+affbiasbignaomit <- combineditemdata[complete.cases(combineditemdata$propmedhigh),]
 
 symptomdata<-na.omit(data.frame(affbiasbignaomit$BDI-20, affbiasbignaomit$Ravens, affbiasbignaomit$Age))
-modsymp = Mclust(symptomdata)
+modsymp = Mclust(symptomdata, initialization=list(hcPairs =hc(symptomdata, use = "SVD")))
+
 
 sympclustgroups <- data.frame(group=as.character(modsymp$classification), 
                           Pmid=affbiasbignaomit$propmedhigh,
@@ -1086,12 +1087,12 @@ The simple regression above, however, collapses across the individual responses 
 ###EFA
 
 #Determine facrors using Cattell-Nelson-Gorsuch CNG Indices (claire's approach)
-determinefactors <- nCng(combineditemdata[44:143], cor=TRUE, model="factors")
+determinefactors <- nCng(combineditemdata[45:144], cor=TRUE, model="factors")
 #Do an EFA using N factors from CNG
-efaQaires <- fa(combineditemdata[44:143], nfact = determinefactors$nFactors, rotate = "geominQ", fm = "ml")
+efaQaires <- fa(combineditemdata[45:144], nfact = determinefactors$nFactors, rotate = "geominQ", fm = "ml")
 
 efaQaires.loadmat <- zapsmall(matrix(round(efaQaires$loadings, 2), nrow = 100, ncol = 3))
-rownames(efaQaires.loadmat) <- names(combineditemdata[44:143])
+rownames(efaQaires.loadmat) <- names(combineditemdata[45:144])
 
 #heatmap
 efaQairesdataf <- data.frame(efaQaires.loadmat)
