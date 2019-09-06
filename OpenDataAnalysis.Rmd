@@ -37,7 +37,7 @@ source('geom_flat_violin.R')
 combineditemdata=read.csv("combineditemdataANON.csv")
 pilot1=read.csv("pilot1ANON.csv")
 pilot2=read.csv("Pilot2ANON.csv")
-dataforsh=read.csv("MidResponses.csv")
+dataforsh=read.table("MidResponses.csv", header=F, row.names = NULL ,  sep= ",")
 
 ```
 
@@ -1003,8 +1003,7 @@ In a more data driven approach we ran an exploratory latent class analysis based
 affbiasbignaomit <- combineditemdata[complete.cases(combineditemdata$propmedhigh),]
 
 symptomdata<-na.omit(data.frame(affbiasbignaomit$BDI-20, affbiasbignaomit$Ravens, affbiasbignaomit$Age))
-modsymp = Mclust(symptomdata, initialization=list(hcPairs =hc(symptomdata, use = "SVD")))
-
+modsymp = Mclust(symptomdata, initialization=list(hcPairs = randomPairs(symptomdata, seed=3)), verbose = F)
 
 sympclustgroups <- data.frame(group=as.character(modsymp$classification), 
                           Pmid=affbiasbignaomit$propmedhigh,
@@ -1018,7 +1017,7 @@ clg1 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,
   geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
-  ylab('')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ylab('')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('Latent Classes')
 clg1 <- clg1 + geom_hline(yintercept=0.5, linetype="dashed")
 clg1 <- clg1 + ylim(c(0,1))
@@ -1027,7 +1026,7 @@ clg2 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Age,fill=group,c
   geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
-  ylab('Age')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ylab('Age')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('')
 clg2 <- clg2 + ylim(c(18,81))
 
@@ -1035,7 +1034,7 @@ clg3 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=BDI,fill=group,c
   geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
-  ylab('BDI')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ylab('BDI')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('')
 clg3 <- clg3 + ylim(c(0,60))
 
@@ -1043,7 +1042,7 @@ clg4 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Ravens,fill=grou
   geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =.8)+xlab('')+
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
-  ylab('Ravens')+scale_color_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+scale_fill_manual(values = c("gray", hcsympcol[2], hcsympcol[1],  "gray", "gray", "gray"))+guides(fill = FALSE, col = FALSE)+
+  ylab('Ravens')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('')
 
 cl_all_plot <- plot_grid(ap9, clg1, clg3, clg4, clg2, labels="AUTO", nrow=3)
@@ -1056,8 +1055,8 @@ clustgroups <- data.frame(class=modsymp$classification,
                           BDI=affbiasbignaomit$BDI-20,
                           Age=affbiasbignaomit$Age,
                           Ravens=affbiasbignaomit$Ravens)
-Patient=subset(clustgroups, class ==2)
-Healthy=subset(clustgroups, class ==3)
+Patient=subset(clustgroups, class ==3)
+Healthy=subset(clustgroups, class ==4)
 
 group <- c(rep("HC", length(Healthy$Pmid)), rep("Symptom", length(Patient$Pmid)))
 cluGroupBDI=rbind(Healthy,Patient)
@@ -1075,7 +1074,7 @@ t.test(Ravens ~ group, data = cluGroupBDI, var.equal = T)
 ```
 
 ####Interpretation
-This approach identified 5 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
+This approach identified 4 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
 
 ###Supplementary Analysis
 

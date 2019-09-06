@@ -136,10 +136,10 @@ We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. 
     ##     use = "pairwise")
     ## 
     ## Maximum split half reliability (lambda 4) =  0.94
-    ## Guttman lambda 6                          =  0.92
+    ## Guttman lambda 6                          =  0.93
     ## Average split half reliability            =  0.91
     ## Guttman lambda 3 (alpha)                  =  0.91
-    ## Minimum split half reliability  (beta)    =  0.85
+    ## Minimum split half reliability  (beta)    =  0.86
     ## Average interitem r =  0.21  with median =  0.21
     ##                                              2.5% 50% 97.5%
     ##  Quantiles of split half reliability      =  0.9 0.92 0.93
@@ -3062,67 +3062,67 @@ In a more data driven approach we ran an exploratory latent class analysis based
     ## Mclust VVI (diagonal, varying volume and shape) model with 4 components: 
     ## 
     ##  log-likelihood   n df       BIC       ICL
-    ##       -9590.673 990 27 -19367.58 -19746.93
+    ##         -9590.6 990 27 -19367.44 -19776.04
     ## 
     ## Clustering table:
     ##   1   2   3   4 
-    ## 220 228 273 269
+    ## 297 219 246 228
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Pmid by group
-    ## t = -5.8492, df = 499, p-value = 8.945e-09
+    ## t = 6.3341, df = 472, p-value = 5.571e-10
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -0.13987775 -0.06953604
+    ##  0.07907308 0.15019915
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##             0.5302741             0.6349810
+    ##             0.6349810             0.5203449
 
-    ## [1] "The effect size of the Human group difference on driftrate is d= 0.52"
+    ## [1] "The effect size of the Human group difference on driftrate is d= 0.58"
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  BDI by group
-    ## t = 31.907, df = 499, p-value < 2.2e-16
+    ## t = -32.905, df = 472, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  19.30520 21.83872
+    ##  -22.43352 -19.90516
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##             22.146520              1.574561
+    ##              1.574561             22.743902
 
-    ## [1] "The effect size of the Human group difference is d= 2.86"
+    ## [1] "The effect size of the Human group difference is d= 3.02"
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Age by group
-    ## t = -10.027, df = 499, p-value < 2.2e-16
+    ## t = 10.329, df = 472, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -5.089811 -3.421950
+    ##  3.605569 5.299652
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##              28.31868              32.57456
+    ##              32.57456              28.12195
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Ravens by group
-    ## t = -20.234, df = 499, p-value < 2.2e-16
+    ## t = 20.162, df = 472, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -4.066161 -3.346409
+    ##  3.469010 4.218196
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##              1.600733              5.307018
+    ##              5.307018              1.463415
 
 #### Interpretation
 
-This approach identified 5 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
+This approach identified 4 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
 
 ### Supplementary Analysis
 
@@ -3218,7 +3218,7 @@ fititem.factors <- sem(semFactorsMatch, data=combineditemdata, meanstructure=TRU
 summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
 ```
 
-    ## lavaan 0.6-3 ended normally after 256 iterations
+    ## lavaan 0.6-3 ended normally after 251 iterations
     ## 
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        241
@@ -3227,10 +3227,10 @@ summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
     ##   Number of observations                           986        1060
     ## 
     ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   19945.567   17527.323
+    ##   Model Fit Test Statistic                   19705.088   17340.173
     ##   Degrees of freedom                              5429        5429
     ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.138
+    ##   Scaling correction factor                                  1.136
     ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
@@ -3242,319 +3242,319 @@ summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##   F1 =~                                                                 
-    ##     BDI_Apptt_qnts    0.450                               0.393    0.430
-    ##     BDI_Attrctv_qn    0.640                               0.559    0.613
-    ##     BDI_Blam_qntsd    0.700                               0.611    0.693
-    ##     BDI_Cry_quntsd    0.490                               0.428    0.483
-    ##     BDI_Dcsns_qnts    0.610                               0.532    0.608
-    ##     BDI_Dsppntmnt_    0.710                               0.620    0.703
-    ##     BDI_Falr_qntsd    0.730                               0.637    0.703
-    ##     BDI_Futr_qntsd    0.690                               0.602    0.677
-    ##     BDI_Glty_qntsd    0.510                               0.445    0.501
-    ##     BDI_Hlth_qntsd    0.450                               0.393    0.483
-    ##     BDI_Intrs_I_P_    0.610                               0.532    0.604
-    ##     BDI_Irrttd_qnt    0.620                               0.541    0.610
-    ##     BDI_Libd_qntsd    0.550                               0.480    0.551
-    ##     BDI_Pnshd_qnts    0.530                               0.463    0.494
-    ##     BDI_Sad_quntsd    0.640                               0.559    0.669
-    ##     BDI_Stsfctn_qn    0.670                               0.585    0.632
-    ##     BDI_Slep_qntsd    0.510                               0.445    0.497
-    ##     BDI_Tird_qntsd    0.590                               0.515    0.605
-    ##     BDI_wght_qntsd    0.240                               0.209    0.277
-    ##     BDI_Work_qntsd    0.670                               0.585    0.666
-    ##     OCIR_1_quantsd    0.080                               0.070    0.061
-    ##     OCIR_10_quntsd    0.010                               0.009    0.008
+    ##     BDI_Attrctv_qn    0.630                               0.549    0.602
+    ##     BDI_Blam_qntsd    0.680                               0.592    0.677
+    ##     BDI_Cry_quntsd    0.470                               0.409    0.463
+    ##     BDI_Dcsns_qnts    0.600                               0.523    0.595
+    ##     BDI_Dsppntmnt_    0.700                               0.610    0.688
+    ##     BDI_Falr_qntsd    0.710                               0.618    0.687
+    ##     BDI_Futr_qntsd    0.670                               0.584    0.658
+    ##     BDI_Glty_qntsd    0.490                               0.427    0.481
+    ##     BDI_Hlth_qntsd    0.430                               0.375    0.464
+    ##     BDI_Intrs_I_P_    0.600                               0.523    0.593
+    ##     BDI_Irrttd_qnt    0.600                               0.523    0.592
+    ##     BDI_Libd_qntsd    0.540                               0.470    0.539
+    ##     BDI_Pnshd_qnts    0.500                               0.436    0.468
+    ##     BDI_Sad_quntsd    0.630                               0.549    0.653
+    ##     BDI_Stsfctn_qn    0.650                               0.566    0.612
+    ##     BDI_Slep_qntsd    0.490                               0.427    0.478
+    ##     BDI_Tird_qntsd    0.570                               0.497    0.587
+    ##     BDI_wght_qntsd    0.220                               0.192    0.254
+    ##     BDI_Work_qntsd    0.650                               0.566    0.648
+    ##     OCIR_1_quantsd    0.070                               0.061    0.053
+    ##     OCIR_10_quntsd    0.000                               0.000    0.000
     ##     OCIR_11_quntsd    0.030                               0.026    0.023
-    ##     OCIR_12_quntsd    0.310                               0.271    0.241
+    ##     OCIR_12_quntsd    0.310                               0.270    0.239
     ##     OCIR_13_quntsd    0.070                               0.061    0.054
-    ##     OCIR_14_quntsd    0.010                               0.009    0.008
-    ##     OCIR_15_quntsd   -0.030                              -0.026   -0.022
-    ##     OCIR_16_quntsd    0.070                               0.061    0.053
-    ##     OCIR_17_quntsd    0.000                               0.000    0.000
-    ##     OCIR_18_quntsd    0.210                               0.183    0.164
+    ##     OCIR_14_quntsd    0.010                               0.009    0.007
+    ##     OCIR_15_quntsd   -0.040                              -0.035   -0.029
+    ##     OCIR_16_quntsd    0.060                               0.052    0.045
+    ##     OCIR_17_quntsd   -0.010                              -0.009   -0.008
+    ##     OCIR_18_quntsd    0.210                               0.183    0.162
     ##     OCIR_2_quantsd    0.120                               0.105    0.088
-    ##     OCIR_3_quantsd    0.060                               0.052    0.046
-    ##     OCIR_4_quantsd    0.030                               0.026    0.023
-    ##     OCIR_5_quantsd    0.080                               0.070    0.061
-    ##     OCIR_6_quantsd    0.350                               0.305    0.276
-    ##     OCIR_7_quantsd    0.120                               0.105    0.096
+    ##     OCIR_3_quantsd    0.060                               0.052    0.045
+    ##     OCIR_4_quantsd    0.020                               0.017    0.015
+    ##     OCIR_5_quantsd    0.060                               0.052    0.045
+    ##     OCIR_6_quantsd    0.350                               0.305    0.275
+    ##     OCIR_7_quantsd    0.120                               0.105    0.095
     ##     OCIR_8_quantsd    0.050                               0.044    0.037
     ##     OCIR_9_quantsd    0.110                               0.096    0.083
     ##     SZ_1_quantised    0.000                               0.000    0.000
     ##     SZ_10_quantisd    0.020                               0.017    0.034
-    ##     SZ_11_quantisd   -0.130                              -0.113   -0.231
+    ##     SZ_11_quantisd   -0.140                              -0.122   -0.249
     ##     SZ_12_quantisd    0.050                               0.044    0.090
-    ##     SZ_13_quantisd   -0.120                              -0.105   -0.216
-    ##     SZ_14_quantisd   -0.320                              -0.279   -0.525
-    ##     SZ_15_quantisd   -0.270                              -0.236   -0.449
-    ##     SZ_16_quantisd   -0.200                              -0.175   -0.342
-    ##     SZ_17_quantisd   -0.210                              -0.183   -0.362
-    ##     SZ_18_quantisd   -0.280                              -0.244   -0.458
-    ##     SZ_19_quantisd   -0.180                              -0.157   -0.314
+    ##     SZ_13_quantisd   -0.130                              -0.113   -0.234
+    ##     SZ_14_quantisd   -0.340                              -0.296   -0.555
+    ##     SZ_15_quantisd   -0.280                              -0.244   -0.462
+    ##     SZ_16_quantisd   -0.210                              -0.183   -0.358
+    ##     SZ_17_quantisd   -0.230                              -0.200   -0.393
+    ##     SZ_18_quantisd   -0.290                              -0.253   -0.471
+    ##     SZ_19_quantisd   -0.190                              -0.166   -0.332
     ##     SZ_2_quantised    0.040                               0.035    0.065
-    ##     SZ_20_quantisd   -0.060                              -0.052   -0.111
-    ##     SZ_21_quantisd   -0.170                              -0.148   -0.302
-    ##     SZ_22_quantisd   -0.360                              -0.314   -0.572
-    ##     SZ_23_quantisd   -0.150                              -0.131   -0.265
-    ##     SZ_24_quantisd   -0.150                              -0.131   -0.241
-    ##     SZ_25_quantisd   -0.080                              -0.070   -0.138
-    ##     SZ_26_quantisd    0.210                               0.183    0.342
-    ##     SZ_27_quantisd    0.230                               0.201    0.379
-    ##     SZ_28_quantisd    0.490                               0.428    0.730
+    ##     SZ_20_quantisd   -0.070                              -0.061   -0.129
+    ##     SZ_21_quantisd   -0.190                              -0.166   -0.335
+    ##     SZ_22_quantisd   -0.370                              -0.322   -0.584
+    ##     SZ_23_quantisd   -0.160                              -0.139   -0.284
+    ##     SZ_24_quantisd   -0.160                              -0.139   -0.255
+    ##     SZ_25_quantisd   -0.090                              -0.078   -0.155
+    ##     SZ_26_quantisd    0.210                               0.183    0.336
+    ##     SZ_27_quantisd    0.230                               0.200    0.373
+    ##     SZ_28_quantisd    0.490                               0.427    0.728
     ##     SZ_29_quantisd   -0.070                              -0.061   -0.124
-    ##     SZ_3_quantised    0.080                               0.070    0.135
-    ##     SZ_30_quantisd    0.390                               0.340    0.599
-    ##     SZ_31_quantisd    0.280                               0.244    0.480
-    ##     SZ_32_quantisd   -0.140                              -0.122   -0.247
-    ##     SZ_33_quantisd   -0.110                              -0.096   -0.196
-    ##     SZ_34_quantisd    0.180                               0.157    0.295
+    ##     SZ_3_quantised    0.080                               0.070    0.137
+    ##     SZ_30_quantisd    0.390                               0.340    0.602
+    ##     SZ_31_quantisd    0.270                               0.235    0.462
+    ##     SZ_32_quantisd   -0.150                              -0.131   -0.265
+    ##     SZ_33_quantisd   -0.130                              -0.113   -0.231
+    ##     SZ_34_quantisd    0.170                               0.148    0.275
     ##     SZ_35_quantisd    0.000                               0.000    0.000
-    ##     SZ_36_quantisd   -0.140                              -0.122   -0.249
-    ##     SZ_37_quantisd    0.390                               0.340    0.547
-    ##     SZ_38_quantisd   -0.080                              -0.070   -0.136
-    ##     SZ_39_quantisd    0.160                               0.140    0.234
-    ##     SZ_4_quantised    0.020                               0.017    0.037
-    ##     SZ_40_quantisd   -0.150                              -0.131   -0.264
-    ##     SZ_41_quantisd   -0.150                              -0.131   -0.265
-    ##     SZ_42_quantisd   -0.090                              -0.079   -0.154
-    ##     SZ_5_quantised    0.130                               0.113    0.193
+    ##     SZ_36_quantisd   -0.150                              -0.131   -0.266
+    ##     SZ_37_quantisd    0.380                               0.331    0.525
+    ##     SZ_38_quantisd   -0.090                              -0.078   -0.152
+    ##     SZ_39_quantisd    0.140                               0.122    0.203
+    ##     SZ_4_quantised    0.010                               0.009    0.018
+    ##     SZ_40_quantisd   -0.160                              -0.139   -0.281
+    ##     SZ_41_quantisd   -0.160                              -0.139   -0.282
+    ##     SZ_42_quantisd   -0.100                              -0.087   -0.172
+    ##     SZ_5_quantised    0.140                               0.122    0.209
     ##     SZ_6_quantised   -0.020                              -0.017   -0.033
-    ##     SZ_7_quantised    0.030                               0.026    0.054
-    ##     SZ_8_quantised    0.130                               0.113    0.187
+    ##     SZ_7_quantised    0.020                               0.017    0.036
+    ##     SZ_8_quantised    0.130                               0.113    0.188
     ##     SZ_9_quantised   -0.070                              -0.061   -0.123
-    ##     STAI2_Clm_qnts   -0.760                              -0.663   -0.761
-    ##     STAI2_Cntnt_qn   -0.730                              -0.637   -0.730
-    ##     STAI2_Dscns_qn   -0.630                              -0.550   -0.636
-    ##     STAI2_Dffclts_    0.540                               0.471    0.513
-    ##     STAI2_DsppntS_    0.430                               0.375    0.414
-    ##     STAI2_Flr_qnts    0.650                               0.567    0.619
-    ##     STAI2_Hppy_qnt   -0.810                              -0.707   -0.808
-    ##     STAI2_HppyOth_    0.420                               0.367    0.378
-    ##     STAI2_Indqt_qn    0.570                               0.497    0.539
-    ##     STAI2_Nrvs_qnt    0.540                               0.471    0.524
-    ##     STAI2_Plsnt_qn   -0.810                              -0.707   -0.841
-    ##     STAI2_Rstd_qnt   -0.600                              -0.524   -0.600
-    ##     STAI2_StsfdSl_   -0.800                              -0.698   -0.787
-    ##     STAI2_Scr_qnts   -0.760                              -0.663   -0.747
-    ##     STAI2_SlfCnfd_    0.440                               0.384    0.389
-    ##     STAI2_Stdy_qnt   -0.780                              -0.681   -0.793
-    ##     STAI2_Tnsn_qnt    0.450                               0.393    0.425
-    ##     STAI2_Thghts_q    0.390                               0.340    0.377
-    ##     STAI2_UnmprtT_    0.400                               0.349    0.386
-    ##     STAI2_Wrry_qnt    0.450                               0.393    0.420
+    ##     STAI2_Clm_qnts   -0.770                              -0.671   -0.768
+    ##     STAI2_Cntnt_qn   -0.740                              -0.645   -0.738
+    ##     STAI2_Dscns_qn   -0.640                              -0.557   -0.643
+    ##     STAI2_Dffclts_    0.540                               0.470    0.510
+    ##     STAI2_DsppntS_    0.440                               0.383    0.421
+    ##     STAI2_Flr_qnts    0.640                               0.557    0.608
+    ##     STAI2_Hppy_qnt   -0.810                              -0.706   -0.806
+    ##     STAI2_HppyOth_    0.420                               0.366    0.377
+    ##     STAI2_Indqt_qn    0.580                               0.505    0.543
+    ##     STAI2_Nrvs_qnt    0.550                               0.479    0.528
+    ##     STAI2_Plsnt_qn   -0.820                              -0.714   -0.847
+    ##     STAI2_Rstd_qnt   -0.610                              -0.531   -0.607
+    ##     STAI2_StsfdSl_   -0.800                              -0.697   -0.787
+    ##     STAI2_Scr_qnts   -0.770                              -0.671   -0.756
+    ##     STAI2_SlfCnfd_    0.450                               0.392    0.394
+    ##     STAI2_Stdy_qnt   -0.790                              -0.688   -0.799
+    ##     STAI2_Tnsn_qnt    0.450                               0.392    0.422
+    ##     STAI2_Thghts_q    0.380                               0.331    0.366
+    ##     STAI2_UnmprtT_    0.400                               0.348    0.385
+    ##     STAI2_Wrry_qnt    0.460                               0.401    0.426
+    ##     STAI_Anxs_qnts    0.450                               0.392    0.409
     ##   F2 =~                                                                 
-    ##     BDI_Apptt_qnts    0.310                               0.290    0.318
-    ##     BDI_Attrctv_qn   -0.080                              -0.075   -0.082
-    ##     BDI_Blam_qntsd    0.060                               0.056    0.064
-    ##     BDI_Cry_quntsd    0.240                               0.224    0.254
-    ##     BDI_Dcsns_qnts    0.130                               0.122    0.139
-    ##     BDI_Dsppntmnt_    0.040                               0.037    0.042
-    ##     BDI_Falr_qntsd    0.040                               0.037    0.041
-    ##     BDI_Futr_qntsd    0.070                               0.065    0.074
-    ##     BDI_Glty_qntsd    0.290                               0.271    0.305
-    ##     BDI_Hlth_qntsd    0.170                               0.159    0.195
-    ##     BDI_Intrs_I_P_    0.050                               0.047    0.053
-    ##     BDI_Irrttd_qnt    0.110                               0.103    0.116
-    ##     BDI_Libd_qntsd   -0.040                              -0.037   -0.043
-    ##     BDI_Pnshd_qnts    0.230                               0.215    0.230
-    ##     BDI_Sad_quntsd    0.120                               0.112    0.134
-    ##     BDI_Stsfctn_qn    0.050                               0.047    0.051
-    ##     BDI_Slep_qntsd    0.050                               0.047    0.052
-    ##     BDI_Tird_qntsd    0.000                               0.000    0.000
-    ##     BDI_wght_qntsd    0.290                               0.271    0.358
-    ##     BDI_Work_qntsd    0.060                               0.056    0.064
-    ##     OCIR_1_quantsd    0.700                               0.655    0.574
-    ##     OCIR_10_quntsd    0.850                               0.795    0.723
-    ##     OCIR_11_quntsd    0.820                               0.767    0.675
-    ##     OCIR_12_quntsd    0.590                               0.552    0.492
-    ##     OCIR_13_quntsd    0.570                               0.533    0.469
-    ##     OCIR_14_quntsd    0.810                               0.757    0.652
-    ##     OCIR_15_quntsd    0.730                               0.683    0.573
-    ##     OCIR_16_quntsd    0.780                               0.729    0.635
-    ##     OCIR_17_quntsd    0.850                               0.795    0.695
-    ##     OCIR_18_quntsd    0.690                               0.645    0.576
-    ##     OCIR_2_quantsd    0.620                               0.580    0.490
-    ##     OCIR_3_quantsd    0.640                               0.598    0.520
-    ##     OCIR_4_quantsd    0.810                               0.757    0.668
-    ##     OCIR_5_quantsd    0.750                               0.701    0.610
-    ##     OCIR_6_quantsd    0.520                               0.486    0.439
-    ##     OCIR_7_quantsd    0.600                               0.561    0.513
-    ##     OCIR_8_quantsd    0.780                               0.729    0.619
-    ##     OCIR_9_quantsd    0.610                               0.570    0.496
-    ##     SZ_1_quantised   -0.390                              -0.365   -0.659
-    ##     SZ_10_quantisd   -0.370                              -0.346   -0.676
-    ##     SZ_11_quantisd   -0.040                              -0.037   -0.076
-    ##     SZ_12_quantisd   -0.240                              -0.224   -0.461
-    ##     SZ_13_quantisd   -0.060                              -0.056   -0.116
-    ##     SZ_14_quantisd    0.100                               0.094    0.176
-    ##     SZ_15_quantisd   -0.050                              -0.047   -0.089
-    ##     SZ_16_quantisd    0.120                               0.112    0.220
-    ##     SZ_17_quantisd   -0.010                              -0.009   -0.018
-    ##     SZ_18_quantisd   -0.080                              -0.075   -0.140
-    ##     SZ_19_quantisd    0.010                               0.009    0.019
-    ##     SZ_2_quantised   -0.380                              -0.355   -0.658
-    ##     SZ_20_quantisd   -0.220                              -0.206   -0.437
+    ##     BDI_Attrctv_qn   -0.070                              -0.066   -0.073
+    ##     BDI_Blam_qntsd    0.070                               0.066    0.076
+    ##     BDI_Cry_quntsd    0.250                               0.237    0.268
+    ##     BDI_Dcsns_qnts    0.140                               0.133    0.151
+    ##     BDI_Dsppntmnt_    0.060                               0.057    0.064
+    ##     BDI_Falr_qntsd    0.050                               0.047    0.053
+    ##     BDI_Futr_qntsd    0.090                               0.085    0.096
+    ##     BDI_Glty_qntsd    0.300                               0.284    0.320
+    ##     BDI_Hlth_qntsd    0.170                               0.161    0.200
+    ##     BDI_Intrs_I_P_    0.060                               0.057    0.064
+    ##     BDI_Irrttd_qnt    0.120                               0.114    0.129
+    ##     BDI_Libd_qntsd   -0.030                              -0.028   -0.033
+    ##     BDI_Pnshd_qnts    0.240                               0.227    0.244
+    ##     BDI_Sad_quntsd    0.140                               0.133    0.158
+    ##     BDI_Stsfctn_qn    0.070                               0.066    0.072
+    ##     BDI_Slep_qntsd    0.050                               0.047    0.053
+    ##     BDI_Tird_qntsd    0.010                               0.009    0.011
+    ##     BDI_wght_qntsd    0.290                               0.275    0.365
+    ##     BDI_Work_qntsd    0.070                               0.066    0.076
+    ##     OCIR_1_quantsd    0.710                               0.673    0.588
+    ##     OCIR_10_quntsd    0.860                               0.815    0.737
+    ##     OCIR_11_quntsd    0.830                               0.787    0.689
+    ##     OCIR_12_quntsd    0.620                               0.588    0.521
+    ##     OCIR_13_quntsd    0.580                               0.550    0.482
+    ##     OCIR_14_quntsd    0.820                               0.777    0.667
+    ##     OCIR_15_quntsd    0.740                               0.701    0.587
+    ##     OCIR_16_quntsd    0.780                               0.739    0.643
+    ##     OCIR_17_quntsd    0.860                               0.815    0.709
+    ##     OCIR_18_quntsd    0.710                               0.673    0.597
+    ##     OCIR_2_quantsd    0.640                               0.607    0.510
+    ##     OCIR_3_quantsd    0.650                               0.616    0.533
+    ##     OCIR_4_quantsd    0.820                               0.777    0.682
+    ##     OCIR_5_quantsd    0.760                               0.720    0.625
+    ##     OCIR_6_quantsd    0.540                               0.512    0.461
+    ##     OCIR_7_quantsd    0.610                               0.578    0.526
+    ##     OCIR_8_quantsd    0.800                               0.758    0.639
+    ##     OCIR_9_quantsd    0.620                               0.588    0.510
+    ##     SZ_1_quantised   -0.390                              -0.370   -0.664
+    ##     SZ_10_quantisd   -0.360                              -0.341   -0.673
+    ##     SZ_11_quantisd   -0.030                              -0.028   -0.058
+    ##     SZ_12_quantisd   -0.230                              -0.218   -0.451
+    ##     SZ_13_quantisd   -0.060                              -0.057   -0.117
+    ##     SZ_14_quantisd    0.090                               0.085    0.160
+    ##     SZ_15_quantisd   -0.060                              -0.057   -0.108
+    ##     SZ_16_quantisd    0.120                               0.114    0.222
+    ##     SZ_17_quantisd   -0.010                              -0.009   -0.019
+    ##     SZ_18_quantisd   -0.090                              -0.085   -0.159
+    ##     SZ_19_quantisd    0.020                               0.019    0.038
+    ##     SZ_2_quantised   -0.370                              -0.351   -0.654
+    ##     SZ_20_quantisd   -0.220                              -0.209   -0.440
     ##     SZ_21_quantisd    0.000                               0.000    0.000
-    ##     SZ_22_quantisd    0.020                               0.019    0.034
-    ##     SZ_23_quantisd   -0.090                              -0.084   -0.170
-    ##     SZ_24_quantisd   -0.240                              -0.224   -0.413
-    ##     SZ_25_quantisd   -0.170                              -0.159   -0.314
-    ##     SZ_26_quantisd    0.110                               0.103    0.192
-    ##     SZ_27_quantisd    0.080                               0.075    0.141
-    ##     SZ_28_quantisd   -0.270                              -0.252   -0.431
-    ##     SZ_29_quantisd   -0.080                              -0.075   -0.152
-    ##     SZ_3_quantised   -0.390                              -0.365   -0.703
-    ##     SZ_30_quantisd   -0.350                              -0.327   -0.576
-    ##     SZ_31_quantisd   -0.020                              -0.019   -0.037
+    ##     SZ_22_quantisd    0.010                               0.009    0.017
+    ##     SZ_23_quantisd   -0.080                              -0.076   -0.155
+    ##     SZ_24_quantisd   -0.240                              -0.227   -0.416
+    ##     SZ_25_quantisd   -0.170                              -0.161   -0.318
+    ##     SZ_26_quantisd    0.120                               0.114    0.209
+    ##     SZ_27_quantisd    0.090                               0.085    0.159
+    ##     SZ_28_quantisd   -0.250                              -0.237   -0.404
+    ##     SZ_29_quantisd   -0.080                              -0.076   -0.155
+    ##     SZ_3_quantised   -0.370                              -0.351   -0.691
+    ##     SZ_30_quantisd   -0.330                              -0.313   -0.554
+    ##     SZ_31_quantisd   -0.010                              -0.009   -0.019
     ##     SZ_32_quantisd    0.000                               0.000    0.000
-    ##     SZ_33_quantisd    0.100                               0.094    0.191
-    ##     SZ_34_quantisd    0.150                               0.140    0.263
-    ##     SZ_35_quantisd   -0.450                              -0.421   -0.726
-    ##     SZ_36_quantisd   -0.040                              -0.037   -0.076
-    ##     SZ_37_quantisd    0.120                               0.112    0.180
-    ##     SZ_38_quantisd   -0.270                              -0.252   -0.493
-    ##     SZ_39_quantisd    0.270                               0.252    0.422
-    ##     SZ_4_quantised   -0.240                              -0.224   -0.474
+    ##     SZ_33_quantisd    0.100                               0.095    0.193
+    ##     SZ_34_quantisd    0.160                               0.152    0.282
+    ##     SZ_35_quantisd   -0.450                              -0.427   -0.729
+    ##     SZ_36_quantisd   -0.030                              -0.028   -0.058
+    ##     SZ_37_quantisd    0.140                               0.133    0.210
+    ##     SZ_38_quantisd   -0.270                              -0.256   -0.496
+    ##     SZ_39_quantisd    0.280                               0.265    0.442
+    ##     SZ_4_quantised   -0.230                              -0.218   -0.462
     ##     SZ_40_quantisd    0.000                               0.000    0.000
-    ##     SZ_41_quantisd   -0.050                              -0.047   -0.095
-    ##     SZ_42_quantisd   -0.200                              -0.187   -0.366
-    ##     SZ_5_quantised   -0.520                              -0.486   -0.826
-    ##     SZ_6_quantised   -0.350                              -0.327   -0.623
-    ##     SZ_7_quantised   -0.190                              -0.178   -0.367
-    ##     SZ_8_quantised   -0.540                              -0.505   -0.834
-    ##     SZ_9_quantised   -0.200                              -0.187   -0.377
-    ##     STAI2_Clm_qnts    0.440                               0.411    0.472
-    ##     STAI2_Cntnt_qn    0.440                               0.411    0.472
-    ##     STAI2_Dscns_qn    0.500                               0.468    0.541
-    ##     STAI2_Dffclts_    0.220                               0.206    0.224
-    ##     STAI2_DsppntS_    0.240                               0.224    0.247
-    ##     STAI2_Flr_qnts    0.150                               0.140    0.153
-    ##     STAI2_Hppy_qnt    0.490                               0.458    0.523
-    ##     STAI2_HppyOth_    0.200                               0.187    0.193
-    ##     STAI2_Indqt_qn    0.130                               0.122    0.132
-    ##     STAI2_Nrvs_qnt    0.210                               0.196    0.218
-    ##     STAI2_Plsnt_qn    0.460                               0.430    0.512
-    ##     STAI2_Rstd_qnt    0.420                               0.393    0.450
-    ##     STAI2_StsfdSl_    0.550                               0.514    0.580
-    ##     STAI2_Scr_qnts    0.490                               0.458    0.516
-    ##     STAI2_SlfCnfd_    0.150                               0.140    0.142
-    ##     STAI2_Stdy_qnt    0.390                               0.365    0.425
-    ##     STAI2_Tnsn_qnt    0.350                               0.327    0.354
-    ##     STAI2_Thghts_q    0.450                               0.421    0.467
-    ##     STAI2_UnmprtT_    0.300                               0.281    0.310
-    ##     STAI2_Wrry_qnt    0.230                               0.215    0.230
+    ##     SZ_41_quantisd   -0.050                              -0.047   -0.096
+    ##     SZ_42_quantisd   -0.190                              -0.180   -0.355
+    ##     SZ_5_quantised   -0.510                              -0.483   -0.827
+    ##     SZ_6_quantised   -0.350                              -0.332   -0.629
+    ##     SZ_7_quantised   -0.180                              -0.171   -0.354
+    ##     SZ_8_quantised   -0.530                              -0.502   -0.832
+    ##     SZ_9_quantised   -0.200                              -0.190   -0.383
+    ##     STAI2_Clm_qnts    0.420                               0.398    0.456
+    ##     STAI2_Cntnt_qn    0.420                               0.398    0.456
+    ##     STAI2_Dscns_qn    0.490                               0.464    0.536
+    ##     STAI2_Dffclts_    0.240                               0.227    0.247
+    ##     STAI2_DsppntS_    0.250                               0.237    0.260
+    ##     STAI2_Flr_qnts    0.170                               0.161    0.176
+    ##     STAI2_Hppy_qnt    0.470                               0.446    0.509
+    ##     STAI2_HppyOth_    0.220                               0.209    0.215
+    ##     STAI2_Indqt_qn    0.150                               0.142    0.153
+    ##     STAI2_Nrvs_qnt    0.230                               0.218    0.240
+    ##     STAI2_Plsnt_qn    0.440                               0.417    0.494
+    ##     STAI2_Rstd_qnt    0.410                               0.389    0.444
+    ##     STAI2_StsfdSl_    0.530                               0.502    0.567
+    ##     STAI2_Scr_qnts    0.460                               0.436    0.491
+    ##     STAI2_SlfCnfd_    0.180                               0.171    0.171
+    ##     STAI2_Stdy_qnt    0.370                               0.351    0.407
+    ##     STAI2_Tnsn_qnt    0.370                               0.351    0.378
+    ##     STAI2_Thghts_q    0.460                               0.436    0.483
+    ##     STAI2_UnmprtT_    0.310                               0.294    0.325
+    ##     STAI2_Wrry_qnt    0.250                               0.237    0.252
+    ##     STAI_Anxs_qnts    0.340                               0.322    0.336
     ##   F3 =~                                                                 
-    ##     BDI_Apptt_qnts    0.060                               0.025    0.027
-    ##     BDI_Attrctv_qn   -0.030                              -0.012   -0.014
-    ##     BDI_Blam_qntsd    0.000                               0.000    0.000
-    ##     BDI_Cry_quntsd    0.010                               0.004    0.005
-    ##     BDI_Dcsns_qnts    0.000                               0.000    0.000
-    ##     BDI_Dsppntmnt_    0.040                               0.017    0.019
-    ##     BDI_Falr_qntsd    0.060                               0.025    0.027
-    ##     BDI_Futr_qntsd    0.030                               0.012    0.014
-    ##     BDI_Glty_qntsd    0.040                               0.017    0.019
-    ##     BDI_Hlth_qntsd    0.000                               0.000    0.000
-    ##     BDI_Intrs_I_P_   -0.030                              -0.012   -0.014
-    ##     BDI_Irrttd_qnt    0.000                               0.000    0.000
-    ##     BDI_Libd_qntsd   -0.030                              -0.012   -0.014
-    ##     BDI_Pnshd_qnts    0.060                               0.025    0.027
-    ##     BDI_Sad_quntsd    0.020                               0.008    0.010
-    ##     BDI_Stsfctn_qn    0.090                               0.037    0.040
-    ##     BDI_Slep_qntsd    0.020                               0.008    0.009
-    ##     BDI_Tird_qntsd   -0.050                              -0.021   -0.024
-    ##     BDI_wght_qntsd   -0.020                              -0.008   -0.011
-    ##     BDI_Work_qntsd    0.030                               0.012    0.014
-    ##     OCIR_1_quantsd    0.000                               0.000    0.000
-    ##     OCIR_10_quntsd    0.000                               0.000    0.000
-    ##     OCIR_11_quntsd    0.020                               0.008    0.007
-    ##     OCIR_12_quntsd   -0.060                              -0.025   -0.022
-    ##     OCIR_13_quntsd   -0.160                              -0.066   -0.058
-    ##     OCIR_14_quntsd    0.000                               0.000    0.000
-    ##     OCIR_15_quntsd    0.020                               0.008    0.007
-    ##     OCIR_16_quntsd    0.020                               0.008    0.007
-    ##     OCIR_17_quntsd    0.020                               0.008    0.007
-    ##     OCIR_18_quntsd   -0.060                              -0.025   -0.022
-    ##     OCIR_2_quantsd   -0.020                              -0.008   -0.007
-    ##     OCIR_3_quantsd   -0.060                              -0.025   -0.022
-    ##     OCIR_4_quantsd    0.030                               0.012    0.011
-    ##     OCIR_5_quantsd    0.020                               0.008    0.007
-    ##     OCIR_6_quantsd   -0.100                              -0.041   -0.037
-    ##     OCIR_7_quantsd   -0.140                              -0.058   -0.053
-    ##     OCIR_8_quantsd    0.020                               0.008    0.007
-    ##     OCIR_9_quantsd   -0.080                              -0.033   -0.029
-    ##     SZ_1_quantised    0.360                               0.149    0.269
-    ##     SZ_10_quantisd    0.360                               0.149    0.291
-    ##     SZ_11_quantisd    0.440                               0.182    0.371
-    ##     SZ_12_quantisd    0.390                               0.161    0.332
-    ##     SZ_13_quantisd    0.480                               0.199    0.410
-    ##     SZ_14_quantisd    0.440                               0.182    0.342
-    ##     SZ_15_quantisd    0.390                               0.161    0.307
-    ##     SZ_16_quantisd    0.440                               0.182    0.357
-    ##     SZ_17_quantisd    0.410                               0.170    0.335
-    ##     SZ_18_quantisd    0.400                               0.166    0.310
-    ##     SZ_19_quantisd    0.460                               0.190    0.381
-    ##     SZ_2_quantised    0.350                               0.145    0.268
-    ##     SZ_20_quantisd    0.450                               0.186    0.396
-    ##     SZ_21_quantisd    0.490                               0.203    0.412
-    ##     SZ_22_quantisd    0.360                               0.149    0.271
-    ##     SZ_23_quantisd    0.440                               0.182    0.368
-    ##     SZ_24_quantisd    0.290                               0.120    0.221
-    ##     SZ_25_quantisd    0.360                               0.149    0.294
-    ##     SZ_26_quantisd    0.260                               0.108    0.201
-    ##     SZ_27_quantisd    0.310                               0.128    0.242
-    ##     SZ_28_quantisd    0.130                               0.054    0.092
-    ##     SZ_29_quantisd    0.310                               0.128    0.261
-    ##     SZ_3_quantised    0.330                               0.137    0.263
-    ##     SZ_30_quantisd    0.090                               0.037    0.066
-    ##     SZ_31_quantisd    0.230                               0.095    0.187
-    ##     SZ_32_quantisd    0.390                               0.161    0.327
-    ##     SZ_33_quantisd    0.340                               0.141    0.287
-    ##     SZ_34_quantisd    0.240                               0.099    0.186
-    ##     SZ_35_quantisd    0.260                               0.108    0.186
-    ##     SZ_36_quantisd    0.430                               0.178    0.362
-    ##     SZ_37_quantisd    0.260                               0.108    0.173
-    ##     SZ_38_quantisd    0.380                               0.157    0.307
-    ##     SZ_39_quantisd    0.370                               0.153    0.256
-    ##     SZ_4_quantised    0.410                               0.170    0.358
-    ##     SZ_40_quantisd    0.390                               0.161    0.326
-    ##     SZ_41_quantisd    0.430                               0.178    0.360
-    ##     SZ_42_quantisd    0.420                               0.174    0.341
-    ##     SZ_5_quantised    0.310                               0.128    0.218
-    ##     SZ_6_quantised    0.360                               0.149    0.284
-    ##     SZ_7_quantised    0.450                               0.186    0.385
-    ##     SZ_8_quantised    0.270                               0.112    0.185
-    ##     SZ_9_quantised    0.410                               0.170    0.342
-    ##     STAI2_Clm_qnts    0.010                               0.004    0.005
-    ##     STAI2_Cntnt_qn    0.000                               0.000    0.000
-    ##     STAI2_Dscns_qn    0.160                               0.066    0.077
-    ##     STAI2_Dffclts_   -0.090                              -0.037   -0.041
-    ##     STAI2_DsppntS_   -0.120                              -0.050   -0.055
-    ##     STAI2_Flr_qnts   -0.040                              -0.017   -0.018
+    ##     BDI_Attrctv_qn   -0.050                              -0.020   -0.022
+    ##     BDI_Blam_qntsd   -0.010                              -0.004   -0.005
+    ##     BDI_Cry_quntsd   -0.010                              -0.004   -0.005
+    ##     BDI_Dcsns_qnts   -0.020                              -0.008   -0.009
+    ##     BDI_Dsppntmnt_    0.030                               0.012    0.014
+    ##     BDI_Falr_qntsd    0.050                               0.020    0.023
+    ##     BDI_Futr_qntsd    0.020                               0.008    0.009
+    ##     BDI_Glty_qntsd    0.020                               0.008    0.009
+    ##     BDI_Hlth_qntsd   -0.020                              -0.008   -0.010
+    ##     BDI_Intrs_I_P_   -0.050                              -0.020   -0.023
+    ##     BDI_Irrttd_qnt   -0.010                              -0.004   -0.005
+    ##     BDI_Libd_qntsd   -0.050                              -0.020   -0.023
+    ##     BDI_Pnshd_qnts    0.040                               0.016    0.018
+    ##     BDI_Sad_quntsd    0.010                               0.004    0.005
+    ##     BDI_Stsfctn_qn    0.070                               0.029    0.031
+    ##     BDI_Slep_qntsd   -0.010                              -0.004   -0.005
+    ##     BDI_Tird_qntsd   -0.070                              -0.029   -0.034
+    ##     BDI_wght_qntsd   -0.050                              -0.020   -0.027
+    ##     BDI_Work_qntsd    0.020                               0.008    0.009
+    ##     OCIR_1_quantsd    0.010                               0.004    0.004
+    ##     OCIR_10_quntsd    0.010                               0.004    0.004
+    ##     OCIR_11_quntsd    0.030                               0.012    0.011
+    ##     OCIR_12_quntsd   -0.030                              -0.012   -0.011
+    ##     OCIR_13_quntsd   -0.140                              -0.057   -0.050
+    ##     OCIR_14_quntsd    0.020                               0.008    0.007
+    ##     OCIR_15_quntsd    0.040                               0.016    0.014
+    ##     OCIR_16_quntsd    0.030                               0.012    0.011
+    ##     OCIR_17_quntsd    0.030                               0.012    0.011
+    ##     OCIR_18_quntsd   -0.050                              -0.020   -0.018
+    ##     OCIR_2_quantsd    0.000                               0.000    0.000
+    ##     OCIR_3_quantsd   -0.050                              -0.020   -0.018
+    ##     OCIR_4_quantsd    0.050                               0.020    0.018
+    ##     OCIR_5_quantsd    0.030                               0.012    0.011
+    ##     OCIR_6_quantsd   -0.080                              -0.033   -0.029
+    ##     OCIR_7_quantsd   -0.130                              -0.053   -0.048
+    ##     OCIR_8_quantsd    0.040                               0.016    0.014
+    ##     OCIR_9_quantsd   -0.060                              -0.024   -0.021
+    ##     SZ_1_quantised    0.360                               0.147    0.264
+    ##     SZ_10_quantisd    0.370                               0.151    0.297
+    ##     SZ_11_quantisd    0.440                               0.179    0.367
+    ##     SZ_12_quantisd    0.390                               0.159    0.329
+    ##     SZ_13_quantisd    0.480                               0.196    0.404
+    ##     SZ_14_quantisd    0.420                               0.171    0.321
+    ##     SZ_15_quantisd    0.380                               0.155    0.294
+    ##     SZ_16_quantisd    0.440                               0.179    0.351
+    ##     SZ_17_quantisd    0.400                               0.163    0.320
+    ##     SZ_18_quantisd    0.390                               0.159    0.297
+    ##     SZ_19_quantisd    0.450                               0.184    0.368
+    ##     SZ_2_quantised    0.350                               0.143    0.266
+    ##     SZ_20_quantisd    0.460                               0.188    0.396
+    ##     SZ_21_quantisd    0.480                               0.196    0.397
+    ##     SZ_22_quantisd    0.350                               0.143    0.259
+    ##     SZ_23_quantisd    0.430                               0.175    0.357
+    ##     SZ_24_quantisd    0.280                               0.114    0.209
+    ##     SZ_25_quantisd    0.350                               0.143    0.282
+    ##     SZ_26_quantisd    0.270                               0.110    0.203
+    ##     SZ_27_quantisd    0.320                               0.131    0.243
+    ##     SZ_28_quantisd    0.140                               0.057    0.097
+    ##     SZ_29_quantisd    0.310                               0.126    0.258
+    ##     SZ_3_quantised    0.340                               0.139    0.273
+    ##     SZ_30_quantisd    0.100                               0.041    0.072
+    ##     SZ_31_quantisd    0.240                               0.098    0.192
+    ##     SZ_32_quantisd    0.380                               0.155    0.315
+    ##     SZ_33_quantisd    0.320                               0.131    0.266
+    ##     SZ_34_quantisd    0.240                               0.098    0.182
+    ##     SZ_35_quantisd    0.260                               0.106    0.181
+    ##     SZ_36_quantisd    0.430                               0.175    0.358
+    ##     SZ_37_quantisd    0.270                               0.110    0.175
+    ##     SZ_38_quantisd    0.380                               0.155    0.301
+    ##     SZ_39_quantisd    0.360                               0.147    0.245
+    ##     SZ_4_quantised    0.420                               0.171    0.363
+    ##     SZ_40_quantisd    0.390                               0.159    0.321
+    ##     SZ_41_quantisd    0.430                               0.175    0.355
+    ##     SZ_42_quantisd    0.420                               0.171    0.338
+    ##     SZ_5_quantised    0.310                               0.126    0.216
+    ##     SZ_6_quantised    0.360                               0.147    0.278
+    ##     SZ_7_quantised    0.450                               0.184    0.381
+    ##     SZ_8_quantised    0.270                               0.110    0.182
+    ##     SZ_9_quantised    0.410                               0.167    0.338
+    ##     STAI2_Clm_qnts   -0.010                              -0.004   -0.005
+    ##     STAI2_Cntnt_qn   -0.020                              -0.008   -0.009
+    ##     STAI2_Dscns_qn    0.150                               0.061    0.071
+    ##     STAI2_Dffclts_   -0.070                              -0.029   -0.031
+    ##     STAI2_DsppntS_   -0.100                              -0.041   -0.045
+    ##     STAI2_Flr_qnts   -0.030                              -0.012   -0.013
     ##     STAI2_Hppy_qnt   -0.020                              -0.008   -0.009
-    ##     STAI2_HppyOth_   -0.040                              -0.017   -0.017
-    ##     STAI2_Indqt_qn   -0.110                              -0.046   -0.049
-    ##     STAI2_Nrvs_qnt   -0.110                              -0.046   -0.051
-    ##     STAI2_Plsnt_qn   -0.040                              -0.017   -0.020
-    ##     STAI2_Rstd_qnt    0.000                               0.000    0.000
-    ##     STAI2_StsfdSl_    0.040                               0.017    0.019
-    ##     STAI2_Scr_qnts    0.030                               0.012    0.014
-    ##     STAI2_SlfCnfd_   -0.080                              -0.033   -0.034
-    ##     STAI2_Stdy_qnt    0.050                               0.021    0.024
-    ##     STAI2_Tnsn_qnt   -0.100                              -0.041   -0.045
-    ##     STAI2_Thghts_q   -0.070                              -0.029   -0.032
-    ##     STAI2_UnmprtT_   -0.170                              -0.070   -0.078
-    ##     STAI2_Wrry_qnt   -0.120                              -0.050   -0.053
+    ##     STAI2_HppyOth_   -0.020                              -0.008   -0.008
+    ##     STAI2_Indqt_qn   -0.090                              -0.037   -0.039
+    ##     STAI2_Nrvs_qnt   -0.090                              -0.037   -0.040
+    ##     STAI2_Plsnt_qn   -0.060                              -0.024   -0.029
+    ##     STAI2_Rstd_qnt   -0.010                              -0.004   -0.005
+    ##     STAI2_StsfdSl_    0.020                               0.008    0.009
+    ##     STAI2_Scr_qnts    0.010                               0.004    0.005
+    ##     STAI2_SlfCnfd_   -0.050                              -0.020   -0.020
+    ##     STAI2_Stdy_qnt    0.040                               0.016    0.019
+    ##     STAI2_Tnsn_qnt   -0.080                              -0.033   -0.035
+    ##     STAI2_Thghts_q   -0.060                              -0.024   -0.027
+    ##     STAI2_UnmprtT_   -0.150                              -0.061   -0.068
+    ##     STAI2_Wrry_qnt   -0.100                              -0.041   -0.043
+    ##     STAI_Anxs_qnts   -0.050                              -0.020   -0.021
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##   propmedhigh ~                                                         
-    ##     spreadsheet       0.006    0.002    2.699    0.007    0.006    0.084
-    ##     Ravens            0.010    0.002    4.277    0.000    0.010    0.144
-    ##     Age              -0.002    0.001   -3.602    0.000   -0.002   -0.116
-    ##     GenderMF          0.016    0.014    1.187    0.235    0.016    0.039
-    ##     F1               -0.024    0.009   -2.571    0.010   -0.021   -0.098
-    ##     F2               -0.010    0.009   -1.107    0.268   -0.009   -0.045
-    ##     F3                0.002    0.019    0.114    0.909    0.001    0.004
+    ##     spreadsheet       0.006    0.002    2.698    0.007    0.006    0.084
+    ##     Ravens            0.010    0.002    4.328    0.000    0.010    0.145
+    ##     Age              -0.002    0.001   -3.578    0.000   -0.002   -0.115
+    ##     GenderMF          0.016    0.014    1.165    0.244    0.016    0.038
+    ##     F1               -0.023    0.009   -2.526    0.012   -0.020   -0.094
+    ##     F2               -0.010    0.009   -1.127    0.260   -0.010   -0.045
+    ##     F3                0.004    0.019    0.227    0.820    0.002    0.008
     ## 
     ## Covariances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -3563,143 +3563,143 @@ summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
     ##     Age               1.451    0.976    1.487    0.137    1.451    0.047
     ##     GenderMF         -0.010    0.047   -0.203    0.839   -0.010   -0.006
     ##   F1 ~~                                                                 
-    ##     spreadsheet      -0.013    0.085   -0.151    0.880   -0.015   -0.005
+    ##     spreadsheet      -0.015    0.085   -0.183    0.855   -0.018   -0.006
     ##   F2 ~~                                                                 
-    ##     spreadsheet       0.094    0.091    1.032    0.302    0.101    0.034
+    ##     spreadsheet       0.094    0.092    1.017    0.309    0.099    0.033
     ##   F3 ~~                                                                 
-    ##     spreadsheet      -0.015    0.043   -0.353    0.724   -0.037   -0.012
+    ##     spreadsheet      -0.016    0.043   -0.384    0.701   -0.040   -0.013
     ##   Ravens ~~                                                             
-    ##     Age               2.597    0.988    2.630    0.009    2.597    0.086
+    ##     Age               2.597    0.988    2.629    0.009    2.597    0.086
     ##     GenderMF         -0.095    0.046   -2.063    0.039   -0.095   -0.065
     ##   F1 ~~                                                                 
-    ##     Ravens           -0.438    0.080   -5.498    0.000   -0.502   -0.170
+    ##     Ravens           -0.414    0.080   -5.199    0.000   -0.475   -0.161
     ##   F2 ~~                                                                 
-    ##     Ravens           -0.968    0.085  -11.426    0.000   -1.035   -0.351
+    ##     Ravens           -0.975    0.086  -11.394    0.000   -1.029   -0.349
     ##   F3 ~~                                                                 
-    ##     Ravens           -0.063    0.043   -1.473    0.141   -0.152   -0.051
+    ##     Ravens           -0.064    0.042   -1.520    0.129   -0.157   -0.053
     ##   Age ~~                                                                
-    ##     GenderMF         -0.766    0.163   -4.698    0.000   -0.766   -0.152
+    ##     GenderMF         -0.766    0.163   -4.697    0.000   -0.766   -0.152
     ##   F1 ~~                                                                 
-    ##     Age              -2.185    0.309   -7.063    0.000   -2.504   -0.245
+    ##     Age              -2.130    0.311   -6.859    0.000   -2.445   -0.239
     ##   F2 ~~                                                                 
-    ##     Age              -3.066    0.274  -11.193    0.000   -3.279   -0.321
+    ##     Age              -3.123    0.279  -11.201    0.000   -3.294   -0.322
     ##   F3 ~~                                                                 
-    ##     Age               0.095    0.133    0.715    0.475    0.229    0.022
+    ##     Age               0.041    0.130    0.312    0.755    0.100    0.010
     ##   F1 ~~                                                                 
-    ##     GenderMF         -0.007    0.014   -0.500    0.617   -0.008   -0.016
+    ##     GenderMF         -0.010    0.014   -0.699    0.484   -0.011   -0.023
     ##   F2 ~~                                                                 
-    ##     GenderMF          0.077    0.015    5.262    0.000    0.082    0.167
+    ##     GenderMF          0.076    0.015    5.143    0.000    0.080    0.163
     ##   F3 ~~                                                                 
-    ##     GenderMF          0.020    0.007    2.765    0.006    0.048    0.097
+    ##     GenderMF          0.018    0.007    2.594    0.009    0.045    0.091
     ##   F1 ~~                                                                 
-    ##     F2                0.384    0.022   17.300    0.000    0.471    0.471
-    ##     F3               -0.091    0.012   -7.757    0.000   -0.252   -0.252
+    ##     F2                0.384    0.022   17.240    0.000    0.464    0.464
+    ##     F3               -0.075    0.011   -6.529    0.000   -0.211   -0.211
     ##   F2 ~~                                                                 
-    ##     F3               -0.016    0.015   -1.035    0.301   -0.040   -0.040
+    ##     F3               -0.013    0.015   -0.841    0.400   -0.033   -0.033
     ## 
     ## Intercepts:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##    .BDI_Apptt_qnts    1.660    0.029   58.052    0.000    1.660    1.820
-    ##    .BDI_Attrctv_qn    1.852    0.030   61.471    0.000    1.852    2.034
-    ##    .BDI_Blam_qntsd    1.879    0.028   67.187    0.000    1.879    2.133
-    ##    .BDI_Cry_quntsd    1.610    0.028   57.466    0.000    1.610    1.820
-    ##    .BDI_Dcsns_qnts    1.729    0.028   61.416    0.000    1.729    1.974
-    ##    .BDI_Dsppntmnt_    1.840    0.028   65.343    0.000    1.840    2.087
-    ##    .BDI_Falr_qntsd    1.841    0.029   63.152    0.000    1.841    2.032
-    ##    .BDI_Futr_qntsd    1.865    0.028   65.551    0.000    1.865    2.098
+    ##    .BDI_Attrctv_qn    1.852    0.030   61.471    0.000    1.852    2.033
+    ##    .BDI_Blam_qntsd    1.879    0.028   67.187    0.000    1.879    2.148
+    ##    .BDI_Cry_quntsd    1.610    0.028   57.466    0.000    1.610    1.819
+    ##    .BDI_Dcsns_qnts    1.729    0.028   61.416    0.000    1.729    1.970
+    ##    .BDI_Dsppntmnt_    1.840    0.028   65.343    0.000    1.840    2.076
+    ##    .BDI_Falr_qntsd    1.841    0.029   63.152    0.000    1.841    2.046
+    ##    .BDI_Futr_qntsd    1.865    0.028   65.551    0.000    1.865    2.103
     ##    .BDI_Glty_qntsd    1.651    0.027   60.673    0.000    1.651    1.860
-    ##    .BDI_Hlth_qntsd    1.690    0.025   68.528    0.000    1.690    2.077
-    ##    .BDI_Intrs_I_P_    1.869    0.029   64.672    0.000    1.869    2.122
-    ##    .BDI_Irrttd_qnt    1.868    0.028   66.344    0.000    1.868    2.107
+    ##    .BDI_Hlth_qntsd    1.690    0.025   68.528    0.000    1.690    2.094
+    ##    .BDI_Intrs_I_P_    1.869    0.029   64.672    0.000    1.869    2.120
+    ##    .BDI_Irrttd_qnt    1.868    0.028   66.344    0.000    1.868    2.117
     ##    .BDI_Libd_qntsd    1.696    0.028   60.071    0.000    1.696    1.945
-    ##    .BDI_Pnshd_qnts    1.660    0.030   55.913    0.000    1.660    1.775
-    ##    .BDI_Sad_quntsd    1.683    0.025   68.205    0.000    1.683    2.014
-    ##    .BDI_Stsfctn_qn    1.839    0.030   61.846    0.000    1.839    1.989
-    ##    .BDI_Slep_qntsd    1.837    0.029   64.241    0.000    1.837    2.049
-    ##    .BDI_Tird_qntsd    1.914    0.027   70.146    0.000    1.914    2.250
-    ##    .BDI_wght_qntsd    1.372    0.023   60.244    0.000    1.372    1.814
-    ##    .BDI_Work_qntsd    1.788    0.028   64.954    0.000    1.788    2.036
-    ##    .OCIR_1_quantsd    2.395    0.041   58.741    0.000    2.395    2.098
-    ##    .OCIR_10_quntsd    1.987    0.041   48.810    0.000    1.987    1.807
-    ##    .OCIR_11_quntsd    2.197    0.041   52.942    0.000    2.197    1.934
-    ##    .OCIR_12_quntsd    2.311    0.041   56.047    0.000    2.311    2.059
-    ##    .OCIR_13_quntsd    2.421    0.040   60.198    0.000    2.421    2.129
-    ##    .OCIR_14_quntsd    2.183    0.043   51.077    0.000    2.183    1.880
-    ##    .OCIR_15_quntsd    2.399    0.041   57.901    0.000    2.399    2.012
-    ##    .OCIR_16_quntsd    2.123    0.042   50.880    0.000    2.123    1.847
-    ##    .OCIR_17_quntsd    2.171    0.043   50.889    0.000    2.171    1.898
-    ##    .OCIR_18_quntsd    2.229    0.042   52.812    0.000    2.229    1.989
-    ##    .OCIR_2_quantsd    2.646    0.041   64.007    0.000    2.646    2.235
-    ##    .OCIR_3_quantsd    2.465    0.040   61.186    0.000    2.465    2.142
-    ##    .OCIR_4_quantsd    2.214    0.041   53.974    0.000    2.214    1.952
-    ##    .OCIR_5_quantsd    2.149    0.041   52.023    0.000    2.149    1.870
-    ##    .OCIR_6_quantsd    2.374    0.041   58.254    0.000    2.374    2.144
-    ##    .OCIR_7_quantsd    2.185    0.039   55.683    0.000    2.185    1.996
-    ##    .OCIR_8_quantsd    2.264    0.043   53.242    0.000    2.264    1.921
-    ##    .OCIR_9_quantsd    2.520    0.040   62.397    0.000    2.520    2.190
-    ##    .SZ_1_quantised    1.616    0.015  104.289    0.000    1.616    2.918
-    ##    .SZ_10_quantisd    1.768    0.013  131.452    0.000    1.768    3.455
-    ##    .SZ_11_quantisd    1.578    0.016  100.337    0.000    1.578    3.216
-    ##    .SZ_12_quantisd    1.646    0.015  108.087    0.000    1.646    3.383
-    ##    .SZ_13_quantisd    1.583    0.016  100.829    0.000    1.583    3.271
-    ##    .SZ_14_quantisd    1.522    0.016   95.698    0.000    1.522    2.863
-    ##    .SZ_15_quantisd    1.539    0.016   96.910    0.000    1.539    2.928
-    ##    .SZ_16_quantisd    1.513    0.016   95.063    0.000    1.513    2.963
-    ##    .SZ_17_quantisd    1.561    0.016   98.757    0.000    1.561    3.083
-    ##    .SZ_18_quantisd    1.581    0.016  100.631    0.000    1.581    2.965
-    ##    .SZ_19_quantisd    1.555    0.016   98.232    0.000    1.555    3.110
-    ##    .SZ_2_quantised    1.614    0.016  104.056    0.000    1.614    2.987
-    ##    .SZ_20_quantisd    1.711    0.014  118.514    0.000    1.711    3.635
-    ##    .SZ_21_quantisd    1.573    0.016   99.858    0.000    1.573    3.200
-    ##    .SZ_22_quantisd    1.553    0.016   98.061    0.000    1.553    2.825
-    ##    .SZ_23_quantisd    1.599    0.016  102.489    0.000    1.599    3.236
-    ##    .SZ_24_quantisd    1.595    0.016  102.061    0.000    1.595    2.933
-    ##    .SZ_25_quantisd    1.569    0.016   99.484    0.000    1.569    3.100
-    ##    .SZ_26_quantisd    1.304    0.015   89.014    0.000    1.304    2.435
-    ##    .SZ_27_quantisd    1.294    0.015   89.184    0.000    1.294    2.445
-    ##    .SZ_28_quantisd    1.384    0.015   89.363    0.000    1.384    2.365
-    ##    .SZ_29_quantisd    1.586    0.016  101.130    0.000    1.586    3.227
-    ##    .SZ_3_quantised    1.741    0.014  124.876    0.000    1.741    3.358
-    ##    .SZ_30_quantisd    1.419    0.016   90.303    0.000    1.419    2.498
-    ##    .SZ_31_quantisd    1.286    0.014   89.361    0.000    1.286    2.526
-    ##    .SZ_32_quantisd    1.574    0.016   99.953    0.000    1.574    3.188
-    ##    .SZ_33_quantisd    1.367    0.015   89.060    0.000    1.367    2.789
-    ##    .SZ_34_quantisd    1.287    0.014   89.337    0.000    1.287    2.413
-    ##    .SZ_35_quantisd    1.774    0.013  133.141    0.000    1.774    3.060
-    ##    .SZ_36_quantisd    1.550    0.016   97.807    0.000    1.550    3.152
-    ##    .SZ_37_quantisd    1.300    0.015   89.075    0.000    1.300    2.091
-    ##    .SZ_38_quantisd    1.694    0.015  115.378    0.000    1.694    3.309
-    ##    .SZ_39_quantisd    1.289    0.014   89.290    0.000    1.289    2.157
-    ##    .SZ_4_quantised    1.691    0.015  114.855    0.000    1.691    3.571
-    ##    .SZ_40_quantisd    1.575    0.016  100.049    0.000    1.575    3.178
-    ##    .SZ_41_quantisd    1.570    0.016   99.577    0.000    1.570    3.174
-    ##    .SZ_42_quantisd    1.557    0.016   98.405    0.000    1.557    3.050
-    ##    .SZ_5_quantised    1.726    0.014  121.551    0.000    1.726    2.933
-    ##    .SZ_6_quantised    1.717    0.014  119.697    0.000    1.717    3.269
-    ##    .SZ_7_quantised    1.580    0.016  100.533    0.000    1.580    3.266
-    ##    .SZ_8_quantised    1.715    0.014  119.298    0.000    1.715    2.833
-    ##    .SZ_9_quantised    1.622    0.015  105.003    0.000    1.622    3.269
-    ##    .STAI2_Clm_qnts    2.696    0.029   91.999    0.000    2.696    3.093
-    ##    .STAI2_Cntnt_qn    2.687    0.029   92.273    0.000    2.687    3.080
-    ##    .STAI2_Dscns_qn    2.654    0.029   91.891    0.000    2.654    3.072
-    ##    .STAI2_Dffclts_    2.203    0.031   71.866    0.000    2.203    2.397
-    ##    .STAI2_DsppntS_    2.195    0.030   73.006    0.000    2.195    2.419
-    ##    .STAI2_Flr_qnts    2.026    0.031   66.404    0.000    2.026    2.211
-    ##    .STAI2_Hppy_qnt    2.727    0.030   92.362    0.000    2.727    3.115
-    ##    .STAI2_HppyOth_    2.496    0.032   78.276    0.000    2.496    2.576
-    ##    .STAI2_Indqt_qn    2.170    0.031   69.601    0.000    2.170    2.350
-    ##    .STAI2_Nrvs_qnt    2.209    0.030   74.228    0.000    2.209    2.455
-    ##    .STAI2_Plsnt_qn    2.731    0.027  100.238    0.000    2.731    3.251
-    ##    .STAI2_Rstd_qnt    2.472    0.028   86.941    0.000    2.472    2.833
-    ##    .STAI2_StsfdSl_    2.613    0.031   84.470    0.000    2.613    2.945
-    ##    .STAI2_Scr_qnts    2.717    0.030   89.198    0.000    2.717    3.062
-    ##    .STAI2_SlfCnfd_    2.399    0.033   73.183    0.000    2.399    2.428
-    ##    .STAI2_Stdy_qnt    2.768    0.029   96.617    0.000    2.768    3.224
-    ##    .STAI2_Tnsn_qnt    2.219    0.031   72.664    0.000    2.219    2.402
-    ##    .STAI2_Thghts_q    1.957    0.029   68.142    0.000    1.957    2.170
-    ##    .STAI2_UnmprtT_    2.204    0.030   72.513    0.000    2.204    2.437
-    ##    .STAI2_Wrry_qnt    2.266    0.031   72.619    0.000    2.266    2.424
-    ##    .propmedhigh       0.583    0.029   19.989    0.000    0.583    2.785
+    ##    .BDI_Pnshd_qnts    1.660    0.030   55.913    0.000    1.660    1.784
+    ##    .BDI_Sad_quntsd    1.683    0.025   68.205    0.000    1.683    2.001
+    ##    .BDI_Stsfctn_qn    1.839    0.030   61.846    0.000    1.839    1.988
+    ##    .BDI_Slep_qntsd    1.837    0.029   64.241    0.000    1.837    2.058
+    ##    .BDI_Tird_qntsd    1.914    0.027   70.146    0.000    1.914    2.261
+    ##    .BDI_wght_qntsd    1.372    0.023   60.244    0.000    1.372    1.821
+    ##    .BDI_Work_qntsd    1.788    0.028   64.954    0.000    1.788    2.048
+    ##    .OCIR_1_quantsd    2.395    0.041   58.741    0.000    2.395    2.093
+    ##    .OCIR_10_quntsd    1.987    0.041   48.810    0.000    1.987    1.797
+    ##    .OCIR_11_quntsd    2.197    0.041   52.942    0.000    2.197    1.923
+    ##    .OCIR_12_quntsd    2.311    0.041   56.047    0.000    2.311    2.048
+    ##    .OCIR_13_quntsd    2.421    0.040   60.198    0.000    2.421    2.124
+    ##    .OCIR_14_quntsd    2.183    0.043   51.077    0.000    2.183    1.873
+    ##    .OCIR_15_quntsd    2.399    0.041   57.901    0.000    2.399    2.007
+    ##    .OCIR_16_quntsd    2.123    0.042   50.880    0.000    2.123    1.846
+    ##    .OCIR_17_quntsd    2.171    0.043   50.889    0.000    2.171    1.889
+    ##    .OCIR_18_quntsd    2.229    0.042   52.812    0.000    2.229    1.978
+    ##    .OCIR_2_quantsd    2.646    0.041   64.007    0.000    2.646    2.226
+    ##    .OCIR_3_quantsd    2.465    0.040   61.186    0.000    2.465    2.134
+    ##    .OCIR_4_quantsd    2.214    0.041   53.974    0.000    2.214    1.944
+    ##    .OCIR_5_quantsd    2.149    0.041   52.023    0.000    2.149    1.865
+    ##    .OCIR_6_quantsd    2.374    0.041   58.254    0.000    2.374    2.138
+    ##    .OCIR_7_quantsd    2.185    0.039   55.683    0.000    2.185    1.989
+    ##    .OCIR_8_quantsd    2.264    0.043   53.242    0.000    2.264    1.909
+    ##    .OCIR_9_quantsd    2.520    0.040   62.397    0.000    2.520    2.185
+    ##    .SZ_1_quantised    1.616    0.015  104.289    0.000    1.616    2.904
+    ##    .SZ_10_quantisd    1.768    0.013  131.453    0.000    1.768    3.484
+    ##    .SZ_11_quantisd    1.578    0.016  100.338    0.000    1.578    3.223
+    ##    .SZ_12_quantisd    1.646    0.015  108.087    0.000    1.646    3.407
+    ##    .SZ_13_quantisd    1.583    0.016  100.829    0.000    1.583    3.269
+    ##    .SZ_14_quantisd    1.522    0.016   95.698    0.000    1.522    2.850
+    ##    .SZ_15_quantisd    1.539    0.016   96.911    0.000    1.539    2.915
+    ##    .SZ_16_quantisd    1.513    0.016   95.063    0.000    1.513    2.959
+    ##    .SZ_17_quantisd    1.561    0.016   98.758    0.000    1.561    3.062
+    ##    .SZ_18_quantisd    1.581    0.016  100.631    0.000    1.581    2.947
+    ##    .SZ_19_quantisd    1.555    0.016   98.232    0.000    1.555    3.120
+    ##    .SZ_2_quantised    1.614    0.016  104.056    0.000    1.614    3.011
+    ##    .SZ_20_quantisd    1.711    0.014  118.515    0.000    1.711    3.607
+    ##    .SZ_21_quantisd    1.573    0.016   99.858    0.000    1.573    3.187
+    ##    .SZ_22_quantisd    1.553    0.016   98.061    0.000    1.553    2.814
+    ##    .SZ_23_quantisd    1.599    0.016  102.489    0.000    1.599    3.259
+    ##    .SZ_24_quantisd    1.595    0.016  102.061    0.000    1.595    2.916
+    ##    .SZ_25_quantisd    1.569    0.016   99.484    0.000    1.569    3.094
+    ##    .SZ_26_quantisd    1.304    0.015   89.014    0.000    1.304    2.399
+    ##    .SZ_27_quantisd    1.294    0.015   89.184    0.000    1.294    2.407
+    ##    .SZ_28_quantisd    1.384    0.015   89.363    0.000    1.384    2.362
+    ##    .SZ_29_quantisd    1.586    0.016  101.130    0.000    1.586    3.234
+    ##    .SZ_3_quantised    1.741    0.014  124.876    0.000    1.741    3.429
+    ##    .SZ_30_quantisd    1.419    0.016   90.303    0.000    1.419    2.512
+    ##    .SZ_31_quantisd    1.286    0.014   89.361    0.000    1.286    2.525
+    ##    .SZ_32_quantisd    1.574    0.016   99.953    0.000    1.574    3.194
+    ##    .SZ_33_quantisd    1.367    0.015   89.060    0.000    1.367    2.786
+    ##    .SZ_34_quantisd    1.287    0.014   89.337    0.000    1.287    2.394
+    ##    .SZ_35_quantisd    1.774    0.013  133.142    0.000    1.774    3.032
+    ##    .SZ_36_quantisd    1.550    0.016   97.807    0.000    1.550    3.159
+    ##    .SZ_37_quantisd    1.300    0.015   89.075    0.000    1.300    2.062
+    ##    .SZ_38_quantisd    1.694    0.015  115.378    0.000    1.694    3.283
+    ##    .SZ_39_quantisd    1.289    0.014   89.290    0.000    1.289    2.147
+    ##    .SZ_4_quantised    1.691    0.015  114.855    0.000    1.691    3.581
+    ##    .SZ_40_quantisd    1.575    0.016  100.049    0.000    1.575    3.177
+    ##    .SZ_41_quantisd    1.570    0.016   99.577    0.000    1.570    3.173
+    ##    .SZ_42_quantisd    1.557    0.016   98.406    0.000    1.557    3.067
+    ##    .SZ_5_quantised    1.726    0.014  121.551    0.000    1.726    2.955
+    ##    .SZ_6_quantised    1.717    0.014  119.697    0.000    1.717    3.256
+    ##    .SZ_7_quantised    1.580    0.016  100.533    0.000    1.580    3.280
+    ##    .SZ_8_quantised    1.715    0.014  119.298    0.000    1.715    2.840
+    ##    .SZ_9_quantised    1.622    0.015  105.003    0.000    1.622    3.279
+    ##    .STAI2_Clm_qnts    2.696    0.029   91.999    0.000    2.696    3.087
+    ##    .STAI2_Cntnt_qn    2.687    0.029   92.273    0.000    2.687    3.075
+    ##    .STAI2_Dscns_qn    2.654    0.029   91.891    0.000    2.654    3.063
+    ##    .STAI2_Dffclts_    2.203    0.031   71.866    0.000    2.203    2.388
+    ##    .STAI2_DsppntS_    2.195    0.030   73.006    0.000    2.195    2.409
+    ##    .STAI2_Flr_qnts    2.026    0.031   66.404    0.000    2.026    2.210
+    ##    .STAI2_Hppy_qnt    2.727    0.030   92.362    0.000    2.727    3.116
+    ##    .STAI2_HppyOth_    2.496    0.032   78.276    0.000    2.496    2.569
+    ##    .STAI2_Indqt_qn    2.170    0.031   69.600    0.000    2.170    2.334
+    ##    .STAI2_Nrvs_qnt    2.209    0.030   74.228    0.000    2.209    2.434
+    ##    .STAI2_Plsnt_qn    2.731    0.027  100.238    0.000    2.731    3.238
+    ##    .STAI2_Rstd_qnt    2.472    0.028   86.941    0.000    2.472    2.825
+    ##    .STAI2_StsfdSl_    2.613    0.031   84.470    0.000    2.613    2.951
+    ##    .STAI2_Scr_qnts    2.717    0.030   89.198    0.000    2.717    3.061
+    ##    .STAI2_SlfCnfd_    2.399    0.033   73.182    0.000    2.399    2.410
+    ##    .STAI2_Stdy_qnt    2.768    0.029   96.617    0.000    2.768    3.214
+    ##    .STAI2_Tnsn_qnt    2.219    0.031   72.664    0.000    2.219    2.389
+    ##    .STAI2_Thghts_q    1.957    0.029   68.142    0.000    1.957    2.167
+    ##    .STAI2_UnmprtT_    2.204    0.030   72.513    0.000    2.204    2.436
+    ##    .STAI2_Wrry_qnt    2.266    0.031   72.619    0.000    2.266    2.407
+    ##    .STAI_Anxs_qnts    2.142    0.032   67.530    0.000    2.142    2.235
+    ##    .propmedhigh       0.582    0.029   20.005    0.000    0.582    2.781
     ##     spreadsheet       3.970    0.096   41.551    0.000    3.970    1.323
     ##     Ravens            4.471    0.094   47.661    0.000    4.471    1.518
     ##     Age              34.276    0.325  105.312    0.000   34.276    3.354
@@ -3710,114 +3710,114 @@ summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
     ## 
     ## Variances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##    .BDI_Apptt_qnts    0.492    0.027   18.128    0.000    0.492    0.591
-    ##    .BDI_Attrctv_qn    0.547    0.027   20.319    0.000    0.547    0.660
-    ##    .BDI_Blam_qntsd    0.368    0.020   18.523    0.000    0.368    0.474
-    ##    .BDI_Cry_quntsd    0.460    0.028   16.263    0.000    0.460    0.588
-    ##    .BDI_Dcsns_qnts    0.408    0.022   18.672    0.000    0.408    0.532
-    ##    .BDI_Dsppntmnt_    0.375    0.021   17.889    0.000    0.375    0.483
-    ##    .BDI_Falr_qntsd    0.399    0.021   19.146    0.000    0.399    0.486
-    ##    .BDI_Futr_qntsd    0.390    0.021   18.553    0.000    0.390    0.494
-    ##    .BDI_Glty_qntsd    0.407    0.023   18.045    0.000    0.407    0.516
-    ##    .BDI_Hlth_qntsd    0.424    0.021   19.885    0.000    0.424    0.640
-    ##    .BDI_Intrs_I_P_    0.463    0.024   19.685    0.000    0.463    0.597
-    ##    .BDI_Irrttd_qnt    0.430    0.021   20.298    0.000    0.430    0.547
-    ##    .BDI_Libd_qntsd    0.542    0.029   18.707    0.000    0.542    0.713
-    ##    .BDI_Pnshd_qnts    0.527    0.031   16.914    0.000    0.527    0.602
-    ##    .BDI_Sad_quntsd    0.317    0.019   16.763    0.000    0.317    0.454
-    ##    .BDI_Stsfctn_qn    0.495    0.026   19.006    0.000    0.495    0.579
-    ##    .BDI_Slep_qntsd    0.585    0.028   20.996    0.000    0.585    0.729
-    ##    .BDI_Tird_qntsd    0.453    0.023   19.890    0.000    0.453    0.626
-    ##    .BDI_wght_qntsd    0.401    0.029   13.949    0.000    0.401    0.700
-    ##    .BDI_Work_qntsd    0.399    0.020   20.006    0.000    0.399    0.517
-    ##    .OCIR_1_quantsd    0.826    0.037   22.385    0.000    0.826    0.634
-    ##    .OCIR_10_quntsd    0.571    0.035   16.198    0.000    0.571    0.472
-    ##    .OCIR_11_quntsd    0.683    0.038   18.068    0.000    0.683    0.529
-    ##    .OCIR_12_quntsd    0.737    0.033   22.118    0.000    0.737    0.585
-    ##    .OCIR_13_quntsd    0.965    0.043   22.337    0.000    0.965    0.746
-    ##    .OCIR_14_quntsd    0.768    0.044   17.359    0.000    0.768    0.570
-    ##    .OCIR_15_quntsd    0.971    0.049   19.800    0.000    0.971    0.684
-    ##    .OCIR_16_quntsd    0.744    0.041   17.965    0.000    0.744    0.563
-    ##    .OCIR_17_quntsd    0.678    0.039   17.472    0.000    0.678    0.518
-    ##    .OCIR_18_quntsd    0.691    0.036   19.426    0.000    0.691    0.550
-    ##    .OCIR_2_quantsd    0.996    0.040   24.738    0.000    0.996    0.711
-    ##    .OCIR_3_quantsd    0.931    0.044   20.950    0.000    0.931    0.703
-    ##    .OCIR_4_quantsd    0.694    0.037   18.629    0.000    0.694    0.539
-    ##    .OCIR_5_quantsd    0.779    0.045   17.427    0.000    0.779    0.590
-    ##    .OCIR_6_quantsd    0.747    0.033   22.680    0.000    0.747    0.609
-    ##    .OCIR_7_quantsd    0.807    0.038   21.079    0.000    0.807    0.674
-    ##    .OCIR_8_quantsd    0.826    0.043   19.178    0.000    0.826    0.594
-    ##    .OCIR_9_quantsd    0.934    0.043   21.892    0.000    0.934    0.705
-    ##    .SZ_1_quantised    0.147    0.008   18.547    0.000    0.147    0.479
-    ##    .SZ_10_quantisd    0.122    0.007   18.611    0.000    0.122    0.468
-    ##    .SZ_11_quantisd    0.178    0.006   31.323    0.000    0.178    0.741
-    ##    .SZ_12_quantisd    0.168    0.007   25.427    0.000    0.168    0.711
-    ##    .SZ_13_quantisd    0.164    0.006   29.704    0.000    0.164    0.699
-    ##    .SZ_14_quantisd    0.163    0.007   22.733    0.000    0.163    0.577
-    ##    .SZ_15_quantisd    0.162    0.007   24.864    0.000    0.162    0.587
-    ##    .SZ_16_quantisd    0.189    0.006   29.631    0.000    0.189    0.723
-    ##    .SZ_17_quantisd    0.176    0.006   28.579    0.000    0.176    0.688
-    ##    .SZ_18_quantisd    0.153    0.007   22.950    0.000    0.153    0.538
-    ##    .SZ_19_quantisd    0.175    0.006   28.455    0.000    0.175    0.702
-    ##    .SZ_2_quantised    0.153    0.008   19.758    0.000    0.153    0.526
-    ##    .SZ_20_quantisd    0.124    0.006   21.466    0.000    0.124    0.558
-    ##    .SZ_21_quantisd    0.163    0.006   27.820    0.000    0.163    0.676
-    ##    .SZ_22_quantisd    0.163    0.007   22.564    0.000    0.163    0.540
-    ##    .SZ_23_quantisd    0.163    0.006   27.179    0.000    0.163    0.668
-    ##    .SZ_24_quantisd    0.176    0.008   23.270    0.000    0.176    0.596
-    ##    .SZ_25_quantisd    0.186    0.006   29.554    0.000    0.186    0.727
-    ##    .SZ_26_quantisd    0.224    0.008   26.543    0.000    0.224    0.782
-    ##    .SZ_27_quantisd    0.217    0.009   24.779    0.000    0.217    0.776
-    ##    .SZ_28_quantisd    0.205    0.009   22.733    0.000    0.205    0.599
-    ##    .SZ_29_quantisd    0.207    0.005   38.928    0.000    0.207    0.856
-    ##    .SZ_3_quantised    0.137    0.008   17.740    0.000    0.137    0.510
-    ##    .SZ_30_quantisd    0.209    0.008   24.637    0.000    0.209    0.647
-    ##    .SZ_31_quantisd    0.206    0.008   25.530    0.000    0.206    0.795
-    ##    .SZ_32_quantisd    0.193    0.006   34.084    0.000    0.193    0.791
-    ##    .SZ_33_quantisd    0.205    0.006   36.994    0.000    0.205    0.854
-    ##    .SZ_34_quantisd    0.219    0.009   25.131    0.000    0.219    0.768
-    ##    .SZ_35_quantisd    0.144    0.008   17.147    0.000    0.144    0.428
-    ##    .SZ_36_quantisd    0.178    0.006   31.041    0.000    0.178    0.736
-    ##    .SZ_37_quantisd    0.230    0.010   22.498    0.000    0.230    0.595
-    ##    .SZ_38_quantisd    0.143    0.007   21.413    0.000    0.143    0.547
-    ##    .SZ_39_quantisd    0.231    0.011   21.010    0.000    0.231    0.647
-    ##    .SZ_4_quantised    0.147    0.007   22.265    0.000    0.147    0.655
-    ##    .SZ_40_quantisd    0.192    0.006   33.059    0.000    0.192    0.781
-    ##    .SZ_41_quantisd    0.175    0.006   29.767    0.000    0.175    0.717
-    ##    .SZ_42_quantisd    0.166    0.007   25.430    0.000    0.166    0.637
-    ##    .SZ_5_quantised    0.135    0.008   15.943    0.000    0.135    0.389
-    ##    .SZ_6_quantised    0.136    0.007   19.444    0.000    0.136    0.492
-    ##    .SZ_7_quantised    0.171    0.006   30.454    0.000    0.171    0.732
-    ##    .SZ_8_quantised    0.142    0.009   16.266    0.000    0.142    0.387
-    ##    .SZ_9_quantised    0.160    0.006   25.817    0.000    0.160    0.650
-    ##    .STAI2_Clm_qnts    0.406    0.019   21.454    0.000    0.406    0.535
-    ##    .STAI2_Cntnt_qn    0.432    0.021   20.339    0.000    0.432    0.568
-    ##    .STAI2_Dscns_qn    0.447    0.020   22.662    0.000    0.447    0.599
-    ##    .STAI2_Dffclts_    0.478    0.022   21.263    0.000    0.478    0.566
-    ##    .STAI2_DsppntS_    0.540    0.025   21.616    0.000    0.540    0.656
-    ##    .STAI2_Flr_qnts    0.418    0.022   19.457    0.000    0.418    0.498
-    ##    .STAI2_Hppy_qnt    0.364    0.017   21.692    0.000    0.364    0.475
-    ##    .STAI2_HppyOth_    0.701    0.030   23.159    0.000    0.701    0.747
-    ##    .STAI2_Indqt_qn    0.520    0.027   19.550    0.000    0.520    0.610
-    ##    .STAI2_Nrvs_qnt    0.448    0.022   20.709    0.000    0.448    0.553
-    ##    .STAI2_Plsnt_qn    0.312    0.016   19.562    0.000    0.312    0.442
-    ##    .STAI2_Rstd_qnt    0.526    0.025   20.848    0.000    0.526    0.691
-    ##    .STAI2_StsfdSl_    0.368    0.016   23.097    0.000    0.368    0.467
-    ##    .STAI2_Scr_qnts    0.420    0.020   20.698    0.000    0.420    0.533
-    ##    .STAI2_SlfCnfd_    0.750    0.032   23.743    0.000    0.750    0.769
-    ##    .STAI2_Stdy_qnt    0.367    0.020   18.488    0.000    0.367    0.498
-    ##    .STAI2_Tnsn_qnt    0.460    0.022   20.470    0.000    0.460    0.539
-    ##    .STAI2_Thghts_q    0.379    0.019   20.091    0.000    0.379    0.466
-    ##    .STAI2_UnmprtT_    0.506    0.023   22.364    0.000    0.506    0.619
-    ##    .STAI2_Wrry_qnt    0.580    0.025   23.198    0.000    0.580    0.664
-    ##    .propmedhigh       0.041    0.002   24.730    0.000    0.041    0.946
-    ##     spreadsheet       8.999    0.006 1547.970    0.000    8.999    1.000
+    ##    .BDI_Attrctv_qn    0.553    0.027   20.363    0.000    0.553    0.667
+    ##    .BDI_Blam_qntsd    0.373    0.020   18.697    0.000    0.373    0.487
+    ##    .BDI_Cry_quntsd    0.469    0.029   16.427    0.000    0.469    0.598
+    ##    .BDI_Dcsns_qnts    0.414    0.022   18.822    0.000    0.414    0.537
+    ##    .BDI_Dsppntmnt_    0.381    0.021   18.030    0.000    0.381    0.485
+    ##    .BDI_Falr_qntsd    0.403    0.021   19.240    0.000    0.403    0.497
+    ##    .BDI_Futr_qntsd    0.395    0.021   18.715    0.000    0.395    0.502
+    ##    .BDI_Glty_qntsd    0.414    0.023   18.276    0.000    0.414    0.525
+    ##    .BDI_Hlth_qntsd    0.427    0.021   19.952    0.000    0.427    0.656
+    ##    .BDI_Intrs_I_P_    0.469    0.024   19.743    0.000    0.469    0.603
+    ##    .BDI_Irrttd_qnt    0.437    0.021   20.487    0.000    0.437    0.561
+    ##    .BDI_Libd_qntsd    0.546    0.029   18.838    0.000    0.546    0.718
+    ##    .BDI_Pnshd_qnts    0.536    0.031   17.060    0.000    0.536    0.619
+    ##    .BDI_Sad_quntsd    0.322    0.019   16.941    0.000    0.322    0.455
+    ##    .BDI_Stsfctn_qn    0.502    0.026   19.205    0.000    0.502    0.587
+    ##    .BDI_Slep_qntsd    0.593    0.028   21.148    0.000    0.593    0.744
+    ##    .BDI_Tird_qntsd    0.458    0.023   19.999    0.000    0.458    0.640
+    ##    .BDI_wght_qntsd    0.404    0.029   13.902    0.000    0.404    0.712
+    ##    .BDI_Work_qntsd    0.405    0.020   20.169    0.000    0.405    0.531
+    ##    .OCIR_1_quantsd    0.815    0.037   22.150    0.000    0.815    0.622
+    ##    .OCIR_10_quntsd    0.559    0.035   16.106    0.000    0.559    0.457
+    ##    .OCIR_11_quntsd    0.666    0.037   17.949    0.000    0.666    0.511
+    ##    .OCIR_12_quntsd    0.706    0.033   21.736    0.000    0.706    0.554
+    ##    .OCIR_13_quntsd    0.955    0.043   22.143    0.000    0.955    0.735
+    ##    .OCIR_14_quntsd    0.748    0.044   17.186    0.000    0.748    0.551
+    ##    .OCIR_15_quntsd    0.958    0.049   19.595    0.000    0.958    0.671
+    ##    .OCIR_16_quntsd    0.738    0.041   17.968    0.000    0.738    0.558
+    ##    .OCIR_17_quntsd    0.664    0.038   17.250    0.000    0.664    0.502
+    ##    .OCIR_18_quntsd    0.666    0.035   19.189    0.000    0.666    0.525
+    ##    .OCIR_2_quantsd    0.976    0.040   24.397    0.000    0.976    0.690
+    ##    .OCIR_3_quantsd    0.920    0.044   20.741    0.000    0.920    0.690
+    ##    .OCIR_4_quantsd    0.681    0.037   18.477    0.000    0.681    0.525
+    ##    .OCIR_5_quantsd    0.772    0.045   17.308    0.000    0.772    0.581
+    ##    .OCIR_6_quantsd    0.727    0.032   22.483    0.000    0.727    0.589
+    ##    .OCIR_7_quantsd    0.798    0.038   20.916    0.000    0.798    0.661
+    ##    .OCIR_8_quantsd    0.800    0.043   18.795    0.000    0.800    0.569
+    ##    .OCIR_9_quantsd    0.921    0.042   21.680    0.000    0.921    0.692
+    ##    .SZ_1_quantised    0.148    0.008   18.494    0.000    0.148    0.477
+    ##    .SZ_10_quantisd    0.121    0.007   18.617    0.000    0.121    0.471
+    ##    .SZ_11_quantisd    0.179    0.006   31.716    0.000    0.179    0.747
+    ##    .SZ_12_quantisd    0.168    0.007   25.794    0.000    0.168    0.720
+    ##    .SZ_13_quantisd    0.164    0.006   29.723    0.000    0.164    0.700
+    ##    .SZ_14_quantisd    0.164    0.007   22.685    0.000    0.164    0.575
+    ##    .SZ_15_quantisd    0.163    0.007   24.694    0.000    0.163    0.583
+    ##    .SZ_16_quantisd    0.190    0.006   29.761    0.000    0.190    0.726
+    ##    .SZ_17_quantisd    0.177    0.006   28.243    0.000    0.177    0.683
+    ##    .SZ_18_quantisd    0.154    0.007   22.807    0.000    0.154    0.534
+    ##    .SZ_19_quantisd    0.177    0.006   29.058    0.000    0.177    0.714
+    ##    .SZ_2_quantised    0.153    0.008   19.955    0.000    0.153    0.532
+    ##    .SZ_20_quantisd    0.123    0.006   21.257    0.000    0.123    0.548
+    ##    .SZ_21_quantisd    0.164    0.006   27.694    0.000    0.164    0.674
+    ##    .SZ_22_quantisd    0.164    0.007   22.496    0.000    0.164    0.538
+    ##    .SZ_23_quantisd    0.164    0.006   27.726    0.000    0.164    0.680
+    ##    .SZ_24_quantisd    0.177    0.008   23.210    0.000    0.177    0.592
+    ##    .SZ_25_quantisd    0.187    0.006   29.457    0.000    0.187    0.726
+    ##    .SZ_26_quantisd    0.227    0.009   26.323    0.000    0.227    0.768
+    ##    .SZ_27_quantisd    0.221    0.009   24.487    0.000    0.221    0.763
+    ##    .SZ_28_quantisd    0.205    0.009   22.665    0.000    0.205    0.598
+    ##    .SZ_29_quantisd    0.207    0.005   39.469    0.000    0.207    0.860
+    ##    .SZ_3_quantised    0.134    0.007   17.935    0.000    0.134    0.521
+    ##    .SZ_30_quantisd    0.208    0.008   24.799    0.000    0.208    0.651
+    ##    .SZ_31_quantisd    0.206    0.008   25.544    0.000    0.206    0.795
+    ##    .SZ_32_quantisd    0.193    0.006   34.427    0.000    0.193    0.796
+    ##    .SZ_33_quantisd    0.207    0.006   37.245    0.000    0.207    0.858
+    ##    .SZ_34_quantisd    0.221    0.009   25.135    0.000    0.221    0.764
+    ##    .SZ_35_quantisd    0.146    0.008   17.185    0.000    0.146    0.427
+    ##    .SZ_36_quantisd    0.179    0.006   31.444    0.000    0.179    0.742
+    ##    .SZ_37_quantisd    0.234    0.010   22.646    0.000    0.234    0.588
+    ##    .SZ_38_quantisd    0.144    0.007   21.377    0.000    0.144    0.541
+    ##    .SZ_39_quantisd    0.234    0.011   21.092    0.000    0.234    0.648
+    ##    .SZ_4_quantised    0.146    0.007   22.322    0.000    0.146    0.654
+    ##    .SZ_40_quantisd    0.192    0.006   33.015    0.000    0.192    0.780
+    ##    .SZ_41_quantisd    0.175    0.006   29.715    0.000    0.175    0.716
+    ##    .SZ_42_quantisd    0.165    0.006   25.719    0.000    0.165    0.642
+    ##    .SZ_5_quantised    0.134    0.008   16.012    0.000    0.134    0.393
+    ##    .SZ_6_quantised    0.137    0.007   19.403    0.000    0.137    0.491
+    ##    .SZ_7_quantised    0.171    0.006   30.840    0.000    0.171    0.737
+    ##    .SZ_8_quantised    0.142    0.009   16.306    0.000    0.142    0.389
+    ##    .SZ_9_quantised    0.160    0.006   25.818    0.000    0.160    0.653
+    ##    .STAI2_Clm_qnts    0.403    0.019   21.347    0.000    0.403    0.529
+    ##    .STAI2_Cntnt_qn    0.430    0.021   20.236    0.000    0.430    0.563
+    ##    .STAI2_Dscns_qn    0.449    0.020   22.668    0.000    0.449    0.597
+    ##    .STAI2_Dffclts_    0.472    0.022   21.135    0.000    0.472    0.554
+    ##    .STAI2_DsppntS_    0.534    0.025   21.392    0.000    0.534    0.643
+    ##    .STAI2_Flr_qnts    0.418    0.021   19.520    0.000    0.418    0.497
+    ##    .STAI2_Hppy_qnt    0.364    0.017   21.687    0.000    0.364    0.475
+    ##    .STAI2_HppyOth_    0.694    0.030   22.888    0.000    0.694    0.735
+    ##    .STAI2_Indqt_qn    0.513    0.027   19.195    0.000    0.513    0.593
+    ##    .STAI2_Nrvs_qnt    0.440    0.021   20.501    0.000    0.440    0.535
+    ##    .STAI2_Plsnt_qn    0.310    0.016   19.551    0.000    0.310    0.436
+    ##    .STAI2_Rstd_qnt    0.525    0.025   20.746    0.000    0.525    0.686
+    ##    .STAI2_StsfdSl_    0.369    0.016   23.172    0.000    0.369    0.471
+    ##    .STAI2_Scr_qnts    0.419    0.020   20.631    0.000    0.419    0.531
+    ##    .STAI2_SlfCnfd_    0.742    0.032   23.280    0.000    0.742    0.749
+    ##    .STAI2_Stdy_qnt    0.364    0.020   18.411    0.000    0.364    0.492
+    ##    .STAI2_Tnsn_qnt    0.451    0.022   20.303    0.000    0.451    0.523
+    ##    .STAI2_Thghts_q    0.378    0.019   20.069    0.000    0.378    0.463
+    ##    .STAI2_UnmprtT_    0.502    0.022   22.367    0.000    0.502    0.613
+    ##    .STAI2_Wrry_qnt    0.572    0.025   22.940    0.000    0.572    0.645
+    ##    .STAI_Anxs_qnts    0.539    0.027   20.159    0.000    0.539    0.587
+    ##    .propmedhigh       0.042    0.002   24.744    0.000    0.042    0.946
+    ##     spreadsheet       8.999    0.006 1547.978    0.000    8.999    1.000
     ##     Ravens            8.675    0.336   25.847    0.000    8.675    1.000
     ##     Age             104.447    6.170   16.927    0.000  104.447    1.000
     ##     GenderMF          0.243    0.003   90.799    0.000    0.243    1.000
-    ##     F1                0.762    0.029   26.573    0.000    1.000    1.000
-    ##     F2                0.874    0.034   25.511    0.000    1.000    1.000
-    ##     F3                0.171    0.011   15.382    0.000    1.000    1.000
+    ##     F1                0.759    0.029   26.185    0.000    1.000    1.000
+    ##     F2                0.899    0.035   25.559    0.000    1.000    1.000
+    ##     F3                0.166    0.011   14.610    0.000    1.000    1.000
 
 ``` r
 ESEMfits <-data.frame(fitMeasures(fititem.factors, c("bic","aic","rmsea","rmsea.ci.lower", "rmsea.ci.upper")))
@@ -3829,7 +3829,7 @@ kable(t(ESEMfits), digits = 3)
 
 |                |       BIC|       AIC|  RMSEA|  RMSEA CI-|  RMSEA CI+|
 |----------------|---------:|---------:|------:|----------:|----------:|
-| p(mid as high) |  199062.1|  197882.7|  0.052|      0.051|      0.053|
+| p(mid as high) |  199001.6|  197822.2|  0.052|      0.051|      0.052|
 
 #### Interpretation
 
