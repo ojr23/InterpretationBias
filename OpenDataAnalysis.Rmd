@@ -1069,6 +1069,19 @@ print(paste("The effect size of the Human group difference is d=", (round(cohens
 t.test(Age ~ group, data = cluGroupBDI, var.equal = T)
 t.test(Ravens ~ group, data = cluGroupBDI, var.equal = T)
 
+###test how frequent latent factor soln is -commented out because it takes ages to run!
+
+###this runs the latent mixture model 1000 times with random starts (based on shuffling the data order)
+#countG =NA
+#for (i in 1:1000) {
+#modsymp = Mclust(symptomdata, initialization=list(hcPairs = randomPairs(symptomdata)), verbose = F)
+#countG[i]=modsymp$G
+#}
+#ggplot(data.frame(countG), aes(x=countG)) + geom_histogram(binwidth=1, color="darkblue", fill="lightblue")
+
+#length(which(countG == 4))  #answer = 898 (90%) - so should report 4 (not 5) factor solution
+#length(which(countG == 5)) #answer = 61 (6%)
+
 
 
 ```
