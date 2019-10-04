@@ -1192,3 +1192,48 @@ kable(t(ESEMfits), digits = 3)
 ####Interpretation
 In this ESEM we show that the AnxDepression factor (F1) alone significantly influences task performance. Zooming out, both the simple regression and the ESEM agree that of mental health-relevant symptoms, task performance is driven by symptoms of mood and anxiety disorders and not OCD or Psychosis symptoms. This suggests that our original clinical study in mood and anxiety disorders did not reflect a generic pathology, but rather that effects may be selective to the mood and anxiety symptom group that we originally tested. This also suggests that we must also control for age and IQ if we ever want  to use this to inform clinical decision-making. 
 
+###Potential Confounds
+We repated the original regression also including the original factors:
+
+* Spreadsheet (categorical): represents the counterbalancing condition
+* Ravens (continuous): IQ measure (visual matrices)
+* Age (continuous): years old
+* BDI (continuous): Beck depression inventory (suicide question removed)
+* STAI2 (continuous): Spielberger Trait Anxiety
+* OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
+* SZ (continuous): Schizotypal short scale 
+* GenderMF (categorical): Self-reported gender
+
+As well as potential confounds:
+
+* PastMH (categorical): do you have any past mental health problems?
+* CurrentMH (categorical): do you have any current mental health problems?
+* SoughtHelp (categorical): have you ever sought help for mental health problems?
+* CurrentTreatment (categorical): are you undergoing current treatmend for mental health problems?
+* Medication (categorical): are you currently taking medication for mental health problems?
+* Family_Schizophrenia (categorical): do you have a family history of schizophrenia?
+* Family_Bipolar (categorical): do you have a family history of bipolar disorder?
+* Schizophrenia (categorical): do you have a current diagnosis of schizophrenia?
+* Bipolar (categorical): do you have a current diagnosis of bipolar disorder?
+* Neurological_Disorder (categorical): do you currently have a neurological disorder?
+* TakeDrugs (categorical): do you take recreational drugs?
+* DrinkAlcohol (categorical): do you drink alcohol?
+* Learning_Disability (categorical): do you have a learning disability?
+
+
+```{r message=FALSE, warning=FALSE}
+
+
+NegBiasconfmodel <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR + PastMH + CurrentMH + SoughtHelp + CurrentTreatment + Medication + Family_Schizophrenia + Family_Bipolar + Schizophrenia + Bipolar + Neurological_Disorder + TakeDrugs + DrinkAlcohol + Learning_Disability'
+
+
+fitconf <- sem(NegBiasconfmodel, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+
+summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) including all potential confounds
+
+```
+
+####Interpretation
+Current diagnosis or treatment factors do not confound the primary inference.
+
+

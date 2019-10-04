@@ -3834,3 +3834,103 @@ kable(t(ESEMfits), digits = 3)
 #### Interpretation
 
 In this ESEM we show that the AnxDepression factor (F1) alone significantly influences task performance. Zooming out, both the simple regression and the ESEM agree that of mental health-relevant symptoms, task performance is driven by symptoms of mood and anxiety disorders and not OCD or Psychosis symptoms. This suggests that our original clinical study in mood and anxiety disorders did not reflect a generic pathology, but rather that effects may be selective to the mood and anxiety symptom group that we originally tested. This also suggests that we must also control for age and IQ if we ever want to use this to inform clinical decision-making.
+
+### Potential Confounds
+
+We repated the original regression also including the original factors:
+
+-   Spreadsheet (categorical): represents the counterbalancing condition
+-   Ravens (continuous): IQ measure (visual matrices)
+-   Age (continuous): years old
+-   BDI (continuous): Beck depression inventory (suicide question removed)
+-   STAI2 (continuous): Spielberger Trait Anxiety
+-   OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
+-   SZ (continuous): Schizotypal short scale
+-   GenderMF (categorical): Self-reported gender
+
+As well as potential confounds:
+
+-   PastMH (categorical): do you have any past mental health problems?
+-   CurrentMH (categorical): do you have any current mental health problems?
+-   SoughtHelp (categorical): have you ever sought help for mental health problems?
+-   CurrentTreatment (categorical): are you undergoing current treatmend for mental health problems?
+-   Medication (categorical): are you currently taking medication for mental health problems?
+-   Family\_Schizophrenia (categorical): do you have a family history of schizophrenia?
+-   Family\_Bipolar (categorical): do you have a family history of bipolar disorder?
+-   Schizophrenia (categorical): do you have a current diagnosis of schizophrenia?
+-   Bipolar (categorical): do you have a current diagnosis of bipolar disorder?
+-   Neurological\_Disorder (categorical): do you currently have a neurological disorder?
+-   TakeDrugs (categorical): do you take recreational drugs?
+-   DrinkAlcohol (categorical): do you drink alcohol?
+-   Learning\_Disability (categorical): do you have a learning disability?
+
+``` r
+NegBiasconfmodel <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR + PastMH + CurrentMH + SoughtHelp + CurrentTreatment + Medication + Family_Schizophrenia + Family_Bipolar + Schizophrenia + Bipolar + Neurological_Disorder + TakeDrugs + DrinkAlcohol + Learning_Disability'
+
+
+fitconf <- sem(NegBiasconfmodel, data=combineditemdata, meanstructure=TRUE,  estimator = "MLR")
+
+summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) including all potential confounds
+```
+
+    ## lavaan 0.6-3 ended normally after 72 iterations
+    ## 
+    ##   Optimization method                           NLMINB
+    ##   Number of free parameters                         23
+    ## 
+    ##                                                   Used       Total
+    ##   Number of observations                           986        1060
+    ## 
+    ##   Estimator                                         ML      Robust
+    ##   Model Fit Test Statistic                       0.000       0.000
+    ##   Degrees of freedom                                 0           0
+    ##   Minimum Function Value               0.0000000000000
+    ##   Scaling correction factor                                     NA
+    ##     for the Yuan-Bentler correction (Mplus variant)
+    ## 
+    ## Parameter Estimates:
+    ## 
+    ##   Information                                 Observed
+    ##   Observed information based on                Hessian
+    ##   Standard Errors                   Robust.huber.white
+    ## 
+    ## Regressions:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##   propmedhigh ~                                                         
+    ##     GenderMF          0.021    0.014    1.550    0.121    0.021    0.050
+    ##     Age              -0.002    0.001   -3.369    0.001   -0.002   -0.107
+    ##     Ravens            0.009    0.002    3.917    0.000    0.009    0.133
+    ##     spreadsheet       0.006    0.002    2.641    0.008    0.006    0.082
+    ##     BDI              -0.002    0.001   -2.411    0.016   -0.002   -0.124
+    ##     STAI2             0.000    0.001    0.430    0.667    0.000    0.022
+    ##     SZ               -0.001    0.001   -0.904    0.366   -0.001   -0.049
+    ##     OCIR              0.000    0.001    0.383    0.702    0.000    0.019
+    ##     PastMH           -0.004    0.019   -0.232    0.816   -0.004   -0.010
+    ##     CurrentMH         0.016    0.019    0.806    0.420    0.016    0.033
+    ##     SoughtHelp        0.030    0.018    1.671    0.095    0.030    0.071
+    ##     CurrentTretmnt   -0.017    0.022   -0.782    0.434   -0.017   -0.038
+    ##     Medication        0.002    0.020    0.122    0.903    0.002    0.006
+    ##     Famly_Schzphrn   -0.027    0.021   -1.291    0.197   -0.027   -0.053
+    ##     Family_Bipolar   -0.013    0.018   -0.709    0.478   -0.013   -0.026
+    ##     Schizophrenia     0.045    0.028    1.592    0.111    0.045    0.073
+    ##     Bipolar          -0.018    0.023   -0.793    0.428   -0.018   -0.033
+    ##     Neurlgcl_Dsrdr   -0.012    0.022   -0.530    0.596   -0.012   -0.020
+    ##     TakeDrugs         0.011    0.015    0.765    0.444    0.011    0.027
+    ##     DrinkAlcohol     -0.009    0.014   -0.631    0.528   -0.009   -0.020
+    ##     Learnng_Dsblty   -0.007    0.020   -0.321    0.748   -0.007   -0.012
+    ## 
+    ## Intercepts:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.647    0.057   11.324    0.000    0.647    3.088
+    ## 
+    ## Variances:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.041    0.002   24.789    0.000    0.041    0.935
+    ## 
+    ## R-Square:
+    ##                    Estimate
+    ##     propmedhigh       0.065
+
+#### Interpretation
+
+Current diagnosis or treatment factors do not confound the primary inference.
