@@ -1,22 +1,55 @@
-Background
-==========
+\#Background
 
-This study builds on prior work developing a measure of negative affective bias as indexed by proportion of mid tones interpreted as high reward ('p(mid as high)') in A) a rat pharmacological model of mood and anxiety disorders (Hales et al., 2016) and B) humans with mood and anxiety disorders relative to healthy controls (Aylward et al., 2019).
+This study builds on prior work developing a measure of negative
+affective bias as indexed by proportion of mid tones interpreted as high
+reward (‘p(mid as high)’) in A) a rat pharmacological model of mood and
+anxiety disorders (Hales et al., 2016) and B) humans with mood and
+anxiety disorders relative to healthy controls (Aylward et al., 2019).
 
-#### Task details
+\#\#\#\#Task details In both cases, the 2-alternative-forced-choice task
+involved training participants to press a button/lever (left or right)
+when they heard a tone (high or low) to receive a reward (1 or 3 ?/rat
+pellets). The stimulus-response-outcome contingencies were 100% (but
+counterbalanced across individuals). Following training, participants
+were then also played tones of a frequency exactly equidistant between
+the high and low tones. The primary outcome of interest is the
+proportion of times the participant pressed the button/lever associated
+with the high reward outcome for the ambiguous mid tone (referred to as
+‘p(mid as high)’). Of note, the rat study is a within-subject
+anxiogenic manipulation, whereas the human study is a case control
+design. Both A) symptomatic (‘Symptom’) rats and B) humans both
+demonstrate significantly increased negative affective bias
+(i.e. reduced prediction that ambiguous outcomes will lead to higher
+rewards: ‘p(mid as high)’) relative to non-symptomatic controls (‘HC’).
 
-In both cases, the 2-alternative-forced-choice task involved training participants to press a button/lever (left or right) when they heard a tone (high or low) to receive a reward (1 or 3 £/rat pellets). The stimulus-response-outcome contingencies were 100% (but counterbalanced across individuals). Following training, participants were then also played tones of a frequency exactly equidistant between the high and low tones. The primary outcome of interest is the proportion of times the participant pressed the button/lever associated with the high reward outcome for the ambiguous mid tone (referred to as 'p(mid as high)'). Of note, the rat study is a within-subject anxiogenic manipulation, whereas the human study is a case control design. Both A) symptomatic ('Symptom') rats and B) humans both demonstrate significantly increased negative affective bias (i.e. reduced prediction that ambiguous outcomes will lead to higher rewards: 'p(mid as high)') relative to non-symptomatic controls ('HC').
+\#\#\#\#Next steps This prior work suggests that this cognitive measure
+is sensitive to pathological symptoms. We have three objectives for the
+present study. Firstly we wanted to explore and remove sources of
+between-subject bias within the task so as to maximise our chances of
+measuring individual differences in task performance. Secondly, we
+wanted to explore factors which contribute to individual differences in
+task performance in a large cross-sectional sample. Specifically, we are
+interested in which specific psychiatric-relevant symptoms/traits
+contribute to task performance. Finally, once we identify relevant
+traits, can we re-capitulate the effect of clinical screening in a large
+unscreened online sample?
 
-#### Next steps
+\#1: Piloting to explore sources of between-subject bias To speed up
+data collection and facilitate the collection of larger samples we
+adapted the task for online use. To this end, we decided to switch the
+task from the auditory domain (which would require us to check/trust
+that remote participants could hear the stimuli) to the visual domain.
+In the first pilot A) we tested N=264 participants in a version of the
+task which substituted high and low frequency tones of large and small
+area circles. This lead to four counterbalancing versions (labelled 1-4
+below; sorted by level of bias). Following discovery of clear
+between-subject bias we next tested B) N=158 individuals on a task that
+involved orientation of a line. Instead of high/low we had
+vertical/horizontal. The intermediate stimuli were either 45 or 135
+degrees, which lead to 8 counterbalancing versions (labelled 1-8 below;
+sorted by level of bias).
 
-This prior work suggests that this cognitive measure is sensitive to pathological symptoms. We have three objectives for the present study. Firstly we wanted to explore and remove sources of between-subject bias within the task so as to maximise our chances of measuring individual differences in task performance. Secondly, we wanted to explore factors which contribute to individual differences in task performance in a large cross-sectional sample. Specifically, we are interested in which specific psychiatric-relevant symptoms/traits contribute to task performance. Finally, once we identify relevant traits, can we re-capitulate the effect of clinical screening in a large unscreened online sample?
-
-1: Piloting to explore sources of between-subject bias
-======================================================
-
-To speed up data collection and facilitate the collection of larger samples we adapted the task for online use. To this end, we decided to switch the task from the auditory domain (which would require us to check/trust that remote participants could hear the stimuli) to the visual domain. In the first pilot A) we tested N=264 participants in a version of the task which substituted high and low frequency tones of large and small area circles. This lead to four counterbalancing versions (labelled 1-4 below; sorted by level of bias). Following discovery of clear between-subject bias we next tested B) N=158 individuals on a task that involved orientation of a line. Instead of high/low we had vertical/horizontal. The intermediate stimuli were either 45 or 135 degrees, which lead to 8 counterbalancing versions (labelled 1-8 below; sorted by level of bias).
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
     ##              Df Sum Sq Mean Sq F value Pr(>F)    
     ## group         3  3.964  1.3215   35.28 <2e-16 ***
@@ -86,16 +119,38 @@ To speed up data collection and facilitate the collection of larger samples we a
     ## 8-6 -0.044527340 -0.25247376  0.16341908 0.9978766
     ## 8-7 -0.054415247 -0.28398691  0.17515642 0.9959758
 
-#### Interpretation
+\#\#\#\#Interpretation Both tasks demonstrate clear sources of
+between-subject bias. In short, individuals demonstrated ‘higher’ bias
+when large (or vertical) stimuli were paired with large rewards on the
+right hand side. These reflect pre-potent biases (e.g. bigger things
+usually cost more and in latinate languages we read from left to right
+etc.). Smaller biases were observed when the stimulus-response-outcome
+contingencies were incongruent with these pre-potent biases. These
+biases add to the noise in within-subject or case-control designs, but
+effects can still be observed over and above these effects.
+Unfortunately if we care about within-subject differences in a
+cross-sectional design we have to remove this. We decided to restrict
+further testing to the intermediate bias scores on pilot 2
+(counterbalancing 1 and 7). Thus we would need to control for
+counterbalancing but would only have two groups (rather than 8). Of
+note, we chose pilot 2 design rather than pilot 1 because a circle has
+both area and diameter that a participant may attend to, whereas there
+is only one interpretation of line orientation.
 
-Both tasks demonstrate clear sources of between-subject bias. In short, individuals demonstrated 'higher' bias when large (or vertical) stimuli were paired with large rewards on the right hand side. These reflect pre-potent biases (e.g. bigger things usually cost more and in latinate languages we read from left to right etc.). Smaller biases were observed when the stimulus-response-outcome contingencies were incongruent with these pre-potent biases. These biases add to the noise in within-subject or case-control designs, but effects can still be observed over and above these effects. Unfortunately if we care about within-subject differences in a cross-sectional design we have to remove this. We decided to restrict further testing to the intermediate bias scores on pilot 2 (counterbalancing 1 and 7). Thus we would need to control for counterbalancing but would only have two groups (rather than 8). Of note, we chose pilot 2 design rather than pilot 1 because a circle has both area and diameter that a participant may attend to, whereas there is only one interpretation of line orientation.
+\#2: Exploring contributors to bias in cross-sectional data We next
+collected data from N=1066 using counterbalancing 1 and 7 from pilot 2.
+As in the pilot the full sample demonstrate a) affective bias (p(mid) as
+high) and d) drift rate that are significantly biased towards highest
+reward (see results of one sample t-tests below figure). Drift rate is a
+parameter from a ‘drift diffusion model’ of decision making that we
+discussed in Aylward et al. 2019. The effects are strongly correlated
+with p(mid as high), but presented for completeness. Since the internal
+reliability of a measure puts an upper limit on relationship between
+that measure and other measures we also determined the split-half
+reliability (for 100000 random splits) of individual’s responses to the
+40 ambigous trials.
 
-2: Exploring contributors to bias in cross-sectional data
-=========================================================
-
-We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid as high), but presented for completeness. Since the internal reliability of a measure puts an upper limit on relationship between that measure and other measures we also determined the split-half reliability (for 100000 random splits) of individual's responses to the 40 ambigous trials.
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
     ## 
     ##  One Sample t-test
@@ -121,14 +176,14 @@ We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. 
     ##   mean of x 
     ## 0.004605798
 
-|        |  mean|  std|  lower range|  upper range|
-|--------|-----:|----:|------------:|------------:|
-| Age    |    34|   10|           18|           76|
-| Ravens |     4|    3|            0|           12|
-| OCIR   |    42|   18|           18|           90|
-| SZ     |    16|    9|            0|           51|
-| BDI    |    15|   12|            0|           56|
-| STAI   |    45|   12|           20|           78|
+|        | mean | std | lower range | upper range |
+| ------ | ---: | --: | ----------: | ----------: |
+| Age    |   34 |  10 |          18 |          76 |
+| Ravens |    4 |   3 |           0 |          12 |
+| OCIR   |   24 |  18 |           0 |          72 |
+| SZ     |   16 |   9 |           0 |          51 |
+| BDI    |   15 |  12 |           0 |          56 |
+| STAI   |   45 |  12 |          20 |          78 |
 
     ## Split half reliabilities  
     ## Call: splitHalf(r = dataforsh, raw = T, brute = FALSE, n.sample = 1e+05, 
@@ -139,25 +194,34 @@ We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. 
     ## Guttman lambda 6                          =  0.93
     ## Average split half reliability            =  0.91
     ## Guttman lambda 3 (alpha)                  =  0.91
-    ## Minimum split half reliability  (beta)    =  0.86
+    ## Guttman lambda 2                          =  0.92
+    ## Minimum split half reliability  (beta)    =  0.87
     ## Average interitem r =  0.21  with median =  0.21
     ##                                              2.5% 50% 97.5%
     ##  Quantiles of split half reliability      =  0.9 0.92 0.93
 
-### Simple Linear Regression of measures
+\#\#\#Simple Linear Regression of measures To explore the impact of
+trait/demographic measures on task performance we next ran a linear
+regression (using Robust ML estimator for consistency with SEM below) to
+predict p(mid as high)(‘propmedhigh’ variable) and drift rate. The
+variables we included are:
 
-To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable) and drift rate. The variables we included are:
+  - Spreadsheet (categorical): represents the counterbalancing condition
+  - Ravens (continuous): IQ measure (visual matrices)
+  - Age (continuous): years old
+  - BDI (continuous): Beck depression inventory (suicide question
+    removed)
+  - STAI2 (continuous): Spielberger Trait Anxiety
+  - OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
+  - SZ (continuous): Schizotypal short scale
+  - GenderMF (categorical): Self-reported gender
 
--   Spreadsheet (categorical): represents the counterbalancing condition
--   Ravens (continuous): IQ measure (visual matrices)
--   Age (continuous): years old
--   BDI (continuous): Beck depression inventory (suicide question removed)
--   STAI2 (continuous): Spielberger Trait Anxiety
--   OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
--   SZ (continuous): Schizotypal short scale
--   GenderMF (categorical): Self-reported gender
-
-Below we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
+Below we provide estimates where missing data is listwise deleted
+(N=990) or where missing data is estimated using maximum likelihood
+(N=1066). The more conservative listwise deleted version is resported in
+the manuscript, but as can be seen the inference remains the same
+(albeit with slightly larger effect sizes in the estimated N=1066
+version)
 
 ``` r
 NegBiasmodel.1 <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
@@ -174,25 +238,25 @@ fit2miss <- sem(NegBiasmodel.2, data=combineditemdata, meanstructure=TRUE,  esti
 summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 57 iterations
+    ## lavaan 0.6-5 ended normally after 57 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                         10
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                       0.000       0.000
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
     ##   Degrees of freedom                                 0           0
-    ##   Scaling correction factor                                     NA
-    ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -222,26 +286,25 @@ summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) list
 summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise delete missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 112 iterations
+    ## lavaan 0.6-5 ended normally after 112 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                         10
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                       0.000       0.000
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
     ##   Degrees of freedom                                 0           0
-    ##   Minimum Function Value               0.0000000000000
-    ##   Scaling correction factor                                     NA
-    ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -271,26 +334,26 @@ summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise 
 summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) estimate missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 57 iterations
+    ## lavaan 0.6-5 ended normally after 57 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                         10
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ##   Number of missing patterns                         1
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                       0.000       0.000
+    ##   Number of missing patterns                         1            
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
     ##   Degrees of freedom                                 0           0
-    ##   Scaling correction factor                                     NA
-    ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -320,27 +383,26 @@ summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) 
 summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 112 iterations
+    ## lavaan 0.6-5 ended normally after 112 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                         10
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ##   Number of missing patterns                         1
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                       0.000       0.000
+    ##   Number of missing patterns                         1            
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
     ##   Degrees of freedom                                 0           0
-    ##   Minimum Function Value               0.0000000000000
-    ##   Scaling correction factor                                     NA
-    ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -366,15 +428,18 @@ summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate esti
     ##                    Estimate
     ##     driftrate         0.057
 
-#### Interpretation
+\#\#\#\#Interpretation Affective bias and drift rate are both
+significantly influenced by IQ, Age, BDI and counterbalancing only. Thus
+of mental health relevant symptoms, task performance appears to be more
+driven by depresson than anxiety, OCD, or psychosis related traits.
 
-Affective bias and drift rate are both significantly influenced by IQ, Age, BDI and counterbalancing only. Thus of mental health relevant symptoms, task performance appears to be more driven by depresson than anxiety, OCD, or psychosis related traits.
+\#\#\#Correlation between task performance and depression symptoms To
+illustrate the effect of depression in the regression we plot the
+correlation between BDI and pmidhigh/drift rate in raw scores.
+Consistent with our prior work, increased depression is associated with
+reduced p(mid as high)(i.e. increased negative bias).
 
-### Correlation between task performance and depression symptoms
-
-To illustrate the effect of depression in the regression we plot the correlation between BDI and pmidhigh/drift rate in raw scores. Consistent with our prior work, increased depression is associated with reduced p(mid as high)(i.e. increased negative bias).
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
     ## 
     ##  Pearson's product-moment correlation
@@ -400,9 +465,16 @@ To illustrate the effect of depression in the regression we plot the correlation
     ##        cor 
     ## -0.1358296
 
-### Exploring latent variable structure of the Questionnaires
-
-The linear regression assumes that the summary scores of the questionnaires represent discrete categories. However, it is possible that effects are driven by a generic 'mental ill health' factor (sometimes referred to as a P factor model). Or, some questionnaires (e.g. BDI and trait anxiety, which are usually highly correlated) actually meausure a single latent 'negative affect' factor. To test for these possibilities we explore four confirmatory factor analyses feeding the individual items from the questionnaires into 1-4 latent factors. The 4 latent factor CFA represents the items feeding into the original questionnaires.
+\#\#\#Exploring latent variable structure of the Questionnaires The
+linear regression assumes that the summary scores of the questionnaires
+represent discrete categories. However, it is possible that effects are
+driven by a generic ‘mental ill health’ factor (sometimes referred to as
+a P factor model). Or, some questionnaires (e.g. BDI and trait anxiety,
+which are usually highly correlated) actually meausure a single latent
+‘negative affect’ factor. To test for these possibilities we explore
+four confirmatory factor analyses feeding the individual items from the
+questionnaires into 1-4 latent factors. The 4 latent factor CFA
+represents the items feeding into the original questionnaires.
 
 ``` r
 ###Testing different measurement models
@@ -847,20 +919,29 @@ rownames(Allfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
 kable(t(Allfits), digits = 3)
 ```
 
-|                                   |       BIC|       AIC|  RMSEA|  RMSEA CI-|  RMSEA CI+|
-|-----------------------------------|---------:|---------:|------:|----------:|----------:|
-| P Factor                          |  205648.7|  204655.5|  0.071|      0.070|      0.072|
-| Bi Factor (AnxDep vs. not)        |  198747.6|  197749.4|  0.061|      0.060|      0.062|
-| Tri Factor (AnxDep vs. SZ or OCD) |  195884.3|  194876.2|  0.056|      0.056|      0.057|
-| Four Factor (All questionnaires)  |  194571.7|  193548.7|  0.054|      0.053|      0.055|
+|                                   |      BIC |      AIC | RMSEA | RMSEA CI- | RMSEA CI+ |
+| --------------------------------- | -------: | -------: | ----: | --------: | --------: |
+| P Factor                          | 205648.7 | 204655.5 | 0.071 |     0.070 |     0.072 |
+| Bi Factor (AnxDep vs. not)        | 198747.6 | 197749.4 | 0.061 |     0.060 |     0.062 |
+| Tri Factor (AnxDep vs. SZ or OCD) | 195884.3 | 194876.2 | 0.056 |     0.056 |     0.057 |
+| Four Factor (All questionnaires)  | 194571.7 | 193548.7 | 0.054 |     0.053 |     0.055 |
 
-#### Interpretation
+\#\#\#\#Interpretation As demonstrated by the lowest BIC/AIC the 4
+factor (orignal questionnaire structure) solution is the best
+description of the data. This also has the lowest RMSEA, which is in
+turn below 0.08 and hence a good fit to the data.
 
-As demonstrated by the lowest BIC/AIC the 4 factor (orignal questionnaire structure) solution is the best description of the data. This also has the lowest RMSEA, which is in turn below 0.08 and hence a good fit to the data.
-
-### Structural Equation Model of the factor structure with regression
-
-We can now feed this factor structure into a structural equation model with the original regression analysis (on p(mid as high) and drift rate) in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'. As above we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
+\#\#\#Structural Equation Model of the factor structure with regression
+We can now feed this factor structure into a structural equation model
+with the original regression analysis (on p(mid as high) and drift rate)
+in it. This is similar to the linear regression, although it allows the
+different items of the questionnaire to have varying influence over the
+summary questionnaire ‘factors’. As above we provide estimates where
+missing data is listwise deleted (N=990) or where missing data is
+estimated using maximum likelihood (N=1066). The more conservative
+listwise deleted version is resported in the manuscript, but as can be
+seen the inference remains the same (albeit with slightly larger effect
+sizes in the estimated N=1066 version)
 
 ``` r
 ###SEM
@@ -1114,26 +1195,28 @@ FitQuaireSEMdriftmiss <- sem(QuaireSEMdrift, data = combineditemdata, estimator 
 summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 223 iterations
+    ## lavaan 0.6-5 ended normally after 223 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        241
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   19702.424   17281.220
-    ##   Degrees of freedom                              5324        5324
-    ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.140
-    ##     for the Yuan-Bentler correction (Mplus variant)
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                                Standard      Robust
+    ##   Test Statistic                              19702.424   17281.220
+    ##   Degrees of freedom                               5324        5324
+    ##   P-value (Chi-square)                            0.000       0.000
+    ##   Scaling correction factor                                   1.140
+    ##     for the Yuan-Bentler correction (Mplus variant) 
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -1527,26 +1610,28 @@ summary(FitQuaireSEMpmid, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid a
 summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate listwise delete missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 275 iterations
+    ## lavaan 0.6-5 ended normally after 275 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        241
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   19703.002   17284.740
-    ##   Degrees of freedom                              5324        5324
-    ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.140
-    ##     for the Yuan-Bentler correction (Mplus variant)
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                                Standard      Robust
+    ##   Test Statistic                              19703.002   17284.740
+    ##   Degrees of freedom                               5324        5324
+    ##   P-value (Chi-square)                            0.000       0.000
+    ##   Scaling correction factor                                   1.140
+    ##     for the Yuan-Bentler correction (Mplus variant) 
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -1940,26 +2025,28 @@ summary(FitQuaireSEMdrift, standardized=TRUE, rsquare=T, fit.measures=F) #drift 
 summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high)estimate missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 291 iterations
+    ## lavaan 0.6-5 ended normally after 291 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        346
-    ## 
+    ##                                                       
     ##   Number of observations                          1060
     ##   Number of missing patterns                         3
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   20553.257   18027.314
-    ##   Degrees of freedom                              5324        5324
-    ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.140
-    ##     for the Yuan-Bentler correction (Mplus variant)
+    ##                                                       
+    ## Model Test User Model:
+    ##                                                Standard      Robust
+    ##   Test Statistic                              20553.257   18027.314
+    ##   Degrees of freedom                               5324        5324
+    ##   P-value (Chi-square)                            0.000       0.000
+    ##   Scaling correction factor                                   1.140
+    ##     for the Yuan-Bentler correction (Mplus variant) 
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -2465,306 +2552,306 @@ summary(FitQuaireSEMpmidmiss, standardized=TRUE, rsquare=T, fit.measures=F) #p(m
 summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rateestimate missing
 ```
 
-    ## lavaan 0.6-3 ended normally after 349 iterations
+    ## lavaan 0.6-5 did NOT end normally after 349 iterations
+    ## ** WARNING ** Estimates below are most likely unreliable
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        346
-    ## 
+    ##                                                       
     ##   Number of observations                          1060
     ##   Number of missing patterns                         3
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   20553.947   18031.096
-    ##   Degrees of freedom                              5324        5324
-    ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.140
-    ##     for the Yuan-Bentler correction (Mplus variant)
+    ##                                                       
+    ## Model Test User Model:
+    ##                                                       
+    ##   Test statistic                                    NA
+    ##   Degrees of freedom                                NA
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##   BDI =~                                                                
     ##     BDI_Apptt_qnts    1.000                               0.580    0.646
-    ##     BDI_Attrctv_qn    1.055    0.056   18.981    0.000    0.613    0.651
-    ##     BDI_Blam_qntsd    1.144    0.056   20.538    0.000    0.664    0.759
-    ##     BDI_Cry_quntsd    1.002    0.049   20.339    0.000    0.581    0.661
-    ##     BDI_Dcsns_qnts    1.105    0.054   20.490    0.000    0.642    0.724
-    ##     BDI_Dsppntmnt_    1.116    0.060   18.654    0.000    0.647    0.739
-    ##     BDI_Falr_qntsd    1.151    0.060   19.165    0.000    0.668    0.729
-    ##     BDI_Futr_qntsd    1.126    0.057   19.587    0.000    0.653    0.734
-    ##     BDI_Glty_qntsd    1.014    0.052   19.562    0.000    0.589    0.690
-    ##     BDI_Hlth_qntsd    0.776    0.044   17.577    0.000    0.450    0.581
-    ##     BDI_Intrs_I_P_    1.067    0.054   19.627    0.000    0.619    0.687
-    ##     BDI_Irrttd_qnt    1.073    0.051   21.079    0.000    0.623    0.704
-    ##     BDI_Libd_qntsd    0.883    0.048   18.446    0.000    0.513    0.575
-    ##     BDI_Pnshd_qnts    1.057    0.053   19.810    0.000    0.613    0.664
-    ##     BDI_Sad_quntsd    0.962    0.048   20.020    0.000    0.559    0.717
-    ##     BDI_Stsfctn_qn    1.096    0.058   18.890    0.000    0.636    0.683
-    ##     BDI_Slep_qntsd    0.899    0.049   18.283    0.000    0.522    0.581
-    ##     BDI_Tird_qntsd    0.971    0.051   18.889    0.000    0.564    0.660
-    ##     BDI_wght_qntsd    0.563    0.042   13.507    0.000    0.326    0.456
-    ##     BDI_Work_qntsd    1.065    0.052   20.612    0.000    0.618    0.719
+    ##     BDI_Attrctv_qn    1.055       NA                      0.613    0.651
+    ##     BDI_Blam_qntsd    1.144       NA                      0.664    0.759
+    ##     BDI_Cry_quntsd    1.002       NA                      0.581    0.661
+    ##     BDI_Dcsns_qnts    1.105       NA                      0.642    0.724
+    ##     BDI_Dsppntmnt_    1.116       NA                      0.647    0.739
+    ##     BDI_Falr_qntsd    1.151       NA                      0.668    0.729
+    ##     BDI_Futr_qntsd    1.126       NA                      0.653    0.734
+    ##     BDI_Glty_qntsd    1.014       NA                      0.589    0.690
+    ##     BDI_Hlth_qntsd    0.776       NA                      0.450    0.581
+    ##     BDI_Intrs_I_P_    1.067       NA                      0.619    0.687
+    ##     BDI_Irrttd_qnt    1.073       NA                      0.623    0.704
+    ##     BDI_Libd_qntsd    0.883       NA                      0.513    0.575
+    ##     BDI_Pnshd_qnts    1.057       NA                      0.613    0.664
+    ##     BDI_Sad_quntsd    0.962       NA                      0.559    0.717
+    ##     BDI_Stsfctn_qn    1.096       NA                      0.636    0.683
+    ##     BDI_Slep_qntsd    0.899       NA                      0.522    0.581
+    ##     BDI_Tird_qntsd    0.971       NA                      0.564    0.660
+    ##     BDI_wght_qntsd    0.563       NA                      0.326    0.456
+    ##     BDI_Work_qntsd    1.065       NA                      0.618    0.719
     ##   OCD =~                                                                
     ##     OCIR_14_quntsd    1.000                               1.120    0.828
-    ##     OCIR_15_quntsd    0.842    0.028   30.606    0.000    0.943    0.718
-    ##     OCIR_16_quntsd    0.927    0.027   34.424    0.000    1.038    0.791
-    ##     OCIR_17_quntsd    1.010    0.026   38.408    0.000    1.131    0.842
-    ##     OCIR_18_quntsd    0.976    0.027   36.687    0.000    1.094    0.818
-    ##     OCIR_2_quantsd    0.821    0.026   31.328    0.000    0.919    0.708
-    ##     OCIR_3_quantsd    0.809    0.027   29.942    0.000    0.906    0.717
-    ##     OCIR_4_quantsd    0.932    0.025   36.987    0.000    1.044    0.807
-    ##     OCIR_5_quantsd    0.890    0.029   31.172    0.000    0.997    0.771
-    ##     OCIR_6_quantsd    0.836    0.029   28.817    0.000    0.937    0.731
-    ##     OCIR_7_quantsd    0.795    0.028   28.765    0.000    0.891    0.719
-    ##     OCIR_8_quantsd    0.977    0.023   42.164    0.000    1.095    0.816
-    ##     OCIR_9_quantsd    0.821    0.027   30.522    0.000    0.920    0.721
-    ##     OCIR_1_quantsd    0.838    0.026   32.343    0.000    0.939    0.730
-    ##     OCIR_10_quntsd    0.981    0.024   40.755    0.000    1.100    0.850
-    ##     OCIR_11_quntsd    0.975    0.026   37.366    0.000    1.092    0.832
-    ##     OCIR_12_quntsd    0.892    0.029   31.094    0.000    0.999    0.768
-    ##     OCIR_13_quntsd    0.778    0.027   28.616    0.000    0.872    0.686
+    ##     OCIR_15_quntsd    0.842       NA                      0.943    0.718
+    ##     OCIR_16_quntsd    0.927       NA                      1.038    0.791
+    ##     OCIR_17_quntsd    1.010       NA                      1.131    0.842
+    ##     OCIR_18_quntsd    0.976       NA                      1.094    0.818
+    ##     OCIR_2_quantsd    0.821       NA                      0.919    0.708
+    ##     OCIR_3_quantsd    0.809       NA                      0.906    0.717
+    ##     OCIR_4_quantsd    0.932       NA                      1.044    0.807
+    ##     OCIR_5_quantsd    0.890       NA                      0.997    0.771
+    ##     OCIR_6_quantsd    0.836       NA                      0.937    0.731
+    ##     OCIR_7_quantsd    0.795       NA                      0.891    0.719
+    ##     OCIR_8_quantsd    0.977       NA                      1.095    0.816
+    ##     OCIR_9_quantsd    0.821       NA                      0.920    0.721
+    ##     OCIR_1_quantsd    0.838       NA                      0.939    0.730
+    ##     OCIR_10_quntsd    0.981       NA                      1.100    0.850
+    ##     OCIR_11_quntsd    0.975       NA                      1.092    0.832
+    ##     OCIR_12_quntsd    0.892       NA                      0.999    0.768
+    ##     OCIR_13_quntsd    0.778       NA                      0.872    0.686
     ##   SZ =~                                                                 
     ##     SZ_1_quantised    1.000                               0.305    0.624
-    ##     SZ_10_quantisd    0.843    0.040   20.826    0.000    0.257    0.603
-    ##     SZ_11_quantisd    0.816    0.042   19.469    0.000    0.249    0.503
-    ##     SZ_12_quantisd    0.786    0.043   18.401    0.000    0.240    0.500
-    ##     SZ_13_quantisd    0.901    0.046   19.616    0.000    0.275    0.554
-    ##     SZ_14_quantisd    0.844    0.050   16.730    0.000    0.257    0.515
-    ##     SZ_15_quantisd    0.913    0.049   18.750    0.000    0.278    0.558
-    ##     SZ_16_quantisd    0.721    0.049   14.858    0.000    0.220    0.439
-    ##     SZ_17_quantisd    0.843    0.046   18.226    0.000    0.257    0.517
-    ##     SZ_18_quantisd    0.972    0.047   20.785    0.000    0.296    0.599
-    ##     SZ_19_quantisd    0.835    0.046   17.974    0.000    0.254    0.511
-    ##     SZ_2_quantised    0.943    0.042   22.586    0.000    0.287    0.589
-    ##     SZ_20_quantisd    0.947    0.042   22.560    0.000    0.289    0.631
-    ##     SZ_21_quantisd    0.891    0.048   18.739    0.000    0.271    0.548
-    ##     SZ_22_quantisd    0.863    0.049   17.692    0.000    0.263    0.529
-    ##     SZ_23_quantisd    0.894    0.046   19.263    0.000    0.272    0.554
-    ##     SZ_24_quantisd    0.877    0.045   19.628    0.000    0.267    0.543
-    ##     SZ_25_quantisd    0.808    0.044   18.408    0.000    0.246    0.497
-    ##     SZ_26_quantisd    0.012    0.046    0.257    0.797    0.004    0.008
-    ##     SZ_27_quantisd    0.080    0.046    1.742    0.081    0.024    0.053
-    ##     SZ_28_quantisd   -0.026    0.052   -0.509    0.611   -0.008   -0.017
-    ##     SZ_29_quantisd    0.615    0.047   13.207    0.000    0.187    0.381
-    ##     SZ_3_quantised    0.803    0.041   19.483    0.000    0.245    0.551
-    ##     SZ_30_quantisd    0.131    0.052    2.499    0.012    0.040    0.081
-    ##     SZ_31_quantisd    0.055    0.044    1.268    0.205    0.017    0.037
-    ##     SZ_32_quantisd    0.716    0.047   15.148    0.000    0.218    0.440
-    ##     SZ_33_quantisd    0.470    0.048    9.862    0.000    0.143    0.298
-    ##     SZ_34_quantisd   -0.044    0.045   -0.977    0.329   -0.013   -0.029
-    ##     SZ_35_quantisd    0.808    0.040   19.972    0.000    0.246    0.579
-    ##     SZ_36_quantisd    0.827    0.045   18.305    0.000    0.252    0.506
-    ##     SZ_37_quantisd   -0.175    0.048   -3.610    0.000   -0.053   -0.116
-    ##     SZ_38_quantisd    0.913    0.041   22.352    0.000    0.278    0.602
-    ##     SZ_39_quantisd    0.007    0.046    0.161    0.872    0.002    0.005
-    ##     SZ_4_quantised    0.845    0.039   21.544    0.000    0.257    0.554
-    ##     SZ_40_quantisd    0.721    0.046   15.555    0.000    0.220    0.444
-    ##     SZ_41_quantisd    0.853    0.044   19.503    0.000    0.260    0.524
-    ##     SZ_42_quantisd    0.968    0.043   22.456    0.000    0.295    0.593
-    ##     SZ_5_quantised    0.867    0.042   20.787    0.000    0.264    0.589
-    ##     SZ_6_quantised    0.916    0.042   21.769    0.000    0.279    0.610
-    ##     SZ_7_quantised    0.867    0.043   20.403    0.000    0.264    0.534
-    ##     SZ_8_quantised    0.845    0.040   21.132    0.000    0.257    0.566
-    ##     SZ_9_quantised    0.907    0.043   20.979    0.000    0.276    0.568
+    ##     SZ_10_quantisd    0.843       NA                      0.257    0.603
+    ##     SZ_11_quantisd    0.816       NA                      0.249    0.503
+    ##     SZ_12_quantisd    0.786       NA                      0.240    0.500
+    ##     SZ_13_quantisd    0.901       NA                      0.275    0.554
+    ##     SZ_14_quantisd    0.844       NA                      0.257    0.515
+    ##     SZ_15_quantisd    0.913       NA                      0.278    0.558
+    ##     SZ_16_quantisd    0.721       NA                      0.220    0.439
+    ##     SZ_17_quantisd    0.843       NA                      0.257    0.517
+    ##     SZ_18_quantisd    0.972       NA                      0.296    0.599
+    ##     SZ_19_quantisd    0.835       NA                      0.254    0.511
+    ##     SZ_2_quantised    0.943       NA                      0.287    0.589
+    ##     SZ_20_quantisd    0.947       NA                      0.289    0.631
+    ##     SZ_21_quantisd    0.891       NA                      0.271    0.548
+    ##     SZ_22_quantisd    0.863       NA                      0.263    0.529
+    ##     SZ_23_quantisd    0.894       NA                      0.272    0.554
+    ##     SZ_24_quantisd    0.877       NA                      0.267    0.543
+    ##     SZ_25_quantisd    0.808       NA                      0.246    0.497
+    ##     SZ_26_quantisd    0.012       NA                      0.004    0.008
+    ##     SZ_27_quantisd    0.080       NA                      0.024    0.053
+    ##     SZ_28_quantisd   -0.026       NA                     -0.008   -0.017
+    ##     SZ_29_quantisd    0.615       NA                      0.187    0.381
+    ##     SZ_3_quantised    0.803       NA                      0.245    0.551
+    ##     SZ_30_quantisd    0.131       NA                      0.040    0.081
+    ##     SZ_31_quantisd    0.055       NA                      0.017    0.037
+    ##     SZ_32_quantisd    0.716       NA                      0.218    0.440
+    ##     SZ_33_quantisd    0.470       NA                      0.143    0.298
+    ##     SZ_34_quantisd   -0.044       NA                     -0.013   -0.029
+    ##     SZ_35_quantisd    0.808       NA                      0.246    0.579
+    ##     SZ_36_quantisd    0.827       NA                      0.252    0.506
+    ##     SZ_37_quantisd   -0.175       NA                     -0.053   -0.116
+    ##     SZ_38_quantisd    0.913       NA                      0.278    0.602
+    ##     SZ_39_quantisd    0.007       NA                      0.002    0.005
+    ##     SZ_4_quantised    0.845       NA                      0.257    0.554
+    ##     SZ_40_quantisd    0.721       NA                      0.220    0.444
+    ##     SZ_41_quantisd    0.853       NA                      0.260    0.524
+    ##     SZ_42_quantisd    0.968       NA                      0.295    0.593
+    ##     SZ_5_quantised    0.867       NA                      0.264    0.589
+    ##     SZ_6_quantised    0.916       NA                      0.279    0.610
+    ##     SZ_7_quantised    0.867       NA                      0.264    0.534
+    ##     SZ_8_quantised    0.845       NA                      0.257    0.566
+    ##     SZ_9_quantised    0.907       NA                      0.276    0.568
     ##   STAI =~                                                               
     ##     STAI2_Clm_qnts    1.000                               0.516    0.565
-    ##     STAI2_Cntnt_qn    0.915    0.042   21.712    0.000    0.472    0.519
-    ##     STAI2_Dscns_qn    0.827    0.045   18.373    0.000    0.427    0.471
-    ##     STAI2_Dffclts_   -1.355    0.169   -8.043    0.000   -0.700   -0.723
-    ##     STAI2_DsppntS_   -1.197    0.168   -7.110    0.000   -0.618   -0.655
-    ##     STAI2_Flr_qnts   -1.410    0.161   -8.776    0.000   -0.728   -0.753
-    ##     STAI2_Hppy_qnt    0.975    0.044   22.204    0.000    0.503    0.545
-    ##     STAI2_HppyOth_   -1.100    0.149   -7.372    0.000   -0.568   -0.571
-    ##     STAI2_Indqt_qn   -1.396    0.169   -8.239    0.000   -0.721   -0.738
-    ##     STAI2_Nrvs_qnt   -1.326    0.165   -8.057    0.000   -0.685   -0.730
-    ##     STAI2_Plsnt_qn    0.930    0.039   24.012    0.000    0.480    0.560
-    ##     STAI2_Rstd_qnt    0.686    0.051   13.407    0.000    0.354    0.398
-    ##     STAI2_StsfdSl_    1.053    0.044   24.115    0.000    0.544    0.560
-    ##     STAI2_Scr_qnts    1.017    0.045   22.765    0.000    0.525    0.551
-    ##     STAI2_SlfCnfd_   -1.211    0.158   -7.648    0.000   -0.625   -0.608
-    ##     STAI2_Stdy_qnt    1.073    0.044   24.418    0.000    0.554    0.621
-    ##     STAI2_Tnsn_qnt   -1.295    0.186   -6.948    0.000   -0.669   -0.694
-    ##     STAI2_Thghts_q   -1.093    0.170   -6.443    0.000   -0.564   -0.620
-    ##     STAI2_UnmprtT_   -1.209    0.176   -6.876    0.000   -0.624   -0.657
-    ##     STAI2_Wrry_qnt   -1.261    0.173   -7.302    0.000   -0.651   -0.665
+    ##     STAI2_Cntnt_qn    0.915       NA                      0.472    0.519
+    ##     STAI2_Dscns_qn    0.827       NA                      0.427    0.471
+    ##     STAI2_Dffclts_   -1.355       NA                     -0.700   -0.723
+    ##     STAI2_DsppntS_   -1.197       NA                     -0.618   -0.655
+    ##     STAI2_Flr_qnts   -1.410       NA                     -0.728   -0.753
+    ##     STAI2_Hppy_qnt    0.975       NA                      0.503    0.545
+    ##     STAI2_HppyOth_   -1.100       NA                     -0.568   -0.571
+    ##     STAI2_Indqt_qn   -1.396       NA                     -0.721   -0.738
+    ##     STAI2_Nrvs_qnt   -1.326       NA                     -0.685   -0.730
+    ##     STAI2_Plsnt_qn    0.930       NA                      0.480    0.560
+    ##     STAI2_Rstd_qnt    0.686       NA                      0.354    0.398
+    ##     STAI2_StsfdSl_    1.053       NA                      0.544    0.560
+    ##     STAI2_Scr_qnts    1.017       NA                      0.525    0.551
+    ##     STAI2_SlfCnfd_   -1.211       NA                     -0.625   -0.608
+    ##     STAI2_Stdy_qnt    1.073       NA                      0.554    0.621
+    ##     STAI2_Tnsn_qnt   -1.295       NA                     -0.669   -0.694
+    ##     STAI2_Thghts_q   -1.093       NA                     -0.564   -0.620
+    ##     STAI2_UnmprtT_   -1.209       NA                     -0.624   -0.657
+    ##     STAI2_Wrry_qnt   -1.261       NA                     -0.651   -0.665
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##   driftrate ~                                                           
-    ##     spreadsheet       0.000    0.000    2.755    0.006    0.000    0.086
-    ##     Ravens            0.001    0.000    4.323    0.000    0.001    0.146
-    ##     Age              -0.000    0.000   -3.225    0.001   -0.000   -0.103
-    ##     GenderMF          0.001    0.001    1.168    0.243    0.001    0.038
-    ##     BDI              -0.004    0.001   -2.697    0.007   -0.002   -0.177
-    ##     OCD              -0.000    0.001   -0.118    0.906   -0.000   -0.006
-    ##     SZ                0.001    0.002    0.564    0.573    0.000    0.033
-    ##     STAI             -0.002    0.002   -1.294    0.196   -0.001   -0.085
+    ##     spreadsheet       0.000       NA                      0.000    0.086
+    ##     Ravens            0.001       NA                      0.001    0.146
+    ##     Age              -0.000       NA                     -0.000   -0.103
+    ##     GenderMF          0.001       NA                      0.001    0.038
+    ##     BDI              -0.004       NA                     -0.002   -0.177
+    ##     OCD              -0.000       NA                     -0.000   -0.006
+    ##     SZ                0.001       NA                      0.000    0.033
+    ##     STAI             -0.002       NA                     -0.001   -0.085
     ## 
     ## Covariances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##   spreadsheet ~~                                                        
-    ##     Ravens           -0.420    0.279   -1.507    0.132   -0.420   -0.048
-    ##     Age               1.448    0.975    1.485    0.138    1.448    0.047
-    ##     GenderMF         -0.012    0.047   -0.264    0.792   -0.012   -0.008
+    ##     Ravens           -0.420       NA                     -0.420   -0.048
+    ##     Age               1.448       NA                      1.448    0.047
+    ##     GenderMF         -0.012       NA                     -0.012   -0.008
     ##   BDI ~~                                                                
-    ##     spreadsheet      -0.005    0.057   -0.081    0.935   -0.008   -0.003
+    ##     spreadsheet      -0.005       NA                     -0.008   -0.003
     ##   OCD ~~                                                                
-    ##     spreadsheet       0.131    0.109    1.199    0.230    0.117    0.039
+    ##     spreadsheet       0.131       NA                      0.117    0.039
     ##   SZ ~~                                                                 
-    ##     spreadsheet      -0.027    0.030   -0.897    0.370   -0.089   -0.030
+    ##     spreadsheet      -0.027       NA                     -0.089   -0.030
     ##   STAI ~~                                                               
-    ##     spreadsheet      -0.009    0.051   -0.169    0.866   -0.017   -0.006
+    ##     spreadsheet      -0.009       NA                     -0.017   -0.006
     ##   Ravens ~~                                                             
-    ##     Age               2.336    0.954    2.449    0.014    2.336    0.078
-    ##     GenderMF         -0.090    0.044   -2.021    0.043   -0.090   -0.062
+    ##     Age               2.336       NA                      2.336    0.078
+    ##     GenderMF         -0.090       NA                     -0.090   -0.062
     ##   BDI ~~                                                                
-    ##     Ravens           -0.309    0.056   -5.524    0.000   -0.532   -0.181
+    ##     Ravens           -0.309       NA                     -0.532   -0.181
     ##   OCD ~~                                                                
-    ##     Ravens           -1.124    0.097  -11.598    0.000   -1.003   -0.342
+    ##     Ravens           -1.124       NA                     -1.003   -0.342
     ##   SZ ~~                                                                 
-    ##     Ravens            0.214    0.029    7.452    0.000    0.702    0.239
+    ##     Ravens            0.214       NA                      0.702    0.239
     ##   STAI ~~                                                               
-    ##     Ravens            0.213    0.048    4.434    0.000    0.412    0.140
+    ##     Ravens            0.213       NA                      0.412    0.140
     ##   Age ~~                                                                
-    ##     GenderMF         -0.817    0.157   -5.189    0.000   -0.817   -0.162
+    ##     GenderMF         -0.817       NA                     -0.817   -0.162
     ##   BDI ~~                                                                
-    ##     Age              -1.243    0.192   -6.472    0.000   -2.142   -0.210
+    ##     Age              -1.243       NA                     -2.142   -0.210
     ##   OCD ~~                                                                
-    ##     Age              -3.660    0.335  -10.930    0.000   -3.267   -0.320
+    ##     Age              -3.660       NA                     -3.267   -0.320
     ##   SZ ~~                                                                 
-    ##     Age               0.797    0.103    7.736    0.000    2.617    0.256
+    ##     Age               0.797       NA                      2.617    0.256
     ##   STAI ~~                                                               
-    ##     Age               1.247    0.192    6.506    0.000    2.416    0.236
+    ##     Age               1.247       NA                      2.416    0.236
     ##   BDI ~~                                                                
-    ##     GenderMF          0.004    0.009    0.408    0.683    0.006    0.013
+    ##     GenderMF          0.004       NA                      0.006    0.013
     ##   OCD ~~                                                                
-    ##     GenderMF          0.078    0.017    4.600    0.000    0.070    0.142
+    ##     GenderMF          0.078       NA                      0.070    0.142
     ##   SZ ~~                                                                 
-    ##     GenderMF         -0.006    0.005   -1.343    0.179   -0.021   -0.043
+    ##     GenderMF         -0.006       NA                     -0.021   -0.043
     ##   STAI ~~                                                               
-    ##     GenderMF          0.012    0.009    1.310    0.190    0.023    0.047
+    ##     GenderMF          0.012       NA                      0.023    0.047
     ##   BDI ~~                                                                
-    ##     OCD               0.339    0.026   13.041    0.000    0.521    0.521
-    ##     SZ               -0.113    0.008  -14.605    0.000   -0.640   -0.640
-    ##     STAI             -0.246    0.027   -9.287    0.000   -0.822   -0.822
+    ##     OCD               0.339       NA                      0.521    0.521
+    ##     SZ               -0.113       NA                     -0.640   -0.640
+    ##     STAI             -0.246       NA                     -0.822   -0.822
     ##   OCD ~~                                                                
-    ##     SZ               -0.252    0.014  -18.072    0.000   -0.738   -0.738
-    ##     STAI             -0.288    0.019  -15.014    0.000   -0.498   -0.498
+    ##     SZ               -0.252       NA                     -0.738   -0.738
+    ##     STAI             -0.288       NA                     -0.498   -0.498
     ##   SZ ~~                                                                 
-    ##     STAI              0.101    0.007   13.561    0.000    0.639    0.639
+    ##     STAI              0.101       NA                      0.639    0.639
     ## 
     ## Intercepts:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##    .BDI_Apptt_qnts    1.671    0.028   60.528    0.000    1.671    1.859
-    ##    .BDI_Attrctv_qn    1.852    0.029   64.035    0.000    1.852    1.967
-    ##    .BDI_Blam_qntsd    1.890    0.027   70.288    0.000    1.890    2.159
-    ##    .BDI_Cry_quntsd    1.617    0.027   59.837    0.000    1.617    1.838
-    ##    .BDI_Dcsns_qnts    1.738    0.027   63.818    0.000    1.738    1.960
-    ##    .BDI_Dsppntmnt_    1.841    0.027   68.380    0.000    1.841    2.100
-    ##    .BDI_Falr_qntsd    1.842    0.028   65.439    0.000    1.842    2.010
-    ##    .BDI_Futr_qntsd    1.863    0.027   68.178    0.000    1.863    2.094
-    ##    .BDI_Glty_qntsd    1.659    0.026   63.305    0.000    1.659    1.944
-    ##    .BDI_Hlth_qntsd    1.697    0.024   71.347    0.000    1.697    2.191
-    ##    .BDI_Intrs_I_P_    1.879    0.028   67.905    0.000    1.879    2.086
-    ##    .BDI_Irrttd_qnt    1.875    0.027   69.040    0.000    1.875    2.121
-    ##    .BDI_Libd_qntsd    1.711    0.027   62.527    0.000    1.711    1.921
-    ##    .BDI_Pnshd_qnts    1.661    0.028   58.524    0.000    1.661    1.798
-    ##    .BDI_Sad_quntsd    1.692    0.024   70.708    0.000    1.692    2.172
-    ##    .BDI_Stsfctn_qn    1.847    0.029   64.580    0.000    1.847    1.984
-    ##    .BDI_Slep_qntsd    1.840    0.028   66.699    0.000    1.840    2.049
-    ##    .BDI_Tird_qntsd    1.913    0.026   72.894    0.000    1.913    2.239
-    ##    .BDI_wght_qntsd    1.377    0.022   62.651    0.000    1.377    1.924
-    ##    .BDI_Work_qntsd    1.792    0.026   67.929    0.000    1.792    2.086
-    ##    .OCIR_14_quntsd    2.210    0.042   53.166    0.000    2.210    1.633
-    ##    .OCIR_15_quntsd    2.439    0.040   60.444    0.000    2.439    1.857
-    ##    .OCIR_16_quntsd    2.142    0.040   53.140    0.000    2.142    1.632
-    ##    .OCIR_17_quntsd    2.189    0.041   53.053    0.000    2.189    1.630
-    ##    .OCIR_18_quntsd    2.266    0.041   55.179    0.000    2.266    1.695
-    ##    .OCIR_2_quantsd    2.669    0.040   66.889    0.000    2.669    2.054
-    ##    .OCIR_3_quantsd    2.492    0.039   64.187    0.000    2.492    1.971
-    ##    .OCIR_4_quantsd    2.242    0.040   56.425    0.000    2.242    1.733
-    ##    .OCIR_5_quantsd    2.164    0.040   54.443    0.000    2.164    1.672
-    ##    .OCIR_6_quantsd    2.399    0.039   60.960    0.000    2.399    1.872
-    ##    .OCIR_7_quantsd    2.212    0.038   58.132    0.000    2.212    1.786
-    ##    .OCIR_8_quantsd    2.292    0.041   55.611    0.000    2.292    1.708
-    ##    .OCIR_9_quantsd    2.555    0.039   65.223    0.000    2.555    2.003
-    ##    .OCIR_1_quantsd    2.419    0.039   61.256    0.000    2.419    1.881
-    ##    .OCIR_10_quntsd    2.019    0.040   50.814    0.000    2.019    1.561
-    ##    .OCIR_11_quntsd    2.220    0.040   55.038    0.000    2.220    1.690
-    ##    .OCIR_12_quntsd    2.344    0.040   58.648    0.000    2.344    1.801
-    ##    .OCIR_13_quntsd    2.459    0.039   62.984    0.000    2.459    1.935
-    ##    .SZ_1_quantised    1.608    0.015  107.185    0.000    1.608    3.292
-    ##    .SZ_10_quantisd    1.761    0.013  134.525    0.000    1.761    4.132
-    ##    .SZ_11_quantisd    1.574    0.015  103.593    0.000    1.574    3.182
-    ##    .SZ_12_quantisd    1.642    0.015  111.573    0.000    1.642    3.427
-    ##    .SZ_13_quantisd    1.568    0.015  103.051    0.000    1.568    3.165
-    ##    .SZ_14_quantisd    1.519    0.015   98.972    0.000    1.519    3.040
-    ##    .SZ_15_quantisd    1.536    0.015  100.265    0.000    1.536    3.080
-    ##    .SZ_16_quantisd    1.507    0.015   98.112    0.000    1.507    3.013
-    ##    .SZ_17_quantisd    1.558    0.015  102.183    0.000    1.558    3.139
-    ##    .SZ_18_quantisd    1.573    0.015  103.501    0.000    1.573    3.179
-    ##    .SZ_19_quantisd    1.551    0.015  101.519    0.000    1.551    3.118
-    ##    .SZ_2_quantised    1.607    0.015  107.077    0.000    1.607    3.289
-    ##    .SZ_20_quantisd    1.702    0.014  121.132    0.000    1.702    3.721
-    ##    .SZ_21_quantisd    1.565    0.015  102.786    0.000    1.565    3.157
-    ##    .SZ_22_quantisd    1.551    0.015  101.519    0.000    1.551    3.118
-    ##    .SZ_23_quantisd    1.591    0.015  105.312    0.000    1.591    3.235
-    ##    .SZ_24_quantisd    1.587    0.015  104.917    0.000    1.587    3.223
-    ##    .SZ_25_quantisd    1.566    0.015  102.874    0.000    1.566    3.160
-    ##    .SZ_26_quantisd    1.307    0.014   92.261    0.000    1.307    2.834
-    ##    .SZ_27_quantisd    1.298    0.014   92.393    0.000    1.298    2.838
-    ##    .SZ_28_quantisd    1.386    0.015   92.688    0.000    1.386    2.847
-    ##    .SZ_29_quantisd    1.588    0.015  105.015    0.000    1.588    3.226
-    ##    .SZ_3_quantised    1.730    0.014  126.911    0.000    1.730    3.898
-    ##    .SZ_30_quantisd    1.419    0.015   93.631    0.000    1.419    2.876
-    ##    .SZ_31_quantisd    1.282    0.014   92.757    0.000    1.282    2.849
-    ##    .SZ_32_quantisd    1.569    0.015  103.140    0.000    1.569    3.168
-    ##    .SZ_33_quantisd    1.360    0.015   92.251    0.000    1.360    2.833
-    ##    .SZ_34_quantisd    1.294    0.014   92.465    0.000    1.294    2.840
-    ##    .SZ_35_quantisd    1.763    0.013  135.037    0.000    1.763    4.148
-    ##    .SZ_36_quantisd    1.545    0.015  101.037    0.000    1.545    3.103
-    ##    .SZ_37_quantisd    1.305    0.014   92.287    0.000    1.305    2.835
-    ##    .SZ_38_quantisd    1.691    0.014  119.069    0.000    1.691    3.657
-    ##    .SZ_39_quantisd    1.294    0.014   92.465    0.000    1.294    2.840
-    ##    .SZ_4_quantised    1.686    0.014  118.247    0.000    1.686    3.632
-    ##    .SZ_40_quantisd    1.572    0.015  103.410    0.000    1.572    3.176
-    ##    .SZ_41_quantisd    1.565    0.015  102.786    0.000    1.565    3.157
-    ##    .SZ_42_quantisd    1.547    0.015  101.196    0.000    1.547    3.108
-    ##    .SZ_5_quantised    1.721    0.014  124.878    0.000    1.721    3.836
-    ##    .SZ_6_quantised    1.702    0.014  121.132    0.000    1.702    3.721
-    ##    .SZ_7_quantised    1.570    0.015  103.230    0.000    1.570    3.171
-    ##    .SZ_8_quantised    1.708    0.014  122.398    0.000    1.708    3.759
-    ##    .SZ_9_quantised    1.616    0.015  108.183    0.000    1.616    3.323
-    ##    .STAI2_Clm_qnts    2.707    0.028   96.399    0.000    2.707    2.961
-    ##    .STAI2_Cntnt_qn    2.699    0.028   96.499    0.000    2.699    2.964
-    ##    .STAI2_Dscns_qn    2.656    0.028   95.475    0.000    2.656    2.933
-    ##    .STAI2_Dffclts_    2.218    0.030   74.619    0.000    2.218    2.292
-    ##    .STAI2_DsppntS_    2.211    0.029   76.345    0.000    2.211    2.345
-    ##    .STAI2_Flr_qnts    2.043    0.030   68.770    0.000    2.043    2.112
-    ##    .STAI2_Hppy_qnt    2.733    0.028   96.382    0.000    2.733    2.960
-    ##    .STAI2_HppyOth_    2.503    0.031   81.913    0.000    2.503    2.516
-    ##    .STAI2_Indqt_qn    2.178    0.030   72.608    0.000    2.178    2.230
-    ##    .STAI2_Nrvs_qnt    2.233    0.029   77.474    0.000    2.233    2.380
-    ##    .STAI2_Plsnt_qn    2.734    0.026  103.700    0.000    2.734    3.185
-    ##    .STAI2_Rstd_qnt    2.484    0.027   90.808    0.000    2.484    2.789
-    ##    .STAI2_StsfdSl_    2.622    0.030   87.910    0.000    2.622    2.700
-    ##    .STAI2_Scr_qnts    2.714    0.029   92.643    0.000    2.714    2.846
-    ##    .STAI2_SlfCnfd_    2.408    0.032   76.190    0.000    2.408    2.340
-    ##    .STAI2_Stdy_qnt    2.768    0.027  101.058    0.000    2.768    3.104
-    ##    .STAI2_Tnsn_qnt    2.239    0.030   75.702    0.000    2.239    2.325
-    ##    .STAI2_Thghts_q    1.984    0.028   70.943    0.000    1.984    2.179
-    ##    .STAI2_UnmprtT_    2.216    0.029   75.911    0.000    2.216    2.332
-    ##    .STAI2_Wrry_qnt    2.283    0.030   75.881    0.000    2.283    2.331
-    ##    .driftrate         0.004    0.002    2.494    0.013    0.004    0.347
-    ##     spreadsheet       3.976    0.095   41.682    0.000    3.976    1.325
-    ##     Ravens            4.396    0.090   48.750    0.000    4.396    1.497
-    ##     Age              34.214    0.314  108.977    0.000   34.214    3.347
-    ##     GenderMF          0.589    0.015   38.922    0.000    0.589    1.197
+    ##    .BDI_Apptt_qnts    1.671       NA                      1.671    1.859
+    ##    .BDI_Attrctv_qn    1.852       NA                      1.852    1.967
+    ##    .BDI_Blam_qntsd    1.890       NA                      1.890    2.159
+    ##    .BDI_Cry_quntsd    1.617       NA                      1.617    1.838
+    ##    .BDI_Dcsns_qnts    1.738       NA                      1.738    1.960
+    ##    .BDI_Dsppntmnt_    1.841       NA                      1.841    2.100
+    ##    .BDI_Falr_qntsd    1.842       NA                      1.842    2.010
+    ##    .BDI_Futr_qntsd    1.863       NA                      1.863    2.094
+    ##    .BDI_Glty_qntsd    1.659       NA                      1.659    1.944
+    ##    .BDI_Hlth_qntsd    1.697       NA                      1.697    2.191
+    ##    .BDI_Intrs_I_P_    1.879       NA                      1.879    2.086
+    ##    .BDI_Irrttd_qnt    1.875       NA                      1.875    2.121
+    ##    .BDI_Libd_qntsd    1.711       NA                      1.711    1.921
+    ##    .BDI_Pnshd_qnts    1.661       NA                      1.661    1.798
+    ##    .BDI_Sad_quntsd    1.692       NA                      1.692    2.172
+    ##    .BDI_Stsfctn_qn    1.847       NA                      1.847    1.984
+    ##    .BDI_Slep_qntsd    1.840       NA                      1.840    2.049
+    ##    .BDI_Tird_qntsd    1.913       NA                      1.913    2.239
+    ##    .BDI_wght_qntsd    1.377       NA                      1.377    1.924
+    ##    .BDI_Work_qntsd    1.792       NA                      1.792    2.086
+    ##    .OCIR_14_quntsd    2.210       NA                      2.210    1.633
+    ##    .OCIR_15_quntsd    2.439       NA                      2.439    1.857
+    ##    .OCIR_16_quntsd    2.142       NA                      2.142    1.632
+    ##    .OCIR_17_quntsd    2.189       NA                      2.189    1.630
+    ##    .OCIR_18_quntsd    2.266       NA                      2.266    1.695
+    ##    .OCIR_2_quantsd    2.669       NA                      2.669    2.054
+    ##    .OCIR_3_quantsd    2.492       NA                      2.492    1.971
+    ##    .OCIR_4_quantsd    2.242       NA                      2.242    1.733
+    ##    .OCIR_5_quantsd    2.164       NA                      2.164    1.672
+    ##    .OCIR_6_quantsd    2.399       NA                      2.399    1.872
+    ##    .OCIR_7_quantsd    2.212       NA                      2.212    1.786
+    ##    .OCIR_8_quantsd    2.292       NA                      2.292    1.708
+    ##    .OCIR_9_quantsd    2.555       NA                      2.555    2.003
+    ##    .OCIR_1_quantsd    2.419       NA                      2.419    1.881
+    ##    .OCIR_10_quntsd    2.019       NA                      2.019    1.561
+    ##    .OCIR_11_quntsd    2.220       NA                      2.220    1.690
+    ##    .OCIR_12_quntsd    2.344       NA                      2.344    1.801
+    ##    .OCIR_13_quntsd    2.459       NA                      2.459    1.935
+    ##    .SZ_1_quantised    1.608       NA                      1.608    3.292
+    ##    .SZ_10_quantisd    1.761       NA                      1.761    4.132
+    ##    .SZ_11_quantisd    1.574       NA                      1.574    3.182
+    ##    .SZ_12_quantisd    1.642       NA                      1.642    3.427
+    ##    .SZ_13_quantisd    1.568       NA                      1.568    3.165
+    ##    .SZ_14_quantisd    1.519       NA                      1.519    3.040
+    ##    .SZ_15_quantisd    1.536       NA                      1.536    3.080
+    ##    .SZ_16_quantisd    1.507       NA                      1.507    3.013
+    ##    .SZ_17_quantisd    1.558       NA                      1.558    3.139
+    ##    .SZ_18_quantisd    1.573       NA                      1.573    3.179
+    ##    .SZ_19_quantisd    1.551       NA                      1.551    3.118
+    ##    .SZ_2_quantised    1.607       NA                      1.607    3.289
+    ##    .SZ_20_quantisd    1.702       NA                      1.702    3.721
+    ##    .SZ_21_quantisd    1.565       NA                      1.565    3.157
+    ##    .SZ_22_quantisd    1.551       NA                      1.551    3.118
+    ##    .SZ_23_quantisd    1.591       NA                      1.591    3.235
+    ##    .SZ_24_quantisd    1.587       NA                      1.587    3.223
+    ##    .SZ_25_quantisd    1.566       NA                      1.566    3.160
+    ##    .SZ_26_quantisd    1.307       NA                      1.307    2.834
+    ##    .SZ_27_quantisd    1.298       NA                      1.298    2.838
+    ##    .SZ_28_quantisd    1.386       NA                      1.386    2.847
+    ##    .SZ_29_quantisd    1.588       NA                      1.588    3.226
+    ##    .SZ_3_quantised    1.730       NA                      1.730    3.898
+    ##    .SZ_30_quantisd    1.419       NA                      1.419    2.876
+    ##    .SZ_31_quantisd    1.282       NA                      1.282    2.849
+    ##    .SZ_32_quantisd    1.569       NA                      1.569    3.168
+    ##    .SZ_33_quantisd    1.360       NA                      1.360    2.833
+    ##    .SZ_34_quantisd    1.294       NA                      1.294    2.840
+    ##    .SZ_35_quantisd    1.763       NA                      1.763    4.148
+    ##    .SZ_36_quantisd    1.545       NA                      1.545    3.103
+    ##    .SZ_37_quantisd    1.305       NA                      1.305    2.835
+    ##    .SZ_38_quantisd    1.691       NA                      1.691    3.657
+    ##    .SZ_39_quantisd    1.294       NA                      1.294    2.840
+    ##    .SZ_4_quantised    1.686       NA                      1.686    3.632
+    ##    .SZ_40_quantisd    1.572       NA                      1.572    3.176
+    ##    .SZ_41_quantisd    1.565       NA                      1.565    3.157
+    ##    .SZ_42_quantisd    1.547       NA                      1.547    3.108
+    ##    .SZ_5_quantised    1.721       NA                      1.721    3.836
+    ##    .SZ_6_quantised    1.702       NA                      1.702    3.721
+    ##    .SZ_7_quantised    1.570       NA                      1.570    3.171
+    ##    .SZ_8_quantised    1.708       NA                      1.708    3.759
+    ##    .SZ_9_quantised    1.616       NA                      1.616    3.323
+    ##    .STAI2_Clm_qnts    2.707       NA                      2.707    2.961
+    ##    .STAI2_Cntnt_qn    2.699       NA                      2.699    2.964
+    ##    .STAI2_Dscns_qn    2.656       NA                      2.656    2.933
+    ##    .STAI2_Dffclts_    2.218       NA                      2.218    2.292
+    ##    .STAI2_DsppntS_    2.211       NA                      2.211    2.345
+    ##    .STAI2_Flr_qnts    2.043       NA                      2.043    2.112
+    ##    .STAI2_Hppy_qnt    2.733       NA                      2.733    2.960
+    ##    .STAI2_HppyOth_    2.503       NA                      2.503    2.516
+    ##    .STAI2_Indqt_qn    2.178       NA                      2.178    2.230
+    ##    .STAI2_Nrvs_qnt    2.233       NA                      2.233    2.380
+    ##    .STAI2_Plsnt_qn    2.734       NA                      2.734    3.185
+    ##    .STAI2_Rstd_qnt    2.484       NA                      2.484    2.789
+    ##    .STAI2_StsfdSl_    2.622       NA                      2.622    2.700
+    ##    .STAI2_Scr_qnts    2.714       NA                      2.714    2.846
+    ##    .STAI2_SlfCnfd_    2.408       NA                      2.408    2.340
+    ##    .STAI2_Stdy_qnt    2.768       NA                      2.768    3.104
+    ##    .STAI2_Tnsn_qnt    2.239       NA                      2.239    2.325
+    ##    .STAI2_Thghts_q    1.984       NA                      1.984    2.179
+    ##    .STAI2_UnmprtT_    2.216       NA                      2.216    2.332
+    ##    .STAI2_Wrry_qnt    2.283       NA                      2.283    2.331
+    ##    .driftrate         0.004       NA                      0.004    0.347
+    ##     spreadsheet       3.976       NA                      3.976    1.325
+    ##     Ravens            4.396       NA                      4.396    1.497
+    ##     Age              34.214       NA                     34.214    3.347
+    ##     GenderMF          0.589       NA                      0.589    1.197
     ##     BDI               0.000                               0.000    0.000
     ##     OCD               0.000                               0.000    0.000
     ##     SZ                0.000                               0.000    0.000
@@ -2772,115 +2859,115 @@ summary(FitQuaireSEMdriftmiss, standardized=TRUE, rsquare=T, fit.measures=F) #dr
     ## 
     ## Variances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##    .BDI_Apptt_qnts    0.471    0.027   17.454    0.000    0.471    0.583
-    ##    .BDI_Attrctv_qn    0.511    0.026   19.363    0.000    0.511    0.577
-    ##    .BDI_Blam_qntsd    0.325    0.018   17.768    0.000    0.325    0.424
-    ##    .BDI_Cry_quntsd    0.436    0.028   15.646    0.000    0.436    0.563
-    ##    .BDI_Dcsns_qnts    0.374    0.022   17.297    0.000    0.374    0.476
-    ##    .BDI_Dsppntmnt_    0.349    0.020   17.045    0.000    0.349    0.454
-    ##    .BDI_Falr_qntsd    0.394    0.022   17.902    0.000    0.394    0.469
-    ##    .BDI_Futr_qntsd    0.365    0.021   17.396    0.000    0.365    0.461
-    ##    .BDI_Glty_qntsd    0.382    0.022   17.118    0.000    0.382    0.524
-    ##    .BDI_Hlth_qntsd    0.397    0.021   18.861    0.000    0.397    0.662
-    ##    .BDI_Intrs_I_P_    0.428    0.023   18.533    0.000    0.428    0.528
-    ##    .BDI_Irrttd_qnt    0.394    0.021   19.007    0.000    0.394    0.504
-    ##    .BDI_Libd_qntsd    0.531    0.030   17.888    0.000    0.531    0.669
-    ##    .BDI_Pnshd_qnts    0.478    0.029   16.386    0.000    0.478    0.560
-    ##    .BDI_Sad_quntsd    0.295    0.019   15.191    0.000    0.295    0.486
-    ##    .BDI_Stsfctn_qn    0.463    0.026   17.754    0.000    0.463    0.534
-    ##    .BDI_Slep_qntsd    0.534    0.027   20.020    0.000    0.534    0.662
-    ##    .BDI_Tird_qntsd    0.412    0.021   19.456    0.000    0.412    0.565
-    ##    .BDI_wght_qntsd    0.406    0.028   14.276    0.000    0.406    0.792
-    ##    .BDI_Work_qntsd    0.356    0.019   18.582    0.000    0.356    0.482
-    ##    .OCIR_14_quntsd    0.577    0.037   15.656    0.000    0.577    0.315
-    ##    .OCIR_15_quntsd    0.836    0.047   17.606    0.000    0.836    0.485
-    ##    .OCIR_16_quntsd    0.643    0.040   15.956    0.000    0.643    0.374
-    ##    .OCIR_17_quntsd    0.525    0.034   15.353    0.000    0.525    0.291
-    ##    .OCIR_18_quntsd    0.592    0.040   14.792    0.000    0.592    0.331
-    ##    .OCIR_2_quantsd    0.842    0.040   21.307    0.000    0.842    0.499
-    ##    .OCIR_3_quantsd    0.776    0.043   18.246    0.000    0.776    0.486
-    ##    .OCIR_4_quantsd    0.584    0.034   17.195    0.000    0.584    0.349
-    ##    .OCIR_5_quantsd    0.680    0.043   15.981    0.000    0.680    0.406
-    ##    .OCIR_6_quantsd    0.764    0.041   18.615    0.000    0.764    0.465
-    ##    .OCIR_7_quantsd    0.741    0.040   18.584    0.000    0.741    0.483
-    ##    .OCIR_8_quantsd    0.602    0.038   15.958    0.000    0.602    0.334
-    ##    .OCIR_9_quantsd    0.780    0.041   18.867    0.000    0.780    0.480
-    ##    .OCIR_1_quantsd    0.771    0.042   18.549    0.000    0.771    0.466
-    ##    .OCIR_10_quntsd    0.464    0.028   16.428    0.000    0.464    0.277
-    ##    .OCIR_11_quntsd    0.531    0.032   16.853    0.000    0.531    0.308
-    ##    .OCIR_12_quntsd    0.696    0.040   17.223    0.000    0.696    0.411
-    ##    .OCIR_13_quntsd    0.856    0.044   19.566    0.000    0.856    0.530
-    ##    .SZ_1_quantised    0.146    0.006   23.590    0.000    0.146    0.611
-    ##    .SZ_10_quantisd    0.116    0.005   22.847    0.000    0.116    0.637
-    ##    .SZ_11_quantisd    0.183    0.006   30.551    0.000    0.183    0.747
-    ##    .SZ_12_quantisd    0.172    0.006   28.217    0.000    0.172    0.750
-    ##    .SZ_13_quantisd    0.170    0.006   27.849    0.000    0.170    0.693
-    ##    .SZ_14_quantisd    0.183    0.006   28.904    0.000    0.183    0.735
-    ##    .SZ_15_quantisd    0.171    0.006   27.550    0.000    0.171    0.689
-    ##    .SZ_16_quantisd    0.202    0.006   35.389    0.000    0.202    0.807
-    ##    .SZ_17_quantisd    0.181    0.006   29.690    0.000    0.181    0.733
-    ##    .SZ_18_quantisd    0.157    0.006   25.542    0.000    0.157    0.642
-    ##    .SZ_19_quantisd    0.183    0.006   30.174    0.000    0.183    0.738
-    ##    .SZ_2_quantised    0.156    0.006   25.371    0.000    0.156    0.654
-    ##    .SZ_20_quantisd    0.126    0.005   23.372    0.000    0.126    0.602
-    ##    .SZ_21_quantisd    0.172    0.006   27.426    0.000    0.172    0.700
-    ##    .SZ_22_quantisd    0.178    0.006   28.179    0.000    0.178    0.721
-    ##    .SZ_23_quantisd    0.168    0.006   27.269    0.000    0.168    0.693
-    ##    .SZ_24_quantisd    0.171    0.006   27.964    0.000    0.171    0.705
-    ##    .SZ_25_quantisd    0.185    0.006   30.794    0.000    0.185    0.753
-    ##    .SZ_26_quantisd    0.213    0.005   38.814    0.000    0.213    1.000
-    ##    .SZ_27_quantisd    0.209    0.006   36.787    0.000    0.209    0.997
-    ##    .SZ_28_quantisd    0.237    0.003   69.239    0.000    0.237    1.000
-    ##    .SZ_29_quantisd    0.207    0.006   37.204    0.000    0.207    0.855
-    ##    .SZ_3_quantised    0.137    0.006   23.094    0.000    0.137    0.696
-    ##    .SZ_30_quantisd    0.242    0.003   88.714    0.000    0.242    0.993
-    ##    .SZ_31_quantisd    0.202    0.006   33.605    0.000    0.202    0.999
-    ##    .SZ_32_quantisd    0.198    0.006   33.756    0.000    0.198    0.806
-    ##    .SZ_33_quantisd    0.210    0.005   41.183    0.000    0.210    0.911
-    ##    .SZ_34_quantisd    0.208    0.006   36.018    0.000    0.208    0.999
-    ##    .SZ_35_quantisd    0.120    0.005   22.344    0.000    0.120    0.665
-    ##    .SZ_36_quantisd    0.184    0.006   30.468    0.000    0.184    0.744
-    ##    .SZ_37_quantisd    0.209    0.006   37.427    0.000    0.209    0.987
-    ##    .SZ_38_quantisd    0.136    0.006   24.183    0.000    0.136    0.637
-    ##    .SZ_39_quantisd    0.208    0.006   36.080    0.000    0.208    1.000
-    ##    .SZ_4_quantised    0.149    0.006   24.925    0.000    0.149    0.693
-    ##    .SZ_40_quantisd    0.197    0.006   33.679    0.000    0.197    0.803
-    ##    .SZ_41_quantisd    0.178    0.006   29.214    0.000    0.178    0.725
-    ##    .SZ_42_quantisd    0.161    0.006   25.819    0.000    0.161    0.649
-    ##    .SZ_5_quantised    0.131    0.006   22.863    0.000    0.131    0.653
-    ##    .SZ_6_quantised    0.131    0.005   24.084    0.000    0.131    0.628
-    ##    .SZ_7_quantised    0.175    0.006   28.349    0.000    0.175    0.715
-    ##    .SZ_8_quantised    0.140    0.006   23.497    0.000    0.140    0.679
-    ##    .SZ_9_quantised    0.160    0.006   27.005    0.000    0.160    0.677
-    ##    .STAI2_Clm_qnts    0.569    0.049   11.541    0.000    0.569    0.681
-    ##    .STAI2_Cntnt_qn    0.606    0.049   12.392    0.000    0.606    0.731
-    ##    .STAI2_Dscns_qn    0.638    0.042   15.202    0.000    0.638    0.778
-    ##    .STAI2_Dffclts_    0.447    0.031   14.318    0.000    0.447    0.477
-    ##    .STAI2_DsppntS_    0.507    0.038   13.302    0.000    0.507    0.571
-    ##    .STAI2_Flr_qnts    0.406    0.025   16.474    0.000    0.406    0.434
-    ##    .STAI2_Hppy_qnt    0.599    0.052   11.498    0.000    0.599    0.703
-    ##    .STAI2_HppyOth_    0.667    0.039   17.099    0.000    0.667    0.674
-    ##    .STAI2_Indqt_qn    0.435    0.034   12.791    0.000    0.435    0.455
-    ##    .STAI2_Nrvs_qnt    0.412    0.028   14.642    0.000    0.412    0.468
-    ##    .STAI2_Plsnt_qn    0.506    0.047   10.864    0.000    0.506    0.687
-    ##    .STAI2_Rstd_qnt    0.668    0.041   16.264    0.000    0.668    0.842
-    ##    .STAI2_StsfdSl_    0.647    0.058   11.142    0.000    0.647    0.686
-    ##    .STAI2_Scr_qnts    0.634    0.055   11.499    0.000    0.634    0.697
-    ##    .STAI2_SlfCnfd_    0.667    0.041   16.292    0.000    0.667    0.631
-    ##    .STAI2_Stdy_qnt    0.489    0.047   10.426    0.000    0.489    0.614
-    ##    .STAI2_Tnsn_qnt    0.480    0.042   11.308    0.000    0.480    0.518
-    ##    .STAI2_Thghts_q    0.511    0.037   13.739    0.000    0.511    0.616
-    ##    .STAI2_UnmprtT_    0.514    0.038   13.437    0.000    0.514    0.569
-    ##    .STAI2_Wrry_qnt    0.536    0.038   14.172    0.000    0.536    0.558
-    ##    .driftrate         0.000    0.000   21.276    0.000    0.000    0.941
-    ##     spreadsheet       9.001    0.006 1448.627    0.000    9.001    1.000
-    ##     Ravens            8.620    0.322   26.751    0.000    8.620    1.000
-    ##     Age             104.482    5.899   17.711    0.000  104.482    1.000
-    ##     GenderMF          0.242    0.003   89.776    0.000    0.242    1.000
-    ##     BDI               0.337    0.029   11.591    0.000    1.000    1.000
-    ##     OCD               1.255    0.058   21.796    0.000    1.000    1.000
-    ##     SZ                0.093    0.006   14.765    0.000    1.000    1.000
-    ##     STAI              0.267    0.054    4.903    0.000    1.000    1.000
+    ##    .BDI_Apptt_qnts    0.471       NA                      0.471    0.583
+    ##    .BDI_Attrctv_qn    0.511       NA                      0.511    0.577
+    ##    .BDI_Blam_qntsd    0.325       NA                      0.325    0.424
+    ##    .BDI_Cry_quntsd    0.436       NA                      0.436    0.563
+    ##    .BDI_Dcsns_qnts    0.374       NA                      0.374    0.476
+    ##    .BDI_Dsppntmnt_    0.349       NA                      0.349    0.454
+    ##    .BDI_Falr_qntsd    0.394       NA                      0.394    0.469
+    ##    .BDI_Futr_qntsd    0.365       NA                      0.365    0.461
+    ##    .BDI_Glty_qntsd    0.382       NA                      0.382    0.524
+    ##    .BDI_Hlth_qntsd    0.397       NA                      0.397    0.662
+    ##    .BDI_Intrs_I_P_    0.428       NA                      0.428    0.528
+    ##    .BDI_Irrttd_qnt    0.394       NA                      0.394    0.504
+    ##    .BDI_Libd_qntsd    0.531       NA                      0.531    0.669
+    ##    .BDI_Pnshd_qnts    0.478       NA                      0.478    0.560
+    ##    .BDI_Sad_quntsd    0.295       NA                      0.295    0.486
+    ##    .BDI_Stsfctn_qn    0.463       NA                      0.463    0.534
+    ##    .BDI_Slep_qntsd    0.534       NA                      0.534    0.662
+    ##    .BDI_Tird_qntsd    0.412       NA                      0.412    0.565
+    ##    .BDI_wght_qntsd    0.406       NA                      0.406    0.792
+    ##    .BDI_Work_qntsd    0.356       NA                      0.356    0.482
+    ##    .OCIR_14_quntsd    0.577       NA                      0.577    0.315
+    ##    .OCIR_15_quntsd    0.836       NA                      0.836    0.485
+    ##    .OCIR_16_quntsd    0.643       NA                      0.643    0.374
+    ##    .OCIR_17_quntsd    0.525       NA                      0.525    0.291
+    ##    .OCIR_18_quntsd    0.592       NA                      0.592    0.331
+    ##    .OCIR_2_quantsd    0.842       NA                      0.842    0.499
+    ##    .OCIR_3_quantsd    0.776       NA                      0.776    0.486
+    ##    .OCIR_4_quantsd    0.584       NA                      0.584    0.349
+    ##    .OCIR_5_quantsd    0.680       NA                      0.680    0.406
+    ##    .OCIR_6_quantsd    0.764       NA                      0.764    0.465
+    ##    .OCIR_7_quantsd    0.741       NA                      0.741    0.483
+    ##    .OCIR_8_quantsd    0.602       NA                      0.602    0.334
+    ##    .OCIR_9_quantsd    0.780       NA                      0.780    0.480
+    ##    .OCIR_1_quantsd    0.771       NA                      0.771    0.466
+    ##    .OCIR_10_quntsd    0.464       NA                      0.464    0.277
+    ##    .OCIR_11_quntsd    0.531       NA                      0.531    0.308
+    ##    .OCIR_12_quntsd    0.696       NA                      0.696    0.411
+    ##    .OCIR_13_quntsd    0.856       NA                      0.856    0.530
+    ##    .SZ_1_quantised    0.146       NA                      0.146    0.611
+    ##    .SZ_10_quantisd    0.116       NA                      0.116    0.637
+    ##    .SZ_11_quantisd    0.183       NA                      0.183    0.747
+    ##    .SZ_12_quantisd    0.172       NA                      0.172    0.750
+    ##    .SZ_13_quantisd    0.170       NA                      0.170    0.693
+    ##    .SZ_14_quantisd    0.183       NA                      0.183    0.735
+    ##    .SZ_15_quantisd    0.171       NA                      0.171    0.689
+    ##    .SZ_16_quantisd    0.202       NA                      0.202    0.807
+    ##    .SZ_17_quantisd    0.181       NA                      0.181    0.733
+    ##    .SZ_18_quantisd    0.157       NA                      0.157    0.642
+    ##    .SZ_19_quantisd    0.183       NA                      0.183    0.738
+    ##    .SZ_2_quantised    0.156       NA                      0.156    0.654
+    ##    .SZ_20_quantisd    0.126       NA                      0.126    0.602
+    ##    .SZ_21_quantisd    0.172       NA                      0.172    0.700
+    ##    .SZ_22_quantisd    0.178       NA                      0.178    0.721
+    ##    .SZ_23_quantisd    0.168       NA                      0.168    0.693
+    ##    .SZ_24_quantisd    0.171       NA                      0.171    0.705
+    ##    .SZ_25_quantisd    0.185       NA                      0.185    0.753
+    ##    .SZ_26_quantisd    0.213       NA                      0.213    1.000
+    ##    .SZ_27_quantisd    0.209       NA                      0.209    0.997
+    ##    .SZ_28_quantisd    0.237       NA                      0.237    1.000
+    ##    .SZ_29_quantisd    0.207       NA                      0.207    0.855
+    ##    .SZ_3_quantised    0.137       NA                      0.137    0.696
+    ##    .SZ_30_quantisd    0.242       NA                      0.242    0.993
+    ##    .SZ_31_quantisd    0.202       NA                      0.202    0.999
+    ##    .SZ_32_quantisd    0.198       NA                      0.198    0.806
+    ##    .SZ_33_quantisd    0.210       NA                      0.210    0.911
+    ##    .SZ_34_quantisd    0.208       NA                      0.208    0.999
+    ##    .SZ_35_quantisd    0.120       NA                      0.120    0.665
+    ##    .SZ_36_quantisd    0.184       NA                      0.184    0.744
+    ##    .SZ_37_quantisd    0.209       NA                      0.209    0.987
+    ##    .SZ_38_quantisd    0.136       NA                      0.136    0.637
+    ##    .SZ_39_quantisd    0.208       NA                      0.208    1.000
+    ##    .SZ_4_quantised    0.149       NA                      0.149    0.693
+    ##    .SZ_40_quantisd    0.197       NA                      0.197    0.803
+    ##    .SZ_41_quantisd    0.178       NA                      0.178    0.725
+    ##    .SZ_42_quantisd    0.161       NA                      0.161    0.649
+    ##    .SZ_5_quantised    0.131       NA                      0.131    0.653
+    ##    .SZ_6_quantised    0.131       NA                      0.131    0.628
+    ##    .SZ_7_quantised    0.175       NA                      0.175    0.715
+    ##    .SZ_8_quantised    0.140       NA                      0.140    0.679
+    ##    .SZ_9_quantised    0.160       NA                      0.160    0.677
+    ##    .STAI2_Clm_qnts    0.569       NA                      0.569    0.681
+    ##    .STAI2_Cntnt_qn    0.606       NA                      0.606    0.731
+    ##    .STAI2_Dscns_qn    0.638       NA                      0.638    0.778
+    ##    .STAI2_Dffclts_    0.447       NA                      0.447    0.477
+    ##    .STAI2_DsppntS_    0.507       NA                      0.507    0.571
+    ##    .STAI2_Flr_qnts    0.406       NA                      0.406    0.434
+    ##    .STAI2_Hppy_qnt    0.599       NA                      0.599    0.703
+    ##    .STAI2_HppyOth_    0.667       NA                      0.667    0.674
+    ##    .STAI2_Indqt_qn    0.435       NA                      0.435    0.455
+    ##    .STAI2_Nrvs_qnt    0.412       NA                      0.412    0.468
+    ##    .STAI2_Plsnt_qn    0.506       NA                      0.506    0.687
+    ##    .STAI2_Rstd_qnt    0.668       NA                      0.668    0.842
+    ##    .STAI2_StsfdSl_    0.647       NA                      0.647    0.686
+    ##    .STAI2_Scr_qnts    0.634       NA                      0.634    0.697
+    ##    .STAI2_SlfCnfd_    0.667       NA                      0.667    0.631
+    ##    .STAI2_Stdy_qnt    0.489       NA                      0.489    0.614
+    ##    .STAI2_Tnsn_qnt    0.480       NA                      0.480    0.518
+    ##    .STAI2_Thghts_q    0.511       NA                      0.511    0.616
+    ##    .STAI2_UnmprtT_    0.514       NA                      0.514    0.569
+    ##    .STAI2_Wrry_qnt    0.536       NA                      0.536    0.558
+    ##    .driftrate         0.000       NA                      0.000    0.941
+    ##     spreadsheet       9.001       NA                      9.001    1.000
+    ##     Ravens            8.620       NA                      8.620    1.000
+    ##     Age             104.482       NA                    104.482    1.000
+    ##     GenderMF          0.242       NA                      0.242    1.000
+    ##     BDI               0.337       NA                      1.000    1.000
+    ##     OCD               1.255       NA                      1.000    1.000
+    ##     SZ                0.093       NA                      1.000    1.000
+    ##     STAI              0.267       NA                      1.000    1.000
     ## 
     ## R-Square:
     ##                    Estimate
@@ -2997,25 +3084,29 @@ rownames(SEMfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
 kable(t(SEMfits), digits = 3)
 ```
 
-|                |       BIC|       AIC|  RMSEA|  RMSEA CI-|  RMSEA CI+|
-|----------------|---------:|---------:|------:|----------:|----------:|
-| p(mid as high) |  198819.0|  197639.6|  0.052|      0.052|      0.053|
-| Drift Rate     |  193173.2|  191993.8|  0.052|      0.052|      0.053|
+|                |      BIC |      AIC | RMSEA | RMSEA CI- | RMSEA CI+ |
+| -------------- | -------: | -------: | ----: | --------: | --------: |
+| p(mid as high) | 198819.0 | 197639.6 | 0.052 |     0.052 |     0.053 |
+| Drift Rate     | 193173.2 | 191993.8 | 0.052 |     0.052 |     0.053 |
 
-#### Interpretation
+\#\#\#\#Interpretation We replicate the basic linear regression,
+demonstrating the BDI depression symptoms and no other scales
+significantly influence task performance.
 
-We replicate the basic linear regression, demonstrating the BDI depression symptoms and no other scales significantly influence task performance.
+\#3: ‘Replication’ of prior group effects Finally, as a sanity check, we
+should be able to ‘replicate’ the case control study in our original
+paper by selecting ‘symptomatic’ and ‘healthy control’ individuals from
+this large cross-sectional sample. We attempted to do this in two ways.
+I) A very simple BDI symptom scale cut-off (theory-based grouping) and
+then II) a more data-driven way using latent mixture modelling to
+identifying latent classes.
 
-3: 'Replication' of prior group effects
-=======================================
+\#\#\#I) Symptom cut-offs (theory-based) We defined control individuals
+as those with BDI less than 3 and symptomatic as those with BDI greater
+than 28 (this cut off is based on Beck’s original cut off for severe
+depression of 29)
 
-Finally, as a sanity check, we should be able to 'replicate' the case control study in our original paper by selecting 'symptomatic' and 'healthy control' individuals from this large cross-sectional sample. We attempted to do this in two ways. I) A very simple BDI symptom scale cut-off (theory-based grouping) and then II) a more data-driven way using latent mixture modelling to identifying latent classes.
-
-### I) Symptom cut-offs (theory-based)
-
-We defined control individuals as those with BDI less than 3 and symptomatic as those with BDI greater than 28 (this cut off is based on Beck's original cut off for severe depression of 29)
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
     ## [1] "The number of patients is N = 170"
 
@@ -3049,86 +3140,109 @@ We defined control individuals as those with BDI less than 3 and symptomatic as 
 
     ## [1] "The effect size of the Human group difference on driftrate is d= 0.3"
 
-### II) Latent mixture modelling (data-driven)
+\#\#\#II) Latent mixture modelling (data-driven) In a more data driven
+approach we ran an exploratory latent class analysis based on the
+symptoms/traits (BDI, Age, IQ) that are predict task performance in the
+regression. Notably we do not include task performance in our class
+analysis so that classes are defined orthogonal to task performance.
+Optimal class breakdown (N=4 classes) is plotted below, but ordered by
+those with the higest postive bias based on the symptom defined latent
+classes. We then defined the ‘symptomatic group’ as those with the
+lowest p(mid)as high score, whilst the control group is those with the
+highest p(mid as high) score. The distributions of the other latent
+classes are plotted in gray.
 
-In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=4 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
-
-![](OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
     ## ---------------------------------------------------- 
     ## Gaussian finite mixture model fitted by EM algorithm 
     ## ---------------------------------------------------- 
     ## 
-    ## Mclust VVI (diagonal, varying volume and shape) model with 4 components: 
+    ## Mclust VVE (ellipsoidal, equal orientation) model with 4 components: 
     ## 
     ##  log-likelihood   n df       BIC       ICL
-    ##         -9590.6 990 27 -19367.44 -19776.04
+    ##        -9580.75 990 30 -19368.43 -19807.86
     ## 
     ## Clustering table:
     ##   1   2   3   4 
-    ## 297 219 246 228
+    ## 298 263 158 271
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Pmid by group
-    ## t = 6.3341, df = 472, p-value = 5.571e-10
+    ## t = 2.233, df = 427, p-value = 0.02607
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  0.07907308 0.15019915
+    ##  0.005697692 0.089449083
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##             0.6349810             0.5203449
+    ##             0.6090001             0.5614267
 
-    ## [1] "The effect size of the Human group difference on driftrate is d= 0.58"
+    ## [1] "The effect size of the Human group difference on bias is d= 0.22"
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  BDI by group
-    ## t = -32.905, df = 472, p-value < 2.2e-16
+    ## t = 1.9608, df = 427, p-value = 0.05055
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -22.43352 -19.90516
+    ##  -0.004655391  3.884472291
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##              1.574561             22.743902
+    ##              19.93358              17.99367
 
-    ## [1] "The effect size of the Human group difference is d= 3.02"
+    ## [1] "The effect size of the Human group difference is d= 0.2"
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Age by group
-    ## t = 10.329, df = 472, p-value < 2.2e-16
+    ## t = -31.31, df = 427, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  3.605569 5.299652
+    ##  -19.04488 -16.79496
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##              32.57456              28.12195
+    ##              29.16236              47.08228
 
     ## 
     ##  Two Sample t-test
     ## 
     ## data:  Ravens by group
-    ## t = 20.162, df = 472, p-value < 2.2e-16
+    ## t = 8.3626, df = 427, p-value = 8.772e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  3.469010 4.218196
+    ##  1.57889 2.54914
     ## sample estimates:
     ##      mean in group HC mean in group Symptom 
-    ##              5.307018              1.463415
+    ##              6.627306              4.563291
 
-#### Interpretation
+\#\#\#\#Interpretation This approach identified 4 latent classes.
+Confirming our initial study, the group with the highest mean depression
+scores are those with the greatest negative bias, while those with the
+highest bias have very low depression scores. Interestingly, the
+‘symptomatic’ latent class is also particularly low IQ relative to the
+other classes. These results are (highly\!) exploratory and should be
+approached with caution, but they perhaps suggest that IQ can protect
+against negative bias in depressed individuals (which has been
+speculated in therapy research before). They also provide predictions
+about the distributions of relevant variables within those who may be
+currently or at risk of developping clinically-relevant behavioural
+symptoms.
 
-This approach identified 4 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
+\#\#\#Supplementary Analysis
 
-### Supplementary Analysis
-
-### Exploratory Factor Analysis of questionnaires
-
-The simple regression above, however, collapses across the individual responses to the different items on the questionnaires and just uses summary scores. However, it may be that there is a simpler underlying structure to the data. For instance BDI and STAI are often highly correlated - so may actually be measuring the same latent construct. In this next section (inspired by Gillan et al 2016) we first run an exploratory factor analysis on the individual items from the questionnaires in an attempt to reduce the amount of latent variables.
+\#\#\#Exploratory Factor Analysis of questionnaires The simple
+regression above, however, collapses across the individual responses to
+the different items on the questionnaires and just uses summary scores.
+However, it may be that there is a simpler underlying structure to the
+data. For instance BDI and STAI are often highly correlated - so may
+actually be measuring the same latent construct. In this next section
+(inspired by Gillan et al 2016) we first run an exploratory factor
+analysis on the individual items from the questionnaires in an attempt
+to reduce the amount of latent variables.
 
 ``` r
 ###EFA
@@ -3180,15 +3294,22 @@ heatmapplot <- pheatmap(
 heatmapplot
 ```
 
-<img src="OpenDataAnalysis_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="OpenDataAnalysis_files/figure-gfm/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
-#### Interpretation
+\#\#\#\#Interpretation We Identify 3 latent factors using
+Cattell-Nelson-Gorsuch Indices (as in Gillan et al.). One factor we name
+“AnxDepression” as it maps closely onto the BDI and STAI ,
+“ObsessiveCompulsive” which is a mix of the OCIR and STAI (and not
+Schizotypy), and “Schizotypy” which loads positively almost exclusively
+on the Schizotypy questionnaire.
 
-We Identify 3 latent factors using Cattell-Nelson-Gorsuch Indices (as in Gillan et al.). One factor we name "AnxDepression" as it maps closely onto the BDI and STAI , "ObsessiveCompulsive" which is a mix of the OCIR and STAI (and not Schizotypy), and "Schizotypy" which loads positively almost exclusively on the Schizotypy questionnaire.
-
-### Exploratory Structural Equation Model using latent factors
-
-We can now use these factor loadings in an Exploratory Structural Equation Model (ESEM) and run the same regression as above but instead of feeding in the summary questionnaire scores, we can create a latent variable that represents each factor. Of note we use the 'Robust maximum likelihood' (MLR) estimator as it is robust to non-normality and the individual items for the questionnaires are not continuous.
+\#\#\#Exploratory Structural Equation Model using latent factors We can
+now use these factor loadings in an Exploratory Structural Equation
+Model (ESEM) and run the same regression as above but instead of feeding
+in the summary questionnaire scores, we can create a latent variable
+that represents each factor. Of note we use the ‘Robust maximum
+likelihood’ (MLR) estimator as it is robust to non-normality and the
+individual items for the questionnaires are not continuous.
 
 ``` r
 ##ESEM which mimics regression - this takes the loadings from the EFA and uses them to weight the relationship between each questionnaire item and the three latent factors
@@ -3218,26 +3339,28 @@ fititem.factors <- sem(semFactorsMatch, data=combineditemdata, meanstructure=TRU
 summary(fititem.factors, standardized=TRUE, rsquare=F, fit.measures=F)
 ```
 
-    ## lavaan 0.6-3 ended normally after 251 iterations
+    ## lavaan 0.6-5 ended normally after 251 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                        241
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                   19705.088   17340.173
-    ##   Degrees of freedom                              5429        5429
-    ##   P-value (Chi-square)                           0.000       0.000
-    ##   Scaling correction factor                                  1.136
-    ##     for the Yuan-Bentler correction (Mplus variant)
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                                Standard      Robust
+    ##   Test Statistic                              19705.088   17340.173
+    ##   Degrees of freedom                               5429        5429
+    ##   P-value (Chi-square)                            0.000       0.000
+    ##   Scaling correction factor                                   1.136
+    ##     for the Yuan-Bentler correction (Mplus variant) 
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -3827,42 +3950,61 @@ rownames(ESEMfits) <- c("BIC", "AIC", "RMSEA", "RMSEA CI-", "RMSEA CI+")
 kable(t(ESEMfits), digits = 3)
 ```
 
-|                |       BIC|       AIC|  RMSEA|  RMSEA CI-|  RMSEA CI+|
-|----------------|---------:|---------:|------:|----------:|----------:|
-| p(mid as high) |  199001.6|  197822.2|  0.052|      0.051|      0.052|
+|                |      BIC |      AIC | RMSEA | RMSEA CI- | RMSEA CI+ |
+| -------------- | -------: | -------: | ----: | --------: | --------: |
+| p(mid as high) | 199001.6 | 197822.2 | 0.052 |     0.051 |     0.052 |
 
-#### Interpretation
+\#\#\#\#Interpretation In this ESEM we show that the AnxDepression
+factor (F1) alone significantly influences task performance. Zooming
+out, both the simple regression and the ESEM agree that of mental
+health-relevant symptoms, task performance is driven by symptoms of mood
+and anxiety disorders and not OCD or Psychosis symptoms. This suggests
+that our original clinical study in mood and anxiety disorders did not
+reflect a generic pathology, but rather that effects may be selective to
+the mood and anxiety symptom group that we originally tested. This also
+suggests that we must also control for age and IQ if we ever want to use
+this to inform clinical decision-making.
 
-In this ESEM we show that the AnxDepression factor (F1) alone significantly influences task performance. Zooming out, both the simple regression and the ESEM agree that of mental health-relevant symptoms, task performance is driven by symptoms of mood and anxiety disorders and not OCD or Psychosis symptoms. This suggests that our original clinical study in mood and anxiety disorders did not reflect a generic pathology, but rather that effects may be selective to the mood and anxiety symptom group that we originally tested. This also suggests that we must also control for age and IQ if we ever want to use this to inform clinical decision-making.
+\#\#\#Potential Confounds We repated the original regression also
+including the original factors:
 
-### Potential Confounds
-
-We repated the original regression also including the original factors:
-
--   Spreadsheet (categorical): represents the counterbalancing condition
--   Ravens (continuous): IQ measure (visual matrices)
--   Age (continuous): years old
--   BDI (continuous): Beck depression inventory (suicide question removed)
--   STAI2 (continuous): Spielberger Trait Anxiety
--   OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
--   SZ (continuous): Schizotypal short scale
--   GenderMF (categorical): Self-reported gender
+  - Spreadsheet (categorical): represents the counterbalancing condition
+  - Ravens (continuous): IQ measure (visual matrices)
+  - Age (continuous): years old
+  - BDI (continuous): Beck depression inventory (suicide question
+    removed)
+  - STAI2 (continuous): Spielberger Trait Anxiety
+  - OCIR (continuous): Obsessive-Compulsive Inventory (Revised)
+  - SZ (continuous): Schizotypal short scale
+  - GenderMF (categorical): Self-reported gender
 
 As well as potential confounds:
 
--   PastMH (categorical): do you have any past mental health problems?
--   CurrentMH (categorical): do you have any current mental health problems?
--   SoughtHelp (categorical): have you ever sought help for mental health problems?
--   CurrentTreatment (categorical): are you undergoing current treatmend for mental health problems?
--   Medication (categorical): are you currently taking medication for mental health problems?
--   Family\_Schizophrenia (categorical): do you have a family history of schizophrenia?
--   Family\_Bipolar (categorical): do you have a family history of bipolar disorder?
--   Schizophrenia (categorical): do you have a current diagnosis of schizophrenia?
--   Bipolar (categorical): do you have a current diagnosis of bipolar disorder?
--   Neurological\_Disorder (categorical): do you currently have a neurological disorder?
--   TakeDrugs (categorical): do you take recreational drugs?
--   DrinkAlcohol (categorical): do you drink alcohol?
--   Learning\_Disability (categorical): do you have a learning disability?
+  - PastMH (categorical): do you have any past mental health problems?
+  - CurrentMH (categorical): do you have any current mental health
+    problems?
+  - SoughtHelp (categorical): have you ever sought help for mental
+    health problems?
+  - CurrentTreatment (categorical): are you undergoing current treatmend
+    for mental health problems?
+  - Medication (categorical): are you currently taking medication for
+    mental health problems?
+  - Family\_Schizophrenia (categorical): do you have a family history of
+    schizophrenia?
+  - Family\_Bipolar (categorical): do you have a family history of
+    bipolar disorder?
+  - Schizophrenia (categorical): do you have a current diagnosis of
+    schizophrenia?
+  - Bipolar (categorical): do you have a current diagnosis of bipolar
+    disorder?
+  - Neurological\_Disorder (categorical): do you currently have a
+    neurological disorder?
+  - TakeDrugs (categorical): do you take recreational drugs?
+  - DrinkAlcohol (categorical): do you drink alcohol?
+  - Learning\_Disability (categorical): do you have a learning
+    disability?
+
+<!-- end list -->
 
 ``` r
 NegBiasconfmodel <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR + PastMH + CurrentMH + SoughtHelp + CurrentTreatment + Medication + Family_Schizophrenia + Family_Bipolar + Schizophrenia + Bipolar + Neurological_Disorder + TakeDrugs + DrinkAlcohol + Learning_Disability'
@@ -3873,26 +4015,25 @@ fitconf <- sem(NegBiasconfmodel, data=combineditemdata, meanstructure=TRUE,  est
 summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) including all potential confounds
 ```
 
-    ## lavaan 0.6-3 ended normally after 72 iterations
+    ## lavaan 0.6-5 ended normally after 72 iterations
     ## 
+    ##   Estimator                                         ML
     ##   Optimization method                           NLMINB
     ##   Number of free parameters                         23
-    ## 
+    ##                                                       
     ##                                                   Used       Total
     ##   Number of observations                           986        1060
-    ## 
-    ##   Estimator                                         ML      Robust
-    ##   Model Fit Test Statistic                       0.000       0.000
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
     ##   Degrees of freedom                                 0           0
-    ##   Minimum Function Value               0.0000000000000
-    ##   Scaling correction factor                                     NA
-    ##     for the Yuan-Bentler correction (Mplus variant)
     ## 
     ## Parameter Estimates:
     ## 
-    ##   Information                                 Observed
-    ##   Observed information based on                Hessian
-    ##   Standard Errors                   Robust.huber.white
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
     ## 
     ## Regressions:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
@@ -3931,6 +4072,309 @@ summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) i
     ##                    Estimate
     ##     propmedhigh       0.065
 
-#### Interpretation
+\#\#\#\#Interpretation Current diagnosis or treatment factors do not
+confound the primary inference.
 
-Current diagnosis or treatment factors do not confound the primary inference.
+\#\#\#Raw correlation with other questionnaires
+
+``` r
+cc1 <- ggplot(combineditemdata, aes(x=combineditemdata$STAI2, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="lightpink3", fill="lightpink3") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('STAI2')+guides(fill = FALSE, col = FALSE)
+cc1 <- cc1 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc1 <- cc1 + xlim(c(0,60))
+
+
+cc2 <- ggplot(combineditemdata, aes(x=combineditemdata$SZ, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="wheat2", fill="wheat2") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('SZ')+guides(fill = FALSE, col = FALSE)
+cc2 <- cc2 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc2 <- cc2 + xlim(c(0,60))
+
+cc3 <- ggplot(combineditemdata, aes(x=combineditemdata$OCIR-18, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="palegreen2", fill="palegreen2") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('OCD')+guides(fill = FALSE, col = FALSE)
+cc3 <- cc3 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc3 <- cc3 + xlim(c(0,60))
+
+Bothcorr <- plot_grid(cc1, cc2, cc3, labels="AUTO")
+Bothcorr
+```
+
+![](OpenDataAnalysis_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
+``` r
+cor.test(x=combineditemdata$STAI2, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+```
+
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  combineditemdata$STAI2 and combineditemdata$propmedhigh
+    ## t = -2.3763, df = 988, p-value = 0.01768
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.13704673 -0.01314108
+    ## sample estimates:
+    ##         cor 
+    ## -0.07538489
+
+``` r
+cor.test(x=combineditemdata$SZ, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+```
+
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  combineditemdata$SZ and combineditemdata$propmedhigh
+    ## t = -3.3047, df = 988, p-value = 0.000985
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.16578540 -0.04253145
+    ## sample estimates:
+    ##        cor 
+    ## -0.1045599
+
+``` r
+cor.test(x=combineditemdata$OCIR, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+```
+
+    ## 
+    ##  Pearson's product-moment correlation
+    ## 
+    ## data:  combineditemdata$OCIR and combineditemdata$propmedhigh
+    ## t = -2.7855, df = 988, p-value = 0.005447
+    ## alternative hypothesis: true correlation is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.14975363 -0.02610979
+    ## sample estimates:
+    ##         cor 
+    ## -0.08827172
+
+\#\#\#\#Interpretation
+
+STAI (r=-0.08, p=0.018), SZ (r=-0.10, p\<0.001) and OCD
+(r=-0.09,p=0.005) predict p(mid as high) they just do not do so over and
+above the effect of BDI (r=-0.13, p\<0.001).
+
+\#\#\#Exclude fast RTs
+
+``` r
+NoFastRTs=subset(combineditemdata, 
+                 meanlowRT > (mean(na.omit(combineditemdata$meanlowRT))-2*(sd(na.omit(combineditemdata$meanlowRT)))))
+
+NegBiasmodel.1 <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+NegBiasmodel.2 <- 'driftrate ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+
+
+fit1 <- sem(NegBiasmodel.1, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR")
+fit2 <- sem(NegBiasmodel.2, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR")
+fit1miss <- sem(NegBiasmodel.1, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
+fit2miss <- sem(NegBiasmodel.2, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
+
+
+
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
+```
+
+    ## lavaan 0.6-5 ended normally after 55 iterations
+    ## 
+    ##   Estimator                                         ML
+    ##   Optimization method                           NLMINB
+    ##   Number of free parameters                         10
+    ##                                                       
+    ##                                                   Used       Total
+    ##   Number of observations                           950         954
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
+    ##   Degrees of freedom                                 0           0
+    ## 
+    ## Parameter Estimates:
+    ## 
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
+    ## 
+    ## Regressions:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##   propmedhigh ~                                                         
+    ##     GenderMF          0.019    0.014    1.347    0.178    0.019    0.044
+    ##     Age              -0.002    0.001   -3.706    0.000   -0.002   -0.119
+    ##     Ravens            0.009    0.002    3.832    0.000    0.009    0.130
+    ##     spreadsheet       0.005    0.002    2.360    0.018    0.005    0.075
+    ##     BDI              -0.002    0.001   -2.501    0.012   -0.002   -0.131
+    ##     STAI2             0.001    0.001    1.063    0.288    0.001    0.051
+    ##     SZ               -0.002    0.001   -1.305    0.192   -0.002   -0.069
+    ##     OCIR              0.000    0.001    0.378    0.705    0.000    0.018
+    ## 
+    ## Intercepts:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.653    0.044   14.906    0.000    0.653    3.107
+    ## 
+    ## Variances:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.042    0.002   24.419    0.000    0.042    0.945
+    ## 
+    ## R-Square:
+    ##                    Estimate
+    ##     propmedhigh       0.055
+
+``` r
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise delete missing
+```
+
+    ## lavaan 0.6-5 ended normally after 117 iterations
+    ## 
+    ##   Estimator                                         ML
+    ##   Optimization method                           NLMINB
+    ##   Number of free parameters                         10
+    ##                                                       
+    ##                                                   Used       Total
+    ##   Number of observations                           950         954
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
+    ##   Degrees of freedom                                 0           0
+    ## 
+    ## Parameter Estimates:
+    ## 
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
+    ## 
+    ## Regressions:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##   driftrate ~                                                           
+    ##     GenderMF          0.001    0.001    1.143    0.253    0.001    0.038
+    ##     Age              -0.000    0.000   -3.564    0.000   -0.000   -0.115
+    ##     Ravens            0.001    0.000    3.819    0.000    0.001    0.131
+    ##     spreadsheet       0.000    0.000    2.391    0.017    0.000    0.076
+    ##     BDI              -0.000    0.000   -2.723    0.006   -0.000   -0.140
+    ##     STAI2             0.000    0.000    1.156    0.248    0.000    0.055
+    ##     SZ               -0.000    0.000   -1.584    0.113   -0.000   -0.082
+    ##     OCIR              0.000    0.000    0.742    0.458    0.000    0.035
+    ## 
+    ## Intercepts:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .driftrate         0.009    0.002    3.445    0.001    0.009    0.719
+    ## 
+    ## Variances:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .driftrate         0.000    0.000   21.360    0.000    0.000    0.944
+    ## 
+    ## R-Square:
+    ##                    Estimate
+    ##     driftrate         0.056
+
+``` r
+summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) estimate missing
+```
+
+    ## lavaan 0.6-5 ended normally after 55 iterations
+    ## 
+    ##   Estimator                                         ML
+    ##   Optimization method                           NLMINB
+    ##   Number of free parameters                         10
+    ##                                                       
+    ##                                                   Used       Total
+    ##   Number of observations                           950         954
+    ##   Number of missing patterns                         1            
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
+    ##   Degrees of freedom                                 0           0
+    ## 
+    ## Parameter Estimates:
+    ## 
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
+    ## 
+    ## Regressions:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##   propmedhigh ~                                                         
+    ##     GenderMF          0.019    0.014    1.347    0.178    0.019    0.044
+    ##     Age              -0.002    0.001   -3.706    0.000   -0.002   -0.119
+    ##     Ravens            0.009    0.002    3.832    0.000    0.009    0.130
+    ##     spreadsheet       0.005    0.002    2.360    0.018    0.005    0.075
+    ##     BDI              -0.002    0.001   -2.501    0.012   -0.002   -0.131
+    ##     STAI2             0.001    0.001    1.063    0.288    0.001    0.051
+    ##     SZ               -0.002    0.001   -1.305    0.192   -0.002   -0.069
+    ##     OCIR              0.000    0.001    0.378    0.705    0.000    0.018
+    ## 
+    ## Intercepts:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.653    0.044   14.906    0.000    0.653    3.107
+    ## 
+    ## Variances:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .propmedhigh       0.042    0.002   24.419    0.000    0.042    0.945
+    ## 
+    ## R-Square:
+    ##                    Estimate
+    ##     propmedhigh       0.055
+
+``` r
+summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
+```
+
+    ## lavaan 0.6-5 ended normally after 116 iterations
+    ## 
+    ##   Estimator                                         ML
+    ##   Optimization method                           NLMINB
+    ##   Number of free parameters                         10
+    ##                                                       
+    ##                                                   Used       Total
+    ##   Number of observations                           950         954
+    ##   Number of missing patterns                         1            
+    ##                                                                   
+    ## Model Test User Model:
+    ##                                               Standard      Robust
+    ##   Test Statistic                                 0.000       0.000
+    ##   Degrees of freedom                                 0           0
+    ## 
+    ## Parameter Estimates:
+    ## 
+    ##   Information                                      Observed
+    ##   Observed information based on                     Hessian
+    ##   Standard errors                        Robust.huber.white
+    ## 
+    ## Regressions:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##   driftrate ~                                                           
+    ##     GenderMF          0.001    0.001    1.143    0.253    0.001    0.038
+    ##     Age              -0.000    0.000   -3.564    0.000   -0.000   -0.115
+    ##     Ravens            0.001    0.000    3.819    0.000    0.001    0.131
+    ##     spreadsheet       0.000    0.000    2.391    0.017    0.000    0.076
+    ##     BDI              -0.000    0.000   -2.723    0.006   -0.000   -0.140
+    ##     STAI2             0.000    0.000    1.156    0.248    0.000    0.055
+    ##     SZ               -0.000    0.000   -1.584    0.113   -0.000   -0.082
+    ##     OCIR              0.000    0.000    0.742    0.458    0.000    0.035
+    ## 
+    ## Intercepts:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .driftrate         0.009    0.002    3.445    0.001    0.009    0.719
+    ## 
+    ## Variances:
+    ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+    ##    .driftrate         0.000    0.000   21.360    0.000    0.000    0.944
+    ## 
+    ## R-Square:
+    ##                    Estimate
+    ##     driftrate         0.056
+
+\#\#\#\#Interpretation
+
+Excluding individuals (N=36) with RTs less than 2 sd below the mean for
+reacting to known low value outcome has no impact on the overall
+inference about predictors.

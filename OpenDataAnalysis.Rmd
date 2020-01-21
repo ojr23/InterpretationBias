@@ -2,9 +2,9 @@
 title: The relationship between a translational cognitive measure of negative bias
   and self-reported psychiatric symptoms in a large online sample
 output:
-  md_document:
-    variant: markdown_github
-  html_notebook: default
+   md_document:
+     variant: gfm
+#   html_notebook: default
 always_allow_html: yes
 
 ---
@@ -46,7 +46,7 @@ dataforsh=read.table("MidResponses.csv", header=F, row.names = NULL ,  sep= ",")
 This study builds on prior work developing a measure of negative affective bias as indexed by proportion of mid tones interpreted as high reward ('p(mid as high)') in A) a rat pharmacological model of mood and anxiety disorders (Hales et al., 2016) and B) humans with mood and anxiety disorders relative to healthy controls (Aylward et al., 2019).
 
 ####Task details
-In both cases, the 2-alternative-forced-choice task involved training participants to press a button/lever (left or right) when they heard a tone (high or low) to receive a reward (1 or 3 £/rat pellets). The stimulus-response-outcome contingencies were 100% (but counterbalanced across individuals). Following training, participants were then also played tones of a frequency exactly equidistant between the high and low tones. The primary outcome of interest is the proportion of times the participant pressed the button/lever associated with the high reward outcome for the ambiguous mid tone (referred to as 'p(mid as high)'). Of note, the rat study is a within-subject anxiogenic manipulation, whereas the human study is a case control design. Both A) symptomatic ('Symptom') rats and B) humans both demonstrate significantly increased negative affective bias (i.e. reduced prediction that ambiguous outcomes will lead to higher rewards: 'p(mid as high)') relative to non-symptomatic controls ('HC').
+In both cases, the 2-alternative-forced-choice task involved training participants to press a button/lever (left or right) when they heard a tone (high or low) to receive a reward (1 or 3 ?/rat pellets). The stimulus-response-outcome contingencies were 100% (but counterbalanced across individuals). Following training, participants were then also played tones of a frequency exactly equidistant between the high and low tones. The primary outcome of interest is the proportion of times the participant pressed the button/lever associated with the high reward outcome for the ambiguous mid tone (referred to as 'p(mid as high)'). Of note, the rat study is a within-subject anxiogenic manipulation, whereas the human study is a case control design. Both A) symptomatic ('Symptom') rats and B) humans both demonstrate significantly increased negative affective bias (i.e. reduced prediction that ambiguous outcomes will lead to higher rewards: 'p(mid as high)') relative to non-symptomatic controls ('HC').
 
 ####Next steps
 This prior work suggests that this cognitive measure is sensitive to pathological symptoms. We have three objectives for the present study. Firstly we wanted to explore and remove sources of between-subject bias within the task so as to maximise our chances of measuring individual differences in task performance. Secondly, we wanted to explore factors which contribute to individual differences in task performance in a large cross-sectional sample. Specifically, we are interested in which specific psychiatric-relevant symptoms/traits contribute to task performance. Finally, once we identify relevant traits, can we re-capitulate the effect of clinical screening in a large unscreened online sample?
@@ -66,7 +66,7 @@ cb1 <- ggplot(pilot1cb,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,col=grou
                geom="pointrange", color = "black")+xlab('')+
   ylab('p(mid as high)')+scale_color_manual(values = c("lightskyblue2", "lightskyblue2", "lightskyblue2", "lightskyblue2"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('Pilot 1: Circle size')
-cb1 <- cb1 + geom_hline(yintercept=0.5, linetype="dashed")
+cb1 <- cb1 + geom_hline(yintercept=0.5, linetype="dashed") + theme_classic()
 cb1 <- cb1 + ylim(c(0,1))
 
 
@@ -80,7 +80,7 @@ cb2 <- ggplot(pilot2cb,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,col=grou
   ylab('')+scale_color_manual(values = c("indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1", "indianred1"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('Pilot 2: Line orientation')
 cb2 <- cb2 + geom_hline(yintercept=0.5, linetype="dashed")
-cb2 <- cb2 + ylim(c(0,1))
+cb2 <- cb2 + ylim(c(0,1)) + theme_classic()
 
 counterbal <- plot_grid(cb1, cb2, labels="AUTO")
 counterbal
@@ -117,7 +117,7 @@ ap5 <- ggplot(combineditemdata,aes(x="", y=combineditemdata$propmedhigh))+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+ xlab('Full Sample')+
   ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
   ggtitle('')
-ap5 <- ap5 + geom_hline(yintercept=0.5, linetype="dashed")
+ap5 <- ap5 + geom_hline(yintercept=0.5, linetype="dashed") + theme_classic()
 ap5 <- ap5 + ylim(c(0, 1))
 
 ap6 <- ggplot(combineditemdata,aes(x="", y=combineditemdata$driftrate))+
@@ -126,7 +126,7 @@ ap6 <- ggplot(combineditemdata,aes(x="", y=combineditemdata$driftrate))+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+ xlab('Full Sample')+
   ylab('Drift Rate')+guides(fill = FALSE, col = FALSE)+
   ggtitle('')
-ap6 <- ap6 + geom_hline(yintercept=0, linetype="dashed")
+ap6 <- ap6 + geom_hline(yintercept=0, linetype="dashed") + theme_classic()
 ap6 <- ap6 + ylim(c(-0.04, 0.04))
 
 whole_sample <- plot_grid(ap5, ap6, labels="AUTO")
@@ -142,8 +142,8 @@ agerange<-range(combineditemdata$Age)
 Age <-c(mean(combineditemdata$Age),sd(combineditemdata$Age), agerange[1], agerange[2])
 Ravrange<-range(combineditemdata$Ravens)
 Ravens <-c(mean(combineditemdata$Ravens),sd(combineditemdata$Ravens), Ravrange[1], Ravrange[2])
-OCrange<-range(combineditemdata$OCIR)
-OCIR <-c(mean(combineditemdata$OCIR),sd(combineditemdata$OCIR), OCrange[1], OCrange[2])
+OCrange<-range(combineditemdata$OCIR-18)
+OCIR <-c(mean(combineditemdata$OCIR-18),sd(combineditemdata$OCIR-18), OCrange[1], OCrange[2])
 SCrange<-range(combineditemdata$SZ)
 SZ <-c(mean(combineditemdata$SZ),sd(combineditemdata$SZ), SCrange[1], SCrange[2])
 BDIrange<-range(combineditemdata$BDI-20)
@@ -212,7 +212,7 @@ ap7 <- ggplot(combineditemdata, aes(x=combineditemdata$BDI-20, y=combineditemdat
   geom_smooth(method=lm, colour="black")+   # Add linear regression line 
   ylab('DriftRate')+guides(fill = FALSE, col = FALSE)+
   xlab('BDI')+guides(fill = FALSE, col = FALSE)
-ap7 <- ap7 + geom_hline(yintercept=0, linetype="dashed")
+ap7 <- ap7 + geom_hline(yintercept=0, linetype="dashed")+ theme_classic()
 ap7 <- ap7 + xlim(c(0,60))
 
 
@@ -221,7 +221,7 @@ ap8 <- ggplot(combineditemdata, aes(x=combineditemdata$BDI-20, y=combineditemdat
   geom_smooth(method=lm, colour="black")+   # Add linear regression line 
   ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
   xlab('BDI')+guides(fill = FALSE, col = FALSE)
-ap8 <- ap8 + geom_hline(yintercept=0.5, linetype="dashed")
+ap8 <- ap8 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
 ap8 <- ap8 + xlim(c(0,60))
 
 Bothcorr <- plot_grid(ap8, ap7, labels="AUTO")
@@ -229,6 +229,7 @@ Bothcorr
 
 cor.test(x=combineditemdata$BDI,y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
 cor.test(x=combineditemdata$BDI,y=combineditemdata$driftrate, use = "pairwise.complete.obs")
+
 
 ```
 
@@ -980,7 +981,7 @@ ap9 <- ggplot(GroupBDI,aes(x=group,y=Pmid,fill=group,col=group))+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
   ylab('p(mid as high)')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+
   ggtitle('Symptom cut-offs')
-ap9 <- ap9 + geom_hline(yintercept=0.5, linetype="dashed")
+ap9 <- ap9 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
 ap9 <- ap9 + ylim(c(0,1))
 
 ap9
@@ -1019,7 +1020,7 @@ clg1 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Pmid,fill=group,
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
   ylab('')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
   ggtitle('Latent Classes')
-clg1 <- clg1 + geom_hline(yintercept=0.5, linetype="dashed")
+clg1 <- clg1 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
 clg1 <- clg1 + ylim(c(0,1))
 
 clg2 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Age,fill=group,col=group))+
@@ -1027,7 +1028,7 @@ clg2 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Age,fill=group,c
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
   ylab('Age')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
-  ggtitle('')
+  ggtitle('')+ theme_classic()
 clg2 <- clg2 + ylim(c(18,81))
 
 clg3 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=BDI,fill=group,col=group))+
@@ -1035,7 +1036,7 @@ clg3 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=BDI,fill=group,c
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
   ylab('BDI')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
-  ggtitle('')
+  ggtitle('')+ theme_classic()
 clg3 <- clg3 + ylim(c(0,60))
 
 clg4 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Ravens,fill=group,col=group))+
@@ -1043,10 +1044,12 @@ clg4 <- ggplot(sympclustgroups,aes(x=reorder(group, (1-Pmid)),y=Ravens,fill=grou
   geom_point(position=position_jitter(width = .05),size = 1, alpha = 0.4)+
   geom_boxplot(outlier.shape = NA, alpha = 0, width = .1, colour = "BLACK")+
   ylab('Ravens')+scale_color_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+scale_fill_manual(values = c("gray", "gray", hcsympcol[2],  hcsympcol[1], "gray"))+guides(fill = FALSE, col = FALSE)+
-  ggtitle('')
+  ggtitle('')+ theme_classic()
 
 cl_all_plot <- plot_grid(ap9, clg1, clg3, clg4, clg2, labels="AUTO", nrow=3)
 cl_all_plot
+graph2ppt(file="C:/Users/orobinson/OneDrive - University College London/OneDrive_Oli/Trainees/Lucie/Paper/AnalysisMarkdown/GroupRep.pptx", width=10, height=10)
+ggsave('C:/Users/orobinson/OneDrive - University College London/OneDrive_Oli/Trainees/Lucie/Paper/AnalysisMarkdown/GroupRep.pdf', width = 10, height = 10)
 
 summary(modsymp, parameters = FALSE)
 
@@ -1063,7 +1066,7 @@ cluGroupBDI=rbind(Healthy,Patient)
 cluGroupBDI=cbind(group,cluGroupBDI)
 
 t.test(Pmid ~ group, data = cluGroupBDI, var.equal = T)
-print(paste("The effect size of the Human group difference on driftrate is d=", (round(cohensD(Pmid ~ group, data =cluGroupBDI),digits=2))))
+print(paste("The effect size of the Human group difference on bias is d=", (round(cohensD(Pmid ~ group, data =cluGroupBDI),digits=2))))
 t.test(BDI ~ group, data = cluGroupBDI, var.equal = T)
 print(paste("The effect size of the Human group difference is d=", (round(cohensD(BDI ~ group, data =cluGroupBDI),digits=2))))
 t.test(Age ~ group, data = cluGroupBDI, var.equal = T)
@@ -1236,4 +1239,76 @@ summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) i
 ####Interpretation
 Current diagnosis or treatment factors do not confound the primary inference.
 
+###Raw correlation with other questionnaires
 
+```{r message=FALSE, warning=FALSE}
+
+cc1 <- ggplot(combineditemdata, aes(x=combineditemdata$STAI2, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="lightpink3", fill="lightpink3") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('STAI2')+guides(fill = FALSE, col = FALSE)
+cc1 <- cc1 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc1 <- cc1 + xlim(c(0,60))
+
+
+cc2 <- ggplot(combineditemdata, aes(x=combineditemdata$SZ, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="wheat2", fill="wheat2") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('SZ')+guides(fill = FALSE, col = FALSE)
+cc2 <- cc2 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc2 <- cc2 + xlim(c(0,60))
+
+cc3 <- ggplot(combineditemdata, aes(x=combineditemdata$OCIR-18, y=combineditemdata$propmedhigh)) +
+  geom_point(size = 3, alpha = 0.4,color="palegreen2", fill="palegreen2") +    # Use hollow circles
+  geom_smooth(method=lm, colour="black")+   # Add linear regression line 
+  ylab('p(mid as high)')+guides(fill = FALSE, col = FALSE)+
+  xlab('OCD')+guides(fill = FALSE, col = FALSE)
+cc3 <- cc3 + geom_hline(yintercept=0.5, linetype="dashed")+ theme_classic()
+#cc3 <- cc3 + xlim(c(0,60))
+
+Bothcorr <- plot_grid(cc1, cc2, cc3, labels="AUTO")
+Bothcorr
+
+cor.test(x=combineditemdata$STAI2, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+cor.test(x=combineditemdata$SZ, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+cor.test(x=combineditemdata$OCIR, y=combineditemdata$propmedhigh, use = "pairwise.complete.obs")
+
+
+```
+
+
+####Interpretation
+
+STAI (r=-0.08, p=0.018), SZ (r=-0.10, p<0.001) and OCD (r=-0.09,p=0.005) predict p(mid as high) they just do not do so over and above the effect of BDI (r=-0.13, p<0.001).
+
+###Exclude fast RTs
+
+```{r message=FALSE, warning=FALSE}
+
+
+NoFastRTs=subset(combineditemdata, 
+                 meanlowRT > (mean(na.omit(combineditemdata$meanlowRT))-2*(sd(na.omit(combineditemdata$meanlowRT)))))
+
+NegBiasmodel.1 <- 'propmedhigh ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+NegBiasmodel.2 <- 'driftrate ~ GenderMF + Age + Ravens + spreadsheet +BDI + STAI2 + SZ + OCIR'
+
+
+fit1 <- sem(NegBiasmodel.1, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR")
+fit2 <- sem(NegBiasmodel.2, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR")
+fit1miss <- sem(NegBiasmodel.1, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
+fit2miss <- sem(NegBiasmodel.2, data=NoFastRTs, meanstructure=TRUE,  estimator = "MLR", missing = "ML")
+
+
+
+summary(fit1, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) listwise delete missing
+summary(fit2, standardized=TRUE, rsquare=T, fit.measures=F) #driftrate listwise delete missing
+summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) estimate missing
+summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
+
+```
+
+####Interpretation
+
+Excluding individuals (N=36) with RTs less than 2 sd below the mean for reacting to known low value outcome has no impact on the overall inference about predictors.
