@@ -202,7 +202,7 @@ responses to the 40 ambigous trials.
     ## Average split half reliability            =  0.91
     ## Guttman lambda 3 (alpha)                  =  0.91
     ## Guttman lambda 2                          =  0.92
-    ## Minimum split half reliability  (beta)    =  0.84
+    ## Minimum split half reliability  (beta)    =  0.85
     ## Average interitem r =  0.21  with median =  0.21
     ##                                              2.5% 50% 97.5%
     ##  Quantiles of split half reliability      =  0.9 0.92 0.93

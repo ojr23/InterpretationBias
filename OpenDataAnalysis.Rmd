@@ -4,7 +4,7 @@ title: The relationship between a translational cognitive measure of negative bi
 output:
    md_document:
      variant: gfm
-#   html_notebook: default
+   html_notebook: default
 always_allow_html: yes
 
 ---
