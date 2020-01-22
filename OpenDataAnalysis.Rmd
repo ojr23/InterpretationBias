@@ -41,17 +41,17 @@ dataforsh=read.table("MidResponses.csv", header=F, row.names = NULL ,  sep= ",")
 
 ```
 
-#Background
+# Background
 
 This study builds on prior work developing a measure of negative affective bias as indexed by proportion of mid tones interpreted as high reward ('p(mid as high)') in A) a rat pharmacological model of mood and anxiety disorders (Hales et al., 2016) and B) humans with mood and anxiety disorders relative to healthy controls (Aylward et al., 2019).
 
-####Task details
+#### Task details
 In both cases, the 2-alternative-forced-choice task involved training participants to press a button/lever (left or right) when they heard a tone (high or low) to receive a reward (1 or 3 ?/rat pellets). The stimulus-response-outcome contingencies were 100% (but counterbalanced across individuals). Following training, participants were then also played tones of a frequency exactly equidistant between the high and low tones. The primary outcome of interest is the proportion of times the participant pressed the button/lever associated with the high reward outcome for the ambiguous mid tone (referred to as 'p(mid as high)'). Of note, the rat study is a within-subject anxiogenic manipulation, whereas the human study is a case control design. Both A) symptomatic ('Symptom') rats and B) humans both demonstrate significantly increased negative affective bias (i.e. reduced prediction that ambiguous outcomes will lead to higher rewards: 'p(mid as high)') relative to non-symptomatic controls ('HC').
 
-####Next steps
+#### Next steps
 This prior work suggests that this cognitive measure is sensitive to pathological symptoms. We have three objectives for the present study. Firstly we wanted to explore and remove sources of between-subject bias within the task so as to maximise our chances of measuring individual differences in task performance. Secondly, we wanted to explore factors which contribute to individual differences in task performance in a large cross-sectional sample. Specifically, we are interested in which specific psychiatric-relevant symptoms/traits contribute to task performance. Finally, once we identify relevant traits, can we re-capitulate the effect of clinical screening in a large unscreened online sample?
 
-#1: Piloting to explore sources of between-subject bias
+# 1: Piloting to explore sources of between-subject bias
 To speed up data collection and facilitate the collection of larger samples we adapted the task for online use. To this end, we decided to switch the task from the auditory domain (which would require us to check/trust that remote participants could hear the stimuli) to the visual domain. In the first pilot A) we tested N=264 participants in a version of the task which substituted high and low frequency tones of large and small area circles. This lead to four counterbalancing versions (labelled 1-4 below; sorted by level of bias). Following discovery of clear between-subject bias we next tested B) N=158 individuals on a task that involved orientation of a line. Instead of high/low we had vertical/horizontal. The intermediate stimuli were either 45 or 135 degrees, which lead to 8 counterbalancing versions (labelled 1-8 below; sorted by level of bias).
 
 
@@ -101,10 +101,10 @@ TukeyHSD(res.p2, ordered = F, conf.level = 0.95)
 
 ```
 
-####Interpretation
+#### Interpretation
 Both tasks demonstrate clear sources of between-subject bias. In short, individuals demonstrated 'higher' bias when large (or vertical) stimuli were paired with large rewards on the right hand side. These reflect pre-potent biases (e.g. bigger things usually cost more and in latinate languages we read from left to right etc.). Smaller biases were observed when the stimulus-response-outcome contingencies were incongruent with these pre-potent biases. These biases add to the noise in within-subject or case-control designs, but effects can still be observed over and above these effects. Unfortunately if we care about within-subject differences in a cross-sectional design we have to remove this. We decided to restrict further testing to the intermediate bias scores on pilot 2 (counterbalancing 1 and 7). Thus we would need to control for counterbalancing but would only have two groups (rather than 8). Of note, we chose pilot 2 design rather than pilot 1 because a circle has both area and diameter that a participant may attend to, whereas there is only one interpretation of line orientation.
 
-#2: Exploring contributors to bias in cross-sectional data
+# 2: Exploring contributors to bias in cross-sectional data
 We next collected data from N=1066 using counterbalancing 1 and 7 from pilot 2. As in the pilot the full sample demonstrate a) affective bias (p(mid) as high) and d) drift rate that are significantly biased towards highest reward (see results of one sample t-tests below figure). Drift rate is a parameter from a 'drift diffusion model' of decision making that we discussed in Aylward et al. 2019. The effects are strongly correlated with p(mid as high), but presented for completeness. Since the internal reliability of a measure puts an upper limit on relationship between that measure and other measures we also determined the split-half reliability (for 100000 random splits) of individual's responses to the 40 ambigous trials.
 
 
@@ -165,7 +165,7 @@ splithpmid
 
 ```
 
-###Simple Linear Regression of measures
+### Simple Linear Regression of measures
 To explore the impact of trait/demographic measures on task performance we next ran a linear regression (using Robust ML estimator for consistency with SEM below) to predict p(mid as high)('propmedhigh' variable) and drift rate. The variables we included are:
 
 * Spreadsheet (categorical): represents the counterbalancing condition
@@ -199,10 +199,10 @@ summary(fit1miss, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) 
 summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate estimate missing
 
 ```
-####Interpretation
+#### Interpretation
 Affective bias and drift rate are both significantly influenced by IQ, Age, BDI and counterbalancing only. Thus of mental health relevant symptoms, task performance appears to be more driven by depresson than anxiety, OCD, or psychosis related traits.
 
-###Correlation between task performance and depression symptoms
+### Correlation between task performance and depression symptoms
 To illustrate the effect of depression in the regression we plot the correlation between BDI and pmidhigh/drift rate in raw scores. Consistent with our prior work, increased depression is associated with reduced p(mid as high)(i.e. increased negative bias).
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
@@ -233,7 +233,7 @@ cor.test(x=combineditemdata$BDI,y=combineditemdata$driftrate, use = "pairwise.co
 
 ```
 
-###Exploring latent variable structure of the Questionnaires
+### Exploring latent variable structure of the Questionnaires
 The linear regression assumes that the summary scores of the questionnaires represent discrete categories. However, it is possible that effects are driven by a generic 'mental ill health' factor (sometimes referred to as a P factor model). Or, some questionnaires (e.g. BDI and trait anxiety, which are usually highly correlated) actually meausure a single latent 'negative affect' factor. To test for these possibilities we explore four confirmatory factor analyses feeding the individual items from the questionnaires into 1-4 latent factors. The 4 latent factor CFA represents the items feeding into the original questionnaires. 
 
 ```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
@@ -682,10 +682,10 @@ kable(t(Allfits), digits = 3)
 
 ```
 
-####Interpretation
+#### Interpretation
 As demonstrated by the lowest BIC/AIC the 4 factor (orignal questionnaire structure) solution is the best description of the data. This also has the lowest RMSEA, which is in turn below 0.08 and hence a good fit to the data.
 
-###Structural Equation Model of the factor structure with regression
+### Structural Equation Model of the factor structure with regression
 We can now feed this factor structure into a structural equation model with the original regression analysis (on p(mid as high) and drift rate) in it. This is similar to the linear regression, although it allows the different items of the questionnaire to have varying influence over the summary questionnaire 'factors'. As above we provide estimates where missing data is listwise deleted (N=990) or where missing data is estimated using maximum likelihood (N=1066). The more conservative listwise deleted version is resported in the manuscript, but as can be seen the inference remains the same (albeit with slightly larger effect sizes in the estimated N=1066 version)
 
 
@@ -955,13 +955,13 @@ kable(t(SEMfits), digits = 3)
 
 ```
 
-####Interpretation
+#### Interpretation
 We replicate the basic linear regression, demonstrating the BDI depression symptoms and no other scales significantly influence task performance.
 
-#3: 'Replication' of prior group effects
+# 3: 'Replication' of prior group effects
 Finally, as a sanity check, we should be able to 'replicate' the case control study in our original paper by selecting 'symptomatic' and 'healthy control' individuals from this large cross-sectional sample. We attempted to do this in two ways. I) A very simple BDI symptom scale cut-off (theory-based grouping) and then II) a more data-driven way using latent mixture modelling to identifying latent classes.
 
-###I) Symptom cut-offs (theory-based)
+### I) Symptom cut-offs (theory-based)
 We defined control individuals as those with BDI less than 3 and symptomatic as those with BDI greater than 28 (this cut off is based on Beck's original cut off for severe depression of 29)
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
@@ -997,7 +997,7 @@ print(paste("The effect size of the Human group difference on driftrate is d=", 
 
 ```
 
-###II) Latent mixture modelling (data-driven)
+### II) Latent mixture modelling (data-driven)
 In a more data driven approach we ran an exploratory latent class analysis based on the symptoms/traits (BDI, Age, IQ) that are predict task performance in the regression. Notably we do not include task performance in our class analysis so that classes are defined orthogonal to task performance. Optimal class breakdown (N=4 classes) is plotted below, but ordered by those with the higest postive bias based on the symptom defined latent classes. We then defined the 'symptomatic group' as those with the lowest p(mid)as high score, whilst the control group is those with the highest p(mid as high) score. The distributions of the other latent classes are plotted in gray.
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
@@ -1088,13 +1088,13 @@ t.test(Ravens ~ group, data = cluGroupBDI, var.equal = T)
 
 
 ```
-
-####Interpretation
+ 
+#### Interpretation
 This approach identified 4 latent classes. Confirming our initial study, the group with the highest mean depression scores are those with the greatest negative bias, while those with the highest bias have very low depression scores. Interestingly, the 'symptomatic' latent class is also particularly low IQ relative to the other classes. These results are (highly!) exploratory and should be approached with caution, but they perhaps suggest that IQ can protect against negative bias in depressed individuals (which has been speculated in therapy research before). They also provide predictions about the distributions of relevant variables within those who may be currently or at risk of developping clinically-relevant behavioural symptoms.
 
-###Supplementary Analysis
+### Supplementary Analysis
 
-###Exploratory Factor Analysis of questionnaires
+### Exploratory Factor Analysis of questionnaires
 The simple regression above, however, collapses across the individual responses to the different items on the questionnaires and just uses summary scores. However, it may be that there is a simpler underlying structure to the data. For instance BDI and STAI are often highly correlated - so may actually be measuring the same latent construct. In this next section (inspired by Gillan et al 2016) we first run an exploratory factor analysis on the individual items from the questionnaires in an attempt to reduce the amount of latent variables. 
 
 ```{r message=FALSE, warning=FALSE, fig.height=8, fig.width=7, fig.align='center' }
@@ -1149,10 +1149,10 @@ heatmapplot
 
 ```
 
-####Interpretation
+#### Interpretation
 We Identify 3 latent factors using Cattell-Nelson-Gorsuch Indices (as in Gillan et al.). One factor we name "AnxDepression" as it maps closely onto the BDI and STAI , "ObsessiveCompulsive" which is a mix of the OCIR and STAI (and not Schizotypy), and "Schizotypy" which loads positively almost exclusively on the Schizotypy questionnaire.
 
-###Exploratory Structural Equation Model using latent factors
+### Exploratory Structural Equation Model using latent factors
 We can now use these factor loadings in an Exploratory Structural Equation Model (ESEM) and run the same regression as above but instead of feeding in the summary questionnaire scores, we can create a latent variable that represents each factor. Of note we use the 'Robust maximum likelihood' (MLR) estimator as it is robust to non-normality and the individual items for the questionnaires are not continuous.
 
 
@@ -1192,10 +1192,10 @@ kable(t(ESEMfits), digits = 3)
 
 ```
 
-####Interpretation
+#### Interpretation
 In this ESEM we show that the AnxDepression factor (F1) alone significantly influences task performance. Zooming out, both the simple regression and the ESEM agree that of mental health-relevant symptoms, task performance is driven by symptoms of mood and anxiety disorders and not OCD or Psychosis symptoms. This suggests that our original clinical study in mood and anxiety disorders did not reflect a generic pathology, but rather that effects may be selective to the mood and anxiety symptom group that we originally tested. This also suggests that we must also control for age and IQ if we ever want  to use this to inform clinical decision-making. 
 
-###Potential Confounds
+### Potential Confounds
 We repated the original regression also including the original factors:
 
 * Spreadsheet (categorical): represents the counterbalancing condition
@@ -1236,10 +1236,10 @@ summary(fitconf, standardized=TRUE, rsquare=T, fit.measures=F) #p(mid as high) i
 
 ```
 
-####Interpretation
+#### Interpretation
 Current diagnosis or treatment factors do not confound the primary inference.
 
-###Raw correlation with other questionnaires
+### Raw correlation with other questionnaires
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -1279,11 +1279,11 @@ cor.test(x=combineditemdata$OCIR, y=combineditemdata$propmedhigh, use = "pairwis
 ```
 
 
-####Interpretation
+#### Interpretation
 
 STAI (r=-0.08, p=0.018), SZ (r=-0.10, p<0.001) and OCD (r=-0.09,p=0.005) predict p(mid as high) they just do not do so over and above the effect of BDI (r=-0.13, p<0.001).
 
-###Exclude fast RTs
+### Exclude fast RTs
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -1309,6 +1309,6 @@ summary(fit2miss, standardized=TRUE, rsquare=T, fit.measures=F) #drift rate esti
 
 ```
 
-####Interpretation
+#### Interpretation
 
 Excluding individuals (N=36) with RTs less than 2 sd below the mean for reacting to known low value outcome has no impact on the overall inference about predictors.
